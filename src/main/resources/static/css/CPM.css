@@ -10584,21 +10584,9 @@ a:focus {
 }
 
 .bg-login-image {
-  background: url("https://source.unsplash.com/K4mSJ7kc0As/600x800");
+  background: url("https://www.sydney.edu.au/etc/designs/corporate-commons/node_modules/corporate-frontend/dist/assets/img/USydLogo.svg");
   background-position: center;
-  background-size: cover;
-}
-
-.bg-register-image {
-  background: url("https://source.unsplash.com/Mv9hjnEUHR4/600x800");
-  background-position: center;
-  background-size: cover;
-}
-
-.bg-password-image {
-  background: url("https://source.unsplash.com/oWTW-jNGl9I/600x800");
-  background-position: center;
-  background-size: cover;
+  background-size: 	100% 100%;
 }
 
 form.user .custom-checkbox.small label {
@@ -10617,71 +10605,71 @@ form.user .btn-user {
   padding: 0.75rem 1rem;
 }
 
-.btn-google {
+.btn-client {
   color: #fff;
   background-color: #ea4335;
   border-color: #fff;
 }
 
-.btn-google:hover {
+.btn-client:hover {
   color: #fff;
   background-color: #e12717;
   border-color: #e6e6e6;
 }
 
-.btn-google:focus, .btn-google.focus {
+.btn-client:focus, .btn-client.focus {
   box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
 }
 
-.btn-google.disabled, .btn-google:disabled {
+.btn-client.disabled, .btn-client:disabled {
   color: #fff;
   background-color: #ea4335;
   border-color: #fff;
 }
 
-.btn-google:not(:disabled):not(.disabled):active, .btn-google:not(:disabled):not(.disabled).active,
-.show > .btn-google.dropdown-toggle {
+.btn-client:not(:disabled):not(.disabled):active, .btn-client:not(:disabled):not(.disabled).active,
+.show > .btn-client.dropdown-toggle {
   color: #fff;
   background-color: #d62516;
   border-color: #dfdfdf;
 }
 
-.btn-google:not(:disabled):not(.disabled):active:focus, .btn-google:not(:disabled):not(.disabled).active:focus,
-.show > .btn-google.dropdown-toggle:focus {
+.btn-client:not(:disabled):not(.disabled):active:focus, .btn-client:not(:disabled):not(.disabled).active:focus,
+.show > .btn-client.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
 }
 
-.btn-facebook {
+.btn-admin {
   color: #fff;
   background-color: #3b5998;
   border-color: #fff;
 }
 
-.btn-facebook:hover {
+.btn-admin:hover {
   color: #fff;
   background-color: #30497c;
   border-color: #e6e6e6;
 }
 
-.btn-facebook:focus, .btn-facebook.focus {
+.btn-admin:focus, .btn-admin.focus {
   box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
 }
 
-.btn-facebook.disabled, .btn-facebook:disabled {
+.btn-admin.disabled, .btn-admin:disabled {
   color: #fff;
   background-color: #3b5998;
   border-color: #fff;
 }
 
-.btn-facebook:not(:disabled):not(.disabled):active, .btn-facebook:not(:disabled):not(.disabled).active,
-.show > .btn-facebook.dropdown-toggle {
+.btn-admin:not(:disabled):not(.disabled):active, .btn-admin:not(:disabled):not(.disabled).active,
+.show > .btn-admin.dropdown-toggle {
   color: #fff;
   background-color: #2d4373;
   border-color: #dfdfdf;
 }
 
-.btn-facebook:not(:disabled):not(.disabled):active:focus, .btn-facebook:not(:disabled):not(.disabled).active:focus,
-.show > .btn-facebook.dropdown-toggle:focus {
+.btn-admin:not(:disabled):not(.disabled):active:focus, .btn-admin:not(:disabled):not(.disabled).active:focus,
+.show > .btn-admin.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
 }
 
