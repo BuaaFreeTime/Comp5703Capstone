@@ -10584,7 +10584,7 @@ a:focus {
 }
 
 .bg-login-image {
-  background: url("https://www.sydney.edu.au/etc/designs/corporate-commons/node_modules/corporate-frontend/dist/assets/img/USydLogo.svg");
+  background: url("../img/USydLogo.svg");
   background-position: center;
   background-size: 	100% 100%;
 }
