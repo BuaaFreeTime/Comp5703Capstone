@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class WebController {
-    @RequestMapping(value = {"", "/", "/index", "/home", "/student"})
+    @RequestMapping(value = {"", "/",  "/student"})
     public String loginStudent() {
         return "login-student.html";
     }
@@ -21,4 +21,8 @@ public class WebController {
         return "login-admin.html";
     }
 
+    @RequestMapping(value = {"/index"})
+    public String index() {
+        return "index.html";
+    }
 }
