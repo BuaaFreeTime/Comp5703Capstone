@@ -40,12 +40,12 @@
                 <div class="text-center">
                   <h1 class="h4 text-gray-900 mb-4">Capstone Project </h1>
                 </div>
-                <form class="user">
+                <form class="user" action="/student/login" method="post">
                   <div class="form-group">
-                    <input type="Sid" class="form-control form-control-user" id="exampleInputSid" placeholder="Enter Student ID...">
+                    <input type="Sid" name="username" class="form-control form-control-user" id="exampleInputSid" placeholder="Enter Student ID...">
                   </div>
                   <div class="form-group">
-                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                    <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
                   </div>
                   <div class="form-group">
                     <div class="custom-control custom-checkbox small">
@@ -53,9 +53,9 @@
                       <label class="custom-control-label" for="customCheck">Remember Me</label>
                     </div>
                   </div>
-                  <a href="index.html" class="btn btn-primary btn-user btn-block">
+                  <button class="btn btn-primary btn-user btn-block" type="submit">
                     Login
-                  </a>
+                  </button>
                   <hr>
                   <a href="client" class="btn btn-client btn-user btn-block">
                     <i class="fab fa-client fa-fw"></i> Login with Client
