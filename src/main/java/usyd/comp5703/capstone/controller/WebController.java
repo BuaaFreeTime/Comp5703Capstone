@@ -25,5 +25,8 @@ public class WebController {
     public String index() { return "index-student"; }
 
     @RequestMapping(value = {"/AllGroup"})
-    public String Allgroup() { return "AllGroup"; }
+    public String AllGroup() { return "AllGroup"; }
+
+    @RequestMapping(value = {"/MyGroup"})
+    public String MyGroup() { return "MyGroup"; }
 }
