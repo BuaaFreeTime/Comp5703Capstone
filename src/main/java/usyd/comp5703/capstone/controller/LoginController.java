@@ -25,7 +25,6 @@ public class LoginController {
         }
         else {
             map.put("msg","账号或者密码出错");
-            System.out.println("111111111");
             return "login-student";
         }
     }

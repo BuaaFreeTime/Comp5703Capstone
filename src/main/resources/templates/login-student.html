@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 
@@ -40,6 +40,7 @@
                 <div class="text-center">
                   <h1 class="h4 text-gray-900 mb-4">Capstone Project </h1>
                 </div>
+                <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
                 <form class="user" action="/student/login" method="post">
                   <div class="form-group">
                     <input type="Sid" name="username" class="form-control form-control-user" id="exampleInputSid" placeholder="Enter Student ID...">
@@ -57,10 +58,10 @@
                     Login
                   </button>
                   <hr>
-                  <a href="client" class="btn btn-client btn-user btn-block">
+                  <a href="/client" class="btn btn-client btn-user btn-block">
                     <i class="fab fa-client fa-fw"></i> Login with Client
                   </a>
-                  <a href="admin" class="btn btn-admin btn-user btn-block">
+                  <a href="/admin" class="btn btn-admin btn-user btn-block">
                     <i class="fab fa-admin-f fa-fw"></i> Login with Admin
                   </a>
                 </form>

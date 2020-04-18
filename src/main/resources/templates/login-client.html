@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 
@@ -40,12 +40,13 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Capstone Project </h1>
                                 </div>
-                                <form class="user">
+                                <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+                                <form class="user" action="/client/login" method="post">
                                     <div class="form-group">
                                         <input type="Cid" class="form-control form-control-user" id="exampleInputSid" placeholder="Enter Client ID...">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                                        <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
                                     </div>
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox small">
@@ -53,14 +54,14 @@
                                             <label class="custom-control-label" for="customCheck">Remember Me</label>
                                         </div>
                                     </div>
-                                    <a href="index-client.html" class="btn btn-primary btn-user btn-block">
+                                    <button class="btn btn-primary btn-user btn-block" type="submit">
                                         Login
-                                    </a>
+                                    </button>
                                     <hr>
-                                    <a href="student" class="btn btn-client btn-user btn-block">
+                                    <a href="/" class="btn btn-client btn-user btn-block">
                                         <i class="fab fa-client fa-fw"></i> Login with Student
                                     </a>
-                                    <a href="admin" class="btn btn-admin btn-user btn-block">
+                                    <a href="/admin" class="btn btn-admin btn-user btn-block">
                                         <i class="fab fa-admin-f fa-fw"></i> Login with Admin
                                     </a>
                                 </form>

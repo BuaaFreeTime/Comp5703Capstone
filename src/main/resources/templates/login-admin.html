@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 
@@ -53,14 +53,14 @@
                                             <label class="custom-control-label" for="customCheck">Remember Me</label>
                                         </div>
                                     </div>
-                                    <a href="index-admin.html" class="btn btn-primary btn-user btn-block">
+                                    <button class="btn btn-primary btn-user btn-block" type="submit">
                                         Login
-                                    </a>
+                                    </button>
                                     <hr>
-                                    <a href="student" class="btn btn-client btn-user btn-block">
+                                    <a href="/" class="btn btn-client btn-user btn-block">
                                         <i class="fab fa-client fa-fw"></i> Login with Student
                                     </a>
-                                    <a href="client" class="btn btn-admin btn-user btn-block">
+                                    <a href="/client" class="btn btn-admin btn-user btn-block">
                                         <i class="fab fa-admin-f fa-fw"></i> Login with Client
                                     </a>
                                 </form>
