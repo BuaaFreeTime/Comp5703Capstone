@@ -25,4 +25,10 @@ public class WebController {
     public String index() {
         return "index.html";
     }
+
+    @RequestMapping(value = {"/1"})
+    public String indexStudent() {
+        return "index-student.html";
+    }
+
 }
