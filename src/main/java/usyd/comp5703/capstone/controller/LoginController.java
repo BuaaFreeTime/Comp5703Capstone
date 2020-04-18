@@ -21,12 +21,12 @@ public class LoginController {
         boolean loginCheck;
         loginCheck = loginService.studentCheck(username, password);
         if (loginCheck) {
-            return "index-student.html";
+            return "index-student";
         }
         else {
             map.put("msg","账号或者密码出错");
             System.out.println("111111111");
-            return "login-student.html";
+            return "login-student";
         }
     }
 
@@ -37,12 +37,12 @@ public class LoginController {
         boolean loginCheck;
         loginCheck = loginService.clientCheck(username, password);
         if (loginCheck) {
-            return "index-client.html";
+            return "index-client";
         }
         else {
             map.put("msg","账号或者密码出错");
             System.out.println("111111111");
-            return "login-client.html";
+            return "login-client";
         }
     }
 
@@ -53,12 +53,12 @@ public class LoginController {
         boolean loginCheck;
         loginCheck = loginService.adminCheck(username, password);
         if (loginCheck) {
-            return "index-admin.html";
+            return "index-admin";
         }
         else {
             map.put("msg","账号或者密码出错");
             System.out.println("111111111");
-            return "login-admin.html";
+            return "login-admin";
         }
     }
 }

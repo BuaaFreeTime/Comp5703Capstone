@@ -8,27 +8,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class WebController {
     @RequestMapping(value = {"", "/",  "/student"})
     public String loginStudent() {
-        return "login-student.html";
+        return "login-student";
     }
 
     @RequestMapping(value = {"/client"})
     public String loginClient() {
-        return "login-client.html";
+        return "login-client";
     }
 
     @RequestMapping(value = {"/admin"})
     public String loginAdmin() {
-        return "login-admin.html";
+        return "login-admin";
     }
 
-    @RequestMapping(value = {"/index"})
-    public String index() {
-        return "index.html";
-    }
+    @RequestMapping(value = {"/index-student"})
+    public String index() { return "index-student"; }
 
-    @RequestMapping(value = {"/1"})
-    public String indexStudent() {
-        return "index-student.html";
-    }
-
+    @RequestMapping(value = {"/AllGroup"})
+    public String Allgroup() { return "AllGroup"; }
 }
