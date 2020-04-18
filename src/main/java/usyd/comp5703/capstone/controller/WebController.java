@@ -29,4 +29,7 @@ public class WebController {
 
     @RequestMapping(value = {"/MyGroup"})
     public String MyGroup() { return "MyGroup"; }
+
+    @RequestMapping(value = {"/MyProjects"})
+    public String MyProjects() { return "MyProjects"; }
 }
