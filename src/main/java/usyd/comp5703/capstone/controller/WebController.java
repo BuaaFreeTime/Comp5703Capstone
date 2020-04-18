@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class WebController {
-    @RequestMapping(value = {"", "/",  "/student"})
+    @RequestMapping(value = {"", "/"})
     public String loginStudent() {
         return "login-student";
     }
