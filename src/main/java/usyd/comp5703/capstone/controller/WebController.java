@@ -17,9 +17,7 @@ public class WebController {
     }
 
     @RequestMapping(value = {"/admin"})
-    public String loginAdmin() {
-        return "login-admin";
-    }
+    public String loginAdmin() { return "login-admin"; }
 
     @RequestMapping(value = {"/index-student"})
     public String index() { return "index-student"; }
