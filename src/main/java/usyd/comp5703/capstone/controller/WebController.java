@@ -27,6 +27,7 @@ public class WebController {
 
     @RequestMapping(value = {"/MyGroup"})
     public String MyGroup() { return "MyGroup"; }
+
     @RequestMapping(value = {"/1"})
     public String indexStudent() {
         return "index-student";

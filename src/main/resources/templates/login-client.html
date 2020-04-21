@@ -43,7 +43,7 @@
                                 <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
                                 <form class="user" action="/client/login" method="post">
                                     <div class="form-group">
-                                        <input type="Cid" class="form-control form-control-user" id="exampleInputSid" placeholder="Enter Client ID...">
+                                        <input type="Cid" name="username" class="form-control form-control-user" id="exampleInputSid" placeholder="Enter Client ID...">
                                     </div>
                                     <div class="form-group">
                                         <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">

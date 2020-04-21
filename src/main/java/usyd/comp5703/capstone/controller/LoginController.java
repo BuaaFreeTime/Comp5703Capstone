@@ -24,7 +24,7 @@ public class LoginController {
             return "index-student";
         }
         else {
-            map.put("msg","账号或者密码出错");
+            map.put("msg","wrong studentID or password");
             return "login-student";
         }
     }
@@ -39,8 +39,7 @@ public class LoginController {
             return "index-client";
         }
         else {
-            map.put("msg","账号或者密码出错");
-            System.out.println("111111111");
+            map.put("msg","wrong clientID or password");
             return "login-client";
         }
     }
@@ -55,8 +54,7 @@ public class LoginController {
             return "index-admin";
         }
         else {
-            map.put("msg","账号或者密码出错");
-            System.out.println("111111111");
+            map.put("msg","wrong adminID or password");
             return "login-admin";
         }
     }

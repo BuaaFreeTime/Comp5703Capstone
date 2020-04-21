@@ -40,12 +40,13 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Capstone Project </h1>
                                 </div>
-                                <form class="user">
+                                <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+                                <form class="user" action="/admin/login" method="post">
                                     <div class="form-group">
-                                        <input type="Aid" class="form-control form-control-user" id="exampleInputSid" placeholder="Enter Admin ID...">
+                                        <input type="Aid" name="username" class="form-control form-control-user" id="exampleInputSid" placeholder="Enter Admin ID...">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                                        <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
                                     </div>
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox small">
