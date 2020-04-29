@@ -19,9 +19,7 @@ public class ProjectController {
 
     @RequestMapping(value = {"/myproject"})
     public String studentMyproject( Map<String,Object> map) {
-        ProjectEntity myprojectEntity;
-
-        myprojectEntity = projectService.getMyproject(480);
+        ProjectEntity myprojectEntity = projectService.getMyproject("3");
         map.put("projectUnit", myprojectEntity.getUnit());
         map.put("projectType", myprojectEntity.getType());
         map.put("projectName", myprojectEntity.getName());
@@ -31,16 +29,17 @@ public class ProjectController {
         return "MyProjects";
 
     }
-    /*
+
     @RequestMapping(value = {"/projectlist"})
     public String studentAllproject(Model model) {
         List<ProjectEntity> projectEntityList;
         projectEntityList = projectService.getAllproject();
         model.addAttribute("projects", projectEntityList);
-        return "MyProjects";
+        return "ProjectList";
 
     }
 
+    /*
     @RequestMapping(value = {"/projectpreference"})
     public String studentProjectPreference( Map<String,Object> map) {
         MyprojectEntity myprojectEntity;

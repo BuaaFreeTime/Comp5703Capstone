@@ -18,7 +18,7 @@ public class GroupController {
 
     @RequestMapping(value = {"/allgroup"})
     public String allgroupStudent(Model model) {
-        List<GroupEntity> groupEntityList;
+         List<GroupEntity> groupEntityList;
         groupEntityList = groupService.getAllgroup();
         model.addAttribute("groups", groupEntityList);
         return "AllGroup";
@@ -26,7 +26,7 @@ public class GroupController {
 
     @RequestMapping(value = {"/mygroup"})
     public String mygroupStudent(Model model) {
-        GroupEntity groupEntity = groupService.getMygroup(480);
+        GroupEntity groupEntity = groupService.getMygroup("3");
         model.addAttribute("groups", groupEntity);
         return "MyGroup";
     }

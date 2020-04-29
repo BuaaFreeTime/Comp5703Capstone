@@ -2,7 +2,7 @@ package usyd.comp5703.capstone.entity;
 
 public class ProjectEntity {
 
-    int id;
+    String  id;
     String unit;
     String type;
     String name;
@@ -13,9 +13,9 @@ public class ProjectEntity {
 
     public ProjectEntity(){}
 
-    public ProjectEntity(int id) {
+    public ProjectEntity(String id) {
         this.id = id;
-        if (id % 3 == 0) {
+        if (Integer.valueOf(id)% 3 == 0) {
             this.unit = "Comp5703";
             this.type = "Software Engineering";
             this.name = "CAPSTONE PM";
@@ -23,7 +23,7 @@ public class ProjectEntity {
             this.client = "Dr. Wu xi";
             this.tutor = "Omid";
         }
-        if (id % 3 == 1) {
+        if (Integer.valueOf(id) % 3 == 1) {
             this.unit = "Comp5708";
             this.type = "Data Science";
             this.name = "SPINGSTONE TECH";
@@ -31,7 +31,7 @@ public class ProjectEntity {
             this.client = "Dr. Wang";
             this.tutor = "shuaibiwangyanpeng";
         }
-        if (id % 3 == 2) {
+        if (Integer.valueOf(id) % 3 == 2) {
             this.unit = "Comp5707";
             this.type = "Information System";
             this.name = "ZHIMINGDENG";
@@ -41,7 +41,7 @@ public class ProjectEntity {
         }
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -97,7 +97,7 @@ public class ProjectEntity {
         this.type = type;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 }

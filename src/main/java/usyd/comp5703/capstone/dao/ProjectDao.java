@@ -3,66 +3,41 @@ package usyd.comp5703.capstone.dao;
 import com.google.firebase.database.*;
 import org.springframework.stereotype.Repository;
 import usyd.comp5703.capstone.entity.GroupEntity;
+import usyd.comp5703.capstone.entity.ProjectEntity;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
 @Repository
-public class GroupDao {
+public class ProjectDao {
 
     private static DatabaseReference
             ref =  FirebaseDatabase.getInstance().getReference("/");
 
-    private static DatabaseReference groupRef = ref.child("group");
+    private static DatabaseReference projectRef = ref.child("project");
 
-    // Add group
-    public void addGroup(GroupEntity groupEntity){
-        groupRef.child(groupEntity.getId()).setValueAsync(groupEntity);
+    // Add project
+    public void addProject(ProjectEntity projectEntity){
+        projectRef.child(projectEntity.getId()).setValueAsync(projectEntity);
     }
 
-    // Get all group
-    public List<GroupEntity> getAllgroup(){
-        final List<GroupEntity> groupEntityList = new ArrayList<>();
+    public ProjectEntity getMyproject(String id){
+        final ProjectEntity projectEntity = new ProjectEntity();
+        final String projectId = id;
         final CountDownLatch readData = new CountDownLatch(1);
-        groupRef.orderByChild("id").addChildEventListener(new ChildEventListener() {
+        projectRef.orderByChild("id").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
-                readData.countDown();
-                groupEntityList.add(dataSnapshot.getValue(GroupEntity.class));
-            }
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String prevChildKey) {}
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) { }
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String prevChildKey) {}
-            @Override
-            public void onCancelled(DatabaseError databaseError) {}
-        });
-        try {
-            readData.await();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return groupEntityList;
-    }
-
-    public GroupEntity getMygroup(String id){
-        final GroupEntity groupEntity = new GroupEntity();
-        final String groupId = id;
-        final CountDownLatch readData = new CountDownLatch(1);
-        groupRef.orderByChild("id").addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
-                GroupEntity myGroup = dataSnapshot.getValue(GroupEntity.class);
-                if (myGroup.getId().equals(groupId)) {
-                    groupEntity.setId(myGroup.getId());
-                    groupEntity.setStudent1(myGroup.getStudent1());
-                    groupEntity.setStudent2(myGroup.getStudent2());
-                    groupEntity.setStudent3(myGroup.getStudent3());
-                    groupEntity.setStudent4(myGroup.getStudent4());
-                    groupEntity.setStudent5(myGroup.getStudent5());
+                ProjectEntity myProject = dataSnapshot.getValue(ProjectEntity.class);
+                if (myProject.getId().equals(projectId)) {
+                    projectEntity.setId(myProject.getId());
+                    projectEntity.setClient(myProject.getClient());
+                    projectEntity.setDescription(myProject.getDescription());
+                    projectEntity.setName(myProject.getName());
+                    projectEntity.setTutor(myProject.getTutor());
+                    projectEntity.setType(myProject.getType());
+                    projectEntity.setUnit(myProject.getUnit());
                 }
                 readData.countDown();
             }
@@ -80,7 +55,33 @@ public class GroupDao {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return groupEntity;
+        return projectEntity;
+    }
+
+    public List<ProjectEntity> getAllproject(){
+        final List<ProjectEntity> projectEntityList = new ArrayList<>();
+        final CountDownLatch readData = new CountDownLatch(1);
+        projectRef.orderByChild("id").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
+                projectEntityList.add(dataSnapshot.getValue(ProjectEntity.class));
+                readData.countDown();
+            }
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String prevChildKey) {}
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) { }
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String prevChildKey) {}
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        });
+        try {
+            readData.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return projectEntityList;
     }
 
 }

@@ -1,5 +1,6 @@
 package usyd.comp5703.capstone.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import usyd.comp5703.capstone.dao.GroupDao;
 import usyd.comp5703.capstone.entity.GroupEntity;
@@ -9,15 +10,17 @@ import java.util.List;
 
 @Service
 public class GroupService {
+    @Autowired
+    GroupDao groupDao;
 
-    public static List<GroupEntity> getAllgroup() {
+    public List<GroupEntity> getAllgroup() {
         List<GroupEntity> groupEntityList;
-        groupEntityList = GroupDao.getAllgroup();
+        groupEntityList = groupDao.getAllgroup();
         return groupEntityList;
     }
 
-    public static GroupEntity getMygroup(int sid) {
-        GroupEntity groupEntity = new GroupEntity("1");
+    public GroupEntity getMygroup(String sid) {
+        GroupEntity groupEntity = groupDao.getMygroup(sid);
         return groupEntity;
     }
 
