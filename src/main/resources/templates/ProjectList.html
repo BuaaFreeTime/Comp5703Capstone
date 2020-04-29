@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 	<head>
 
@@ -173,7 +173,7 @@
 
 						<!-- Page Heading -->
 						<h1 class="h3 mb-2 text-gray-800">Project List</h1>
-						<p class="mb-4">这里是你所有的项目</p>
+						<p class="mb-4">Here are all the projects you can choose</p>
 
 						<!-- DataTales Example -->
 						<div class="card shadow mb-4">
@@ -205,13 +205,13 @@
 											</tr>
 										</tfoot>
 										<tbody>
-											<tr>
-												<td>COMP5703</td>
-												<td>Software Engineering</td>
-												<td>CAPSTONE PM</td>
-												<td>元素中的文本通常呈现为粗体并且居中。元素中的文本通常是普通的左对齐文本。元素中的文本通常呈现为粗体并且居中。元素中的文本通常是普通的左对齐文本。</td>
-												<td><a href="https://www.baidu.com/" target="_blank">我是附件点我下载</a></td>
-												<td>shuaibiwangyanpeng</td>
+											<tr th:each="project:${projects}">
+												<td th:text="${project.unit}"></td>
+												<td th:text="${project.type}"></td>
+												<td th:text="${project.name}"></td>
+												<td th:text="${project.description}"></td>
+												<td><a href="https://www.baidu.com/" target="_blank">Download</a></td>
+												<td th:text="${}">shuaibiwangyanpeng</td>
 												<td>shabiwangyanpeng</td>
 												<td>11/100</td>
 											</tr>

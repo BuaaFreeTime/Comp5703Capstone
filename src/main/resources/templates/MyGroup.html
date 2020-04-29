@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 	<head>
 
@@ -173,24 +173,27 @@
 
 						<!-- Page Heading -->
 						<h1 class="h3 mb-2 text-gray-800">My Group</h1>
-						<p class="mb-4">这里是你参与的小组</p>
+						<p class="mb-4">This is your group</p>
 
 						<!-- Color System -->
 						<div class="row">
-							<div class="col-lg-6 mb-4" style="flex: 0 0 33%;">
+							<div class="col-lg-6 mb-4" style="flex: 0 0 33%;" th:each="group:${groups}">
 								<div class="card bg-primary text-white shadow">
 									<div class="card-body" style="font-size: 1.3rem;font-weight: bold;">
-										Group No.1
-										<div class="text-white-50" style="font-weight: normal;">shabiwangyanpeng</div>
-										<div class="text-white-50" style="font-weight: normal;">doubiwangyanpeng</div>
-										<div class="text-white-50" style="font-weight: normal;">feizaiwangyanpeng</div>
-										<div class="text-white-50" style="font-weight: normal;">shuaibiwangyanpeng</div>
-										<div class="text-white-50" style="font-weight: normal;">haiyouyizhixiaoqie</div>
+										Group No.
+										<span th:text="${group.id}"></span>
+										<div class="text-white-50" style="font-weight: normal;" th:text="${group.student1}"></div>
+										<div class="text-white-50" style="font-weight: normal;" th:text="${group.student2}"></div>
+										<div class="text-white-50" style="font-weight: normal;" th:text="${group.student3}"></div>
+										<div class="text-white-50" style="font-weight: normal;" th:text="${group.student4}"></div>
+										<div class="text-white-50" style="font-weight: normal;" th:text="${group.student5}"></div>
 									</div>
+									<!--
 									<a href="#" class="btn btn-secondary btn-icon-split" style="position: absolute;right: 1.2rem;top: 1.2rem;background-color: #999999;">
 										<span class="icon text-white-50"><i class="fas fa-trash"></i></span>
 										<span class="text" style="font-weight: bold;">Quit</span>
 									</a>
+									-->
 								</div>
 							</div>
 						</div>

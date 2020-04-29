@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 	<head>
 
@@ -173,43 +173,41 @@
 
 						<!-- Page Heading -->
 						<h1 class="h3 mb-2 text-gray-800">My Projects</h1>
-						<p class="mb-4">这里是你参与的项目</p>
+						<p class="mb-4">Here's the project you're involved in</p>
 
 						<!-- DataTales Example -->
 						<div class="card shadow mb-4">
 							<div class="card-body">
 								<div class="table-responsive">
 									<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-										<thead>
-										</thead>
 										<tbody>
 											<tr>
 												<th>Unit</th>
-												<td>COMP5703</td>
+												<td th:text="${projectUnit}"></td>
 											</tr>
 											<tr>
 												<th>Project Type</th>
-												<td>Software Engineering</td>
+												<td th:text="${projectType}"></td>
 											</tr>
 											<tr>
 												<th>Project Name</th>
-												<td>CAPSTONE PM</td>
+												<td th:text="${projectName}"></td>
 											</tr>
 											<tr>
 												<th>Project Description</th>
-												<td>元素中的文本通常呈现为粗体并且居中。元素中的文本通常是普通的左对齐文本。元素中的文本通常呈现为粗体并且居中。元素中的文本通常是普通的左对齐文本。</td>
+												<td th:text="${projectDescription}"></td>
 											</tr>
 											<tr>
 												<th>Instruction</th>
-												<td><a href="https://www.baidu.com/" target="_blank">我是附件点我下载</a></td>
+												<td><a href="https://www.baidu.com/" target="_blank">Download</a></td>
 											</tr>
 											<tr>
 												<th>Client</th>
-												<td>shuaibiwangyanpeng</td>
+												<td th:text="${projectClient}"></td>
 											</tr>
 											<tr>
 												<th>Tutor</th>
-												<td>shabiwangyanpeng</td>
+												<td th:text="${projectTutor}"></td>
 											</tr>
 										</tbody>
 									</table>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 	<head>
 
@@ -173,106 +173,28 @@
 
 						<!-- Page Heading -->
 						<h1 class="h3 mb-2 text-gray-800">All Groups</h1>
-						<p class="mb-4">这里有所有的小组</p>
+						<p class="mb-4">There are all groups here</p>
 
 						<!-- Color System -->
 						<div class="row">
-							<div class="col-lg-6 mb-4" style="flex: 0 0 33%;">
+							<div class="col-lg-6 mb-4" style="flex: 0 0 33%;" th:each="group:${groups}">
 								<div class="card bg-primary text-white shadow">
 									<div class="card-body" style="font-size: 1.3rem;font-weight: bold;">
-										Group No.1
-										<div class="text-white-50" style="font-weight: normal;">shabiwangyanpeng</div>
-										<div class="text-white-50" style="font-weight: normal;">doubiwangyanpeng</div>
-										<div class="text-white-50" style="font-weight: normal;">feizaiwangyanpeng</div>
-										<div class="text-white-50" style="font-weight: normal;">shuaibiwangyanpeng</div>
-										<div class="text-white-50" style="font-weight: normal;">haiyouyizhixiaoqie</div>
+										Group No.
+										<span th:text="${group.id}"></span>
+										<div class="text-white-50" style="font-weight: normal;" th:text="${group.student1}"></div>
+										<div class="text-white-50" style="font-weight: normal;" th:text="${group.student2}"></div>
+										<div class="text-white-50" style="font-weight: normal;" th:text="${group.student3}"></div>
+										<div class="text-white-50" style="font-weight: normal;" th:text="${group.student4}"></div>
+										<div class="text-white-50" style="font-weight: normal;" th:text="${group.student5}"></div>
 									</div>
+									<!--
 									<a href="#" class="btn btn-secondary btn-icon-split" style="position: absolute;right: 1.2rem;top: 1.2rem;background-color: #999999;">
 										<span class="icon text-white-50"><i class="fas fa-trash"></i></span>
 										<span class="text" style="font-weight: bold;">Quit</span>
 									</a>
+									-->
 								</div>
-							</div>
-							<div class="col-lg-6 mb-4" style="flex: 0 0 33%;">
-								<div class="card bg-success text-white shadow">
-									<div class="card-body" style="font-size: 1.3rem;font-weight: bold;">
-										Group No.2
-										<div class="text-white-50" style="font-weight: normal;">shabiwangyanpeng</div>
-										<div class="text-white-50" style="font-weight: normal;">doubiwangyanpeng</div>
-										<div class="text-white-50" style="font-weight: normal;">feizaiwangyanpeng</div>
-										<div class="text-white-50" style="font-weight: normal;">shuaibiwangyanpeng</div>
-										<div class="text-white-50" style="font-weight: normal;">haiyouyizhixiaoqie</div>
-									</div>
-									<a href="#" class="btn btn-success btn-icon-split" style="position: absolute;right: 1.2rem;top: 1.2rem;background-color: #7e38d2;border: none;">
-										<span class="icon text-white-50"><i class="fas fa-check"></i></span>
-										<span class="text" style="font-weight: bold;">Join</span>
-									</a>
-								</div>
-							</div>
-							<div class="col-lg-6 mb-4" style="flex: 0 0 33%;">
-								<div class="card bg-info text-white shadow">
-									<div class="card-body" style="font-size: 1.3rem;font-weight: bold;">
-										Group No.3
-										<div class="text-white-50" style="font-weight: normal;">shabiwangyanpeng</div>
-										<div class="text-white-50" style="font-weight: normal;">doubiwangyanpeng</div>
-										<div class="text-white-50" style="font-weight: normal;">feizaiwangyanpeng</div>
-										<div class="text-white-50" style="font-weight: normal;">shuaibiwangyanpeng</div>
-										<div class="text-white-50" style="font-weight: normal;">haiyouyizhixiaoqie</div>
-									</div>
-									<a href="#" class="btn btn-success btn-icon-split" style="position: absolute;right: 1.2rem;top: 1.2rem;background-color: #7e38d2;border: none;">
-										<span class="icon text-white-50"><i class="fas fa-check"></i></span>
-										<span class="text" style="font-weight: bold;">Join</span>
-									</a>
-								</div>
-							</div>
-							<div class="col-lg-6 mb-4" style="flex: 0 0 33%;">
-								<div class="card bg-warning text-white shadow">
-									<div class="card-body" style="font-size: 1.3rem;font-weight: bold;">
-										Group No.4
-										<div class="text-white-50" style="font-weight: normal;">shabiwangyanpeng</div>
-										<div class="text-white-50" style="font-weight: normal;">doubiwangyanpeng</div>
-										<div class="text-white-50" style="font-weight: normal;">feizaiwangyanpeng</div>
-										<div class="text-white-50" style="font-weight: normal;">shuaibiwangyanpeng</div>
-										<div class="text-white-50" style="font-weight: normal;">haiyouyizhixiaoqie</div>
-									</div>
-									<a href="#" class="btn btn-success btn-icon-split" style="position: absolute;right: 1.2rem;top: 1.2rem;background-color: #7e38d2;border: none;">
-										<span class="icon text-white-50"><i class="fas fa-check"></i></span>
-										<span class="text" style="font-weight: bold;">Join</span>
-									</a>
-								</div>
-							</div>
-							<div class="col-lg-6 mb-4" style="flex: 0 0 33%;">
-								<div class="card bg-danger text-white shadow">
-									<div class="card-body" style="font-size: 1.3rem;font-weight: bold;">
-										Group No.5
-										<div class="text-white-50" style="font-weight: normal;">shabiwangyanpeng</div>
-										<div class="text-white-50" style="font-weight: normal;">doubiwangyanpeng</div>
-										<div class="text-white-50" style="font-weight: normal;">feizaiwangyanpeng</div>
-										<div class="text-white-50" style="font-weight: normal;">shuaibiwangyanpeng</div>
-										<div class="text-white-50" style="font-weight: normal;">haiyouyizhixiaoqie</div>
-									</div>
-									<a href="#" class="btn btn-success btn-icon-split" style="position: absolute;right: 1.2rem;top: 1.2rem;background-color: #7e38d2;border: none;">
-										<span class="icon text-white-50"><i class="fas fa-check"></i></span>
-										<span class="text" style="font-weight: bold;">Join</span>
-									</a>
-								</div>
-							</div>
-							<div class="col-lg-6 mb-4" style="flex: 0 0 33%;">
-								<div class="card bg-secondary text-white shadow">
-									<div class="card-body" style="font-size: 1.3rem;font-weight: bold;">
-										Group No.6
-										<div class="text-white-50" style="font-weight: normal;">shabiwangyanpeng</div>
-										<div class="text-white-50" style="font-weight: normal;">doubiwangyanpeng</div>
-										<div class="text-white-50" style="font-weight: normal;">feizaiwangyanpeng</div>
-										<div class="text-white-50" style="font-weight: normal;">shuaibiwangyanpeng</div>
-										<div class="text-white-50" style="font-weight: normal;">haiyouyizhixiaoqie</div>
-									</div>
-									<a href="#" class="btn btn-success btn-icon-split" style="position: absolute;right: 1.2rem;top: 1.2rem;background-color: #7e38d2;border: none;">
-										<span class="icon text-white-50"><i class="fas fa-check"></i></span>
-										<span class="text" style="font-weight: bold;">Join</span>
-									</a>
-								</div>
-							</div>
 						</div>
 						<!-- /.container-fluid -->
 
