@@ -15,12 +15,11 @@ public class LoginInterceptor implements HandlerInterceptor {
         HttpSession session = request.getSession();
 
         // get whether the user login or not
-        Object userInfo = session.getAttribute("userInfo");
+        Object userInfo = session.getAttribute("user");
         if (userInfo == null) {
-            System.out.println("xxxxxxxxxxxxxxx");
+            request.getRequestDispatcher("/student").forward(request, response);
             return false;
         }
-        System.out.println("222222222222222");
         return true;
     }
 

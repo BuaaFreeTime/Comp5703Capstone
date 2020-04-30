@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import usyd.comp5703.capstone.entity.GroupEntity;
 import usyd.comp5703.capstone.service.GroupService;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
@@ -25,8 +26,9 @@ public class GroupController {
     }
 
     @RequestMapping(value = {"/mygroup"})
-    public String mygroupStudent(Model model) {
-        GroupEntity groupEntity = groupService.getMygroup("3");
+    public String mygroupStudent(Model model, HttpSession session) {
+        String sid = session.getAttribute("user").toString();
+        GroupEntity groupEntity = groupService.getMygroup(sid);
         model.addAttribute("groups", groupEntity);
         return "MyGroup";
     }

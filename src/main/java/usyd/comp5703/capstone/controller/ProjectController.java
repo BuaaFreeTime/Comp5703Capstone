@@ -18,6 +18,7 @@ public class ProjectController {
 
     @RequestMapping(value = {"/myproject"})
     public String studentMyproject( Map<String,Object> map) {
+        System.out.println("xxx");
         ProjectEntity myprojectEntity = projectService.getMyproject("3");
         map.put("projectUnit", myprojectEntity.getUnit());
         map.put("projectType", myprojectEntity.getType());

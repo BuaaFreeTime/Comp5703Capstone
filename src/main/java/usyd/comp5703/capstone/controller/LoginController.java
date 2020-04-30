@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import usyd.comp5703.capstone.service.LoginService;
 
+import javax.servlet.http.HttpSession;
 import java.util.Map;
 
 @Controller
@@ -17,10 +18,12 @@ public class LoginController {
     @PostMapping("/student/login")
     public String loginStudent(@RequestParam("username") String username,
                                @RequestParam("password") String password,
-                               Map<String,Object> map) {
+                               Map<String,Object> map,
+                               HttpSession session) {
         boolean loginCheck;
         loginCheck = loginService.studentCheck(username, password);
         if (loginCheck) {
+            session.setAttribute("user", username);
             return "index-student";
         }
         else {

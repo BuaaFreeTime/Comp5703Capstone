@@ -10,6 +10,11 @@ import usyd.comp5703.capstone.LoginInterceptor;
 public class WebConfig implements WebMvcConfigurer {
 
     @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
+    }
+    /*
+    @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new LoginInterceptor())
                 .addPathPatterns("/**")
@@ -17,11 +22,9 @@ public class WebConfig implements WebMvcConfigurer {
                                     ,"/error"
                                     ,"/student"
                                     ,"/client"
-                                    ,"admin");
-    }
-
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
-    }
+                                    ,"admin"
+                                    ,"/student/login"
+                                    ,"/client/login"
+                                    ,"/admin/login");
+    }*/
 }

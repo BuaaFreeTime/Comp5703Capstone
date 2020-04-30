@@ -63,8 +63,8 @@ public class GroupDao {
                     groupEntity.setStudent3(myGroup.getStudent3());
                     groupEntity.setStudent4(myGroup.getStudent4());
                     groupEntity.setStudent5(myGroup.getStudent5());
+                    readData.countDown();
                 }
-                readData.countDown();
             }
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String prevChildKey) {}

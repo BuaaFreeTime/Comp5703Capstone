@@ -38,8 +38,8 @@ public class ProjectDao {
                     projectEntity.setTutor(myProject.getTutor());
                     projectEntity.setType(myProject.getType());
                     projectEntity.setUnit(myProject.getUnit());
+                    readData.countDown();
                 }
-                readData.countDown();
             }
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String prevChildKey) {}
