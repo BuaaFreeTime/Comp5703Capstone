@@ -19,9 +19,6 @@ public class WebController {
     @RequestMapping(value = {"/admin"})
     public String loginAdmin() { return "login-admin"; }
 
-    @RequestMapping(value = {"/index-student", "/student/index-student"})
-    public String StudentIndex() { return "index-student"; }
-
     @RequestMapping(value = {"/MyProjects", "/student/MyProjects"})
     public String MyProjects() { return "MyProjects"; }
 
@@ -38,9 +35,6 @@ public class WebController {
 
     @RequestMapping(value = {"/ProjectList", "/student/ProjectList"})
     public String ProjectList() { return "ProjectList"; }
-
-    @RequestMapping(value = {"/ProjectPreference", "/student/ProjectPreference"})
-    public String ProjectPreference() { return "ProjectPreference"; }
 
     @RequestMapping(value = {"/PresentationSlot", "/student/PresentationSlot"})
     public String PresentationSlot() { return "PresentationSlot"; }
@@ -81,6 +75,5 @@ public class WebController {
     @RequestMapping(value = {"/Marks-admin"})
     public String MarksAdmin() { return "Marks-admin"; }
 
-    @RequestMapping(value = {"/profile"})
-    public String Profile() { return "profile"; }
+
 }

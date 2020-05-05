@@ -29,7 +29,7 @@
 			<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 				<!-- Sidebar - Brand -->
-				<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index-student.html">
+				<a class="sidebar-brand d-flex align-items-center justify-content-center" href="/index-student">
 					<div class="sidebar-brand-icon rotate-n-15">
 						<i class="fas fa-laugh-wink"></i>
 					</div>
@@ -41,7 +41,7 @@
 
 				<!-- Nav Item - Dashboard -->
 				<li class="nav-item active">
-					<a class="nav-link" href="index-student.html">
+					<a class="nav-link" href="/index-student">
 						<i class="fas fa-fw fa-tachometer-alt"></i>
 						<span>Dashboard</span></a>
 				</li>
@@ -56,7 +56,7 @@
 
 				<!-- Nav Item - Pages Collapse Menu -->
 				<li class="nav-item">
-					<a class="nav-link" href="MyProjects.html">
+					<a class="nav-link" href="/myproject">
 						<i class="fas fa-fw fa-cog"></i>
 						<span>My Projects</span>
 					</a>
@@ -71,8 +71,8 @@
 					<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 						<div class="bg-white py-2 collapse-inner rounded">
 							<h6 class="collapse-header">Group Information:</h6>
-							<a class="collapse-item" href="AllGroup.html">All Group</a>
-							<a class="collapse-item" href="MyGroup.html">My Group</a>
+							<a class="collapse-item" href="/allgroup">All Group</a>
+							<a class="collapse-item" href="/mygroup">My Group</a>
 						</div>
 					</div>
 				</li>
@@ -94,23 +94,23 @@
 					<div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 						<div class="bg-white py-2 collapse-inner rounded">
 							<h6 class="collapse-header">Management:</h6>
-							<a class="collapse-item" href="ProjectList.html">Project List</a>
-							<a class="collapse-item" href="ProjectPreference.html">Project Preference</a>
-							<a class="collapse-item" href="PresentationSlot.html">Presentation Slot</a>
+							<a class="collapse-item" href="/projectlist">Project List</a>
+							<a class="collapse-item" href="/projectpreference">Project Preference</a>
+							<a class="collapse-item" href="/presentationslot">Presentation Slot</a>
 						</div>
 					</div>
 				</li>
 
 				<!-- Nav Item - Charts -->
 				<li class="nav-item">
-					<a class="nav-link" href="Marks.html">
+					<a class="nav-link" href="/marks">
 						<i class="fas fa-fw fa-chart-area"></i>
 						<span>Marks</span></a>
 				</li>
 
 				<!-- Nav Item - Tables -->
 				<li class="nav-item">
-					<a class="nav-link" href="ScheduleTables.html">
+					<a class="nav-link" href="/scheduletables">
 						<i class="fas fa-fw fa-table"></i>
 						<span>Schedule Tables</span></a>
 				</li>
@@ -137,8 +137,8 @@
 
 						<!-- Sidebar Toggle (Topbar) -->
 						<button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            				<i class="fa fa-bars"></i>
-        				</button>
+							<i class="fa fa-bars"></i>
+						</button>
 
 						<!-- Topbar Navbar -->
 						<ul class="navbar-nav ml-auto">
@@ -173,7 +173,6 @@
 
 						<!-- Page Heading -->
 						<h1 class="h3 mb-2 text-gray-800">Schedule Tables</h1>
-						<p class="mb-4">时间表</p>
 
 						<!-- Color System -->
 						<div class="row">
@@ -184,7 +183,7 @@
 										<div class="row no-gutters align-items-center">
 											<div class="col mr-2">
 												<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Current Date</div>
-												<div class="h5 mb-0 font-weight-bold text-gray-800">2020-04-15</div>
+												<div th:text="${currentDate}" class="h5 mb-0 font-weight-bold text-gray-800"></div>
 											</div>
 											<div class="col-auto">
 												<i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -201,7 +200,7 @@
 										<div class="row no-gutters align-items-center">
 											<div class="col mr-2">
 												<div class="text-xs font-weight-bold text-success text-uppercase mb-1">Presentation Date</div>
-												<div class="h5 mb-0 font-weight-bold text-gray-800">2020-05-15</div>
+												<div th:text="${presentationDate}" class="h5 mb-0 font-weight-bold text-gray-800"></div>
 											</div>
 											<div class="col-auto">
 												<i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -220,12 +219,7 @@
 												<div class="text-xs font-weight-bold text-info text-uppercase mb-1">Remaining Days</div>
 												<div class="row no-gutters align-items-center">
 													<div class="col-auto">
-														<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">30</div>
-													</div>
-													<div class="col">
-														<div class="progress progress-sm mr-2">
-															<div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-														</div>
+														<div th:text="${remainingDays}" class="h5 mb-0 mr-3 font-weight-bold text-gray-800"></div>
 													</div>
 												</div>
 											</div>

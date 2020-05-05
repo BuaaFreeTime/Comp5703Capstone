@@ -29,7 +29,7 @@
 			<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 				<!-- Sidebar - Brand -->
-				<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index-student.html">
+				<a class="sidebar-brand d-flex align-items-center justify-content-center" href="/index-student">
 					<div class="sidebar-brand-icon rotate-n-15">
 						<i class="fas fa-laugh-wink"></i>
 					</div>
@@ -41,7 +41,7 @@
 
 				<!-- Nav Item - Dashboard -->
 				<li class="nav-item active">
-					<a class="nav-link" href="index-student.html">
+					<a class="nav-link" href="/index-student">
 						<i class="fas fa-fw fa-tachometer-alt"></i>
 						<span>Dashboard</span></a>
 				</li>
@@ -56,7 +56,7 @@
 
 				<!-- Nav Item - Pages Collapse Menu -->
 				<li class="nav-item">
-					<a class="nav-link" href="MyProjects.html">
+					<a class="nav-link" href="/myproject">
 						<i class="fas fa-fw fa-cog"></i>
 						<span>My Projects</span>
 					</a>
@@ -71,8 +71,8 @@
 					<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 						<div class="bg-white py-2 collapse-inner rounded">
 							<h6 class="collapse-header">Group Information:</h6>
-							<a class="collapse-item" href="AllGroup.html">All Group</a>
-							<a class="collapse-item" href="MyGroup.html">My Group</a>
+							<a class="collapse-item" href="/allgroup">All Group</a>
+							<a class="collapse-item" href="/mygroup">My Group</a>
 						</div>
 					</div>
 				</li>
@@ -94,23 +94,23 @@
 					<div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 						<div class="bg-white py-2 collapse-inner rounded">
 							<h6 class="collapse-header">Management:</h6>
-							<a class="collapse-item" href="ProjectList.html">Project List</a>
-							<a class="collapse-item" href="ProjectPreference.html">Project Preference</a>
-							<a class="collapse-item" href="PresentationSlot.html">Presentation Slot</a>
+							<a class="collapse-item" href="/projectlist">Project List</a>
+							<a class="collapse-item" href="/projectpreference">Project Preference</a>
+							<a class="collapse-item" href="/presentationslot">Presentation Slot</a>
 						</div>
 					</div>
 				</li>
 
 				<!-- Nav Item - Charts -->
 				<li class="nav-item">
-					<a class="nav-link" href="Marks.html">
+					<a class="nav-link" href="/marks">
 						<i class="fas fa-fw fa-chart-area"></i>
 						<span>Marks</span></a>
 				</li>
 
 				<!-- Nav Item - Tables -->
 				<li class="nav-item">
-					<a class="nav-link" href="ScheduleTables.html">
+					<a class="nav-link" href="/scheduletables">
 						<i class="fas fa-fw fa-table"></i>
 						<span>Schedule Tables</span></a>
 				</li>
@@ -137,8 +137,8 @@
 
 						<!-- Sidebar Toggle (Topbar) -->
 						<button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            				<i class="fa fa-bars"></i>
-        				</button>
+							<i class="fa fa-bars"></i>
+						</button>
 
 						<!-- Topbar Navbar -->
 						<ul class="navbar-nav ml-auto">
@@ -185,11 +185,17 @@
 									</div>
 									<!-- Card Body -->
 									<div class="card-body">
-										
+										<!--
 										<div class="chart-pie pt-4">
-											<canvas id="myPieChart"></canvas>
+											<a id="get" value="22"></a>
+											<canvas id="studentmarks"></canvas>
+
 										</div>
-										<hr> Your Score: 85 out of 100.
+										-->
+										Your Score:
+										<span th:text="${score}"></span>
+										out of 100.
+
 									</div>
 								</div>
 							</div>
@@ -255,6 +261,44 @@
 			<!-- Page level custom scripts -->
 			<script src="/static/js/demo/chart-area-demo.js"></script>
 			<script src="/static/js/demo/chart-pie-demo.js"></script>
+
+			<script>
+				// Marks pie chart
+				var ctx = document.getElementById("studentmarks");
+				var get = document.getElementById("get").value;
+				//var lost = document.getElementById('lost').value;
+				console.log(get);
+				var markPieChart = new Chart(ctx, {
+				type: 'doughnut',
+				data: {
+				labels: ["Get", "Lost"],
+				datasets: [{
+				data: [get, 22],
+				backgroundColor: ['#4e73df', '#1cc88a'],
+				hoverBackgroundColor: ['#2e59d9', '#17a673'],
+				hoverBorderColor: "rgba(234, 236, 244, 1)",
+				}],
+				},
+				dataType:"string",
+				options: {
+				maintainAspectRatio: false,
+				tooltips: {
+				backgroundColor: "rgb(255,255,255)",
+				bodyFontColor: "#858796",
+				borderColor: '#dddfeb',
+				borderWidth: 1,
+				xPadding: 15,
+				yPadding: 15,
+				displayColors: false,
+				caretPadding: 10,
+				},
+				legend: {
+				display: false
+				},
+				cutoutPercentage: 80,
+				},
+				});
+			</script>
 
 	</body>
 

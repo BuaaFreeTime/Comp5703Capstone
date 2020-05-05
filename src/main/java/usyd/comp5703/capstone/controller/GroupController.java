@@ -3,11 +3,15 @@ package usyd.comp5703.capstone.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import usyd.comp5703.capstone.entity.GroupEntity;
 import usyd.comp5703.capstone.service.GroupService;
 
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -16,6 +20,14 @@ public class GroupController {
 
     @Autowired  //与service层进行交互
     private GroupService groupService;
+
+    @RequestMapping(value = {"/marks"})
+    public String studentMarks(HttpSession session, Map<String, Object> map) {
+        //String sid = session.getAttribute("user").toString();
+        String marks = groupService.getMarks("student");
+        map.put("score", marks);
+        return "Marks";
+    }
 
     @RequestMapping(value = {"/allgroup"})
     public String allgroupStudent(Model model) {
@@ -27,16 +39,39 @@ public class GroupController {
 
     @RequestMapping(value = {"/mygroup"})
     public String mygroupStudent(Model model, HttpSession session) {
-        String sid = session.getAttribute("user").toString();
-        GroupEntity groupEntity = groupService.getMygroup(sid);
+        //String sid = session.getAttribute("user").toString();
+        GroupEntity groupEntity = groupService.getMygroup("student");
         model.addAttribute("groups", groupEntity);
         return "MyGroup";
     }
 
     @RequestMapping(value = {"/presentationslot"})
     public String studentPresentationslot( Map<String,Object> map) {
+        //String sid = session.getAttribute("user").toString();
+        GroupEntity groupEntity = groupService.getMygroup("student");
+        map.put("groupID", groupEntity.getId());
         return "PresentationSlot";
 
+    }
+
+    @PostMapping(value = {"/preferencestimesubmit"})
+    public String studentPresentationsTime(@RequestParam("presentationTime") String date,
+                                           Map<String,Object> map) {
+        //String sid = session.getAttribute("user").toString();
+        GroupEntity groupEntity = groupService.updatePresentation("student", date);
+        map.put("groupID", groupEntity.getId());
+
+        return "PresentationSlot";
+    }
+
+    @RequestMapping(value = {"/scheduletables"})
+    public String scheduleTables(Map<String,Object> map){
+        //String sid = session.getAttribute("user").toString();
+        List<String> time = groupService.getScheduleTables("student");
+        map.put("currentDate", time.get(0));
+        map.put("presentationDate", time.get(1));
+        map.put("remainingDays", time.get(2));
+        return "ScheduleTables";
     }
 
 }

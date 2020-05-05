@@ -1,11 +1,14 @@
 package usyd.comp5703.capstone.dao;
 
 import com.google.firebase.database.*;
+import com.sun.xml.internal.ws.api.ha.StickyFeature;
 import org.springframework.stereotype.Repository;
 import usyd.comp5703.capstone.entity.GroupEntity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 
 @Repository
@@ -16,6 +19,14 @@ public class GroupDao {
 
     private static DatabaseReference groupRef = ref.child("group");
 
+    // update time
+    public void updatePresentation(String id, String date){
+        Map<String, Object> hopperUpdates = new HashMap<>();
+        hopperUpdates.put(id+"/presentation", date);
+
+        groupRef.updateChildrenAsync(hopperUpdates);
+    }
+
     // Add group
     public void addGroup(GroupEntity groupEntity){
         groupRef.child(groupEntity.getId()).setValueAsync(groupEntity);
@@ -24,12 +35,13 @@ public class GroupDao {
     // Get all group
     public List<GroupEntity> getAllgroup(){
         final List<GroupEntity> groupEntityList = new ArrayList<>();
-        final CountDownLatch readData = new CountDownLatch(1);
+        final CountDownLatch readData = new CountDownLatch(2);
         groupRef.orderByChild("id").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
-                readData.countDown();
                 groupEntityList.add(dataSnapshot.getValue(GroupEntity.class));
+
+                readData.countDown();
             }
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String prevChildKey) {}
@@ -51,6 +63,7 @@ public class GroupDao {
     public GroupEntity getMygroup(String id){
         final GroupEntity groupEntity = new GroupEntity();
         final String groupId = id;
+        System.out.println(id);
         final CountDownLatch readData = new CountDownLatch(1);
         groupRef.orderByChild("id").addChildEventListener(new ChildEventListener() {
             @Override
@@ -63,6 +76,8 @@ public class GroupDao {
                     groupEntity.setStudent3(myGroup.getStudent3());
                     groupEntity.setStudent4(myGroup.getStudent4());
                     groupEntity.setStudent5(myGroup.getStudent5());
+                    groupEntity.setMarks(myGroup.getMarks());
+                    groupEntity.setPresentation(myGroup.getPresentation());
                     readData.countDown();
                 }
             }

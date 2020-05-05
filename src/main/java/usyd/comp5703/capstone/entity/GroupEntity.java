@@ -1,15 +1,19 @@
 package usyd.comp5703.capstone.entity;
 
+import javax.swing.*;
 import java.util.Date;
 
 public class GroupEntity {
     String id;
+    String marks;
     String student1;
     String student2;
     String student3;
     String student4;
     String student5;
-    Date presentation;
+    String presentation;
+
+
 
     public GroupEntity(String id){
         this.id = id;
@@ -19,6 +23,19 @@ public class GroupEntity {
         this.student4 = "Jerry Wang";
         this.student5 = "Lei Zheng";
     }
+
+    public String getPresentation() {
+        return presentation;
+    }
+
+    public void setMarks(String marks) {
+        this.marks = marks;
+    }
+
+    public String getMarks() {
+        return marks;
+    }
+
     public GroupEntity(){ }
 
     public String getId() {
@@ -49,7 +66,7 @@ public class GroupEntity {
         this.id = id;
     }
 
-    public void setPresentation(Date presentation) {
+    public void setPresentation(String presentation) {
         this.presentation = presentation;
     }
 
