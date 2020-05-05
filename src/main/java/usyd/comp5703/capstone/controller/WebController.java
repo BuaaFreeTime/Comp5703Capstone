@@ -33,17 +33,10 @@ public class WebController {
         return "index-student";
     }
 
-    @RequestMapping(value = {"/ProjectList", "/student/ProjectList"})
-    public String ProjectList() { return "ProjectList"; }
-
-    @RequestMapping(value = {"/PresentationSlot", "/student/PresentationSlot"})
-    public String PresentationSlot() { return "PresentationSlot"; }
-
-    @RequestMapping(value = {"/Marks", "/student/Marks"})
-    public String Marks() { return "Marks"; }
-
-    @RequestMapping(value = {"/ScheduleTables", "/student/ScheduleTables"})
-    public String ScheduleTables() { return "ScheduleTables"; }
+    @RequestMapping(value = {"/applicantslist"})
+    public String clientAppList() {
+        return "ApplicantsList";
+    }
 
     @RequestMapping(value = {"/index-admin"})
     public String indexAdmin() { return "index-admin"; }

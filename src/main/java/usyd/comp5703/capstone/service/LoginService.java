@@ -2,7 +2,9 @@ package usyd.comp5703.capstone.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import usyd.comp5703.capstone.dao.ClientDao;
 import usyd.comp5703.capstone.dao.LoginDao;
+import usyd.comp5703.capstone.entity.ClientEntity;
 import usyd.comp5703.capstone.entity.LoginEntity;
 
 @Service
@@ -10,6 +12,8 @@ public class LoginService {
 
     @Autowired
     LoginDao loginDao;
+    @Autowired
+    ClientDao clientDao;
 
     public boolean studentCheck(String username, String password) {
 
@@ -27,7 +31,14 @@ public class LoginService {
     }
 
     public boolean clientCheck(String username, String password) {
-
+        /*
+        ClientEntity clientEntity = new ClientEntity();
+        clientEntity.setCid("client");
+        clientEntity.setAge("36");
+        clientEntity.setEmail("client@gmail.com");
+        clientEntity.setName("Dr. Wu xi");
+        clientDao.addClient(clientEntity);
+         */
         if ((username.equals("client")) && (password.equals("1"))) {
             return true;
         }

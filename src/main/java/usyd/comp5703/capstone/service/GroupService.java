@@ -71,4 +71,17 @@ public class GroupService {
         return groupEntity;
     }
 
+    public List<String> getStudentsInProject(String cid) {
+        //groupDao.updateClient("x","x");
+        List<String> students = groupDao.getStudentInProject(cid);
+        return students;
+    }
+
+
+    public List<GroupEntity> getPresentationClient(String cid) {
+        List<GroupEntity> groups = groupDao.getPresentationClient(cid);
+        return groups;
+    }
+
+
 }

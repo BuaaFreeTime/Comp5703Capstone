@@ -71,4 +71,14 @@ public class ProjectController {
         return "ProjectPreference";
     }
 
+    @RequestMapping(value = {"/myprojects-client"})
+    public String myProjectClient(Model model) {
+        List<ProjectEntity> projectEntityList;
+        //String cid = session.getAttribute("user").toString();
+        projectEntityList = projectService.getAllProjectClient("client");
+        model.addAttribute("projects", projectEntityList);
+        return "MyProjects-client";
+    }
+
+
 }

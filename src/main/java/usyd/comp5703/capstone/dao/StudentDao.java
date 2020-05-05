@@ -2,8 +2,6 @@ package usyd.comp5703.capstone.dao;
 
 import com.google.firebase.database.*;
 import org.springframework.stereotype.Repository;
-import usyd.comp5703.capstone.entity.GroupEntity;
-import usyd.comp5703.capstone.entity.ProjectEntity;
 import usyd.comp5703.capstone.entity.StudentEntity;
 
 import java.util.concurrent.CountDownLatch;

@@ -74,4 +74,24 @@ public class GroupController {
         return "ScheduleTables";
     }
 
+    @RequestMapping(value = {"/studentsinprojects"})
+    public String allStudentClient(Model model, HttpSession session) {
+        //String cid = session.getAttribute("user").toString();
+        List<String> studentList;
+        studentList = groupService.getStudentsInProject("client");
+        model.addAttribute("students", studentList);
+        return "StudentsinProjects";
+    }
+
+    @RequestMapping(value = {"/presentationslot-client"})
+    public String presentationClient(Model model, HttpSession session) {
+        //String cid = session.getAttribute("user").toString();
+        List<GroupEntity> groupEntityList;
+        groupEntityList = groupService.getPresentationClient("client");
+        model.addAttribute("groups", groupEntityList);
+        return "PresentationSlot-client";
+    }
+
+
+
 }

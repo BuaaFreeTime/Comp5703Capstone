@@ -9,6 +9,7 @@ public class ProjectEntity {
     String description;
     String Instruction;
     String client;
+    String clientid;
     String tutor;
 
     public ProjectEntity(){}
@@ -41,6 +42,13 @@ public class ProjectEntity {
         }
     }
 
+    public String getClientid() {
+        return clientid;
+    }
+
+    public void setClientid(String clientid) {
+        this.clientid = clientid;
+    }
 
     public String getId() {
         return id;

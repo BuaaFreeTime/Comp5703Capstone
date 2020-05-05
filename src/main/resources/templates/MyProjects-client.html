@@ -34,7 +34,7 @@
 			<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 				<!-- Sidebar - Brand -->
-				<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index-student.html">
+				<a class="sidebar-brand d-flex align-items-center justify-content-center" href="/index-client">
 					<div class="sidebar-brand-icon rotate-n-15">
 						<i class="fas fa-laugh-wink"></i>
 					</div>
@@ -46,7 +46,7 @@
 
 				<!-- Nav Item - Dashboard -->
 				<li class="nav-item active">
-					<a class="nav-link" href="index-client.html">
+					<a class="nav-link" href="/index-client">
 						<i class="fas fa-fw fa-tachometer-alt"></i>
 						<span>Dashboard</span></a>
 				</li>
@@ -61,7 +61,7 @@
 
 				<!-- Nav Item - Pages Collapse Menu -->
 				<li class="nav-item">
-					<a class="nav-link" href="MyProjects-client.html">
+					<a class="nav-link" href="/myprojects-client">
 						<i class="fas fa-fw fa-cog"></i>
 						<span>My Projects</span>
 					</a>
@@ -84,15 +84,15 @@
 					<div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 						<div class="bg-white py-2 collapse-inner rounded">
 							<h6 class="collapse-header">Management:</h6>
-							<a class="collapse-item" href="ApplicantsList.html">Applicants List</a>
-							<a class="collapse-item" href="StudentsinProjects.html">Students in Projects</a>
-							<a class="collapse-item" href="PresentationSlot-client.html">Presentation Slot</a>
+							<a class="collapse-item" href="/applicantslist">Applicants List</a>
+							<a class="collapse-item" href="/studentsinprojects">Students in Projects</a>
+							<a class="collapse-item" href="/presentationslot-client">Presentation Slot</a>
 						</div>
 					</div>
 				</li>
 
 				<li class="nav-item">
-					<a class="nav-link" href="Marks-client.html">
+					<a class="nav-link" href="/marks-client">
 						<i class="fas fa-fw fa-cog"></i>
 						<span>Marks</span>
 					</a>
@@ -120,8 +120,8 @@
 
 						<!-- Sidebar Toggle (Topbar) -->
 						<button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            				<i class="fa fa-bars"></i>
-        				</button>
+							<i class="fa fa-bars"></i>
+						</button>
 
 						<!-- Topbar Navbar -->
 						<ul class="navbar-nav ml-auto">
@@ -156,7 +156,7 @@
 
 						<!-- Page Heading -->
 						<h1 class="h3 mb-2 text-gray-800">My Projects</h1>
-						<p class="mb-4">这里是你所有的项目</p>
+						<p class="mb-4">Here are all your projects</p>
 
 						<!-- DataTales Example -->
 						<div class="card shadow mb-4">
@@ -173,60 +173,28 @@
 												<th>Client</th>
 												<th>Tutor</th>
 												<th>Capacity</th>
-												<th>Action</th>
+												<!--<th>Action</th>-->
 											</tr>
 										</thead>
 										<tbody contenteditable="true">
-											<tr>
-												<td>COMP5703</td>
-												<td>Software Engineering</td>
-												<td>CAPSTONE PM</td>
-												<td>元素中的文本通常呈现为粗体并且居中。元素中的文本通常是普通的左对齐文本。元素中的文本通常呈现为粗体并且居中。元素中的文本通常是普通的左对齐文本。</td>
+											<tr th:each="project:${projects}">
+												<td th:text="${project.unit}"></td>
+												<td th:text="${project.type}"></td>
+												<td th:text="${project.name}"></td>
+												<td th:text="${project.description}"></td>
 												<td>
-													<a href="https://www.baidu.com/" target="_blank">我是附件点我下载</a><br />
+													<a href="https://www.baidu.com/" target="_blank">Download</a><br />
 													<a href="#" class="btn btn-primary btn-icon-split"><span class="text">Update</span></a>
 												</td>
-												<td>shuaibiwangyanpeng</td>
-												<td>shabiwangyanpeng</td>
+												<td th:text="${project.client}"></td>
+												<td th:text="${project.tutor}"></td>
 												<td>100</td>
-												<td style="text-align: center;">
+												<!--td style="text-align: center;">
 													<a href="#" class="btn btn-primary btn-icon-split" style="margin-bottom: 0.2rem;width: 100%;"><span class="text">Update</span></a><br /><a style="width: 100%;" href="#" class="btn btn-primary btn-icon-split"><span class="text">Delete</span></a>
-												</td>
-											</tr>
-											<tr>
-												<td>COMP5707</td>
-												<td>Data Science</td>
-												<td>SPINGSTONE TECH</td>
-												<td>目标：为客户提供远程修改、重置借记卡交易密码的功能，解决客户疫情期间出门不便的痛点，具体包括： </td>
-												<td>
-													<a href="https://www.baidu.com/" target="_blank">我是附件点我下载</a><br />
-													<a href="#" class="btn btn-primary btn-icon-split"><span class="text">Update</span></a>
-												</td>
-												<td>shuaibiwangyanpeng</td>
-												<td>shabiwangyanpeng</td>
-												<td>100</td>
-												<td style="text-align: center;">
-													<a href="#" class="btn btn-primary btn-icon-split" style="margin-bottom: 0.2rem;width: 100%;"><span class="text">Update</span></a><br /><a style="width: 100%;" href="#" class="btn btn-primary btn-icon-split"><span class="text">Delete</span></a>
-												</td>
-											</tr>
-											<tr>
-												<td>COMP5708</td>
-												<td>Information System</td>
-												<td>ZHIMINGDENG</td>
-												<td>根据线下调研，我行柜台受理客户修改/重置借记卡交易密码的业务交易量大，属于客户高频需求 </td>
-												<td>
-													<a href="https://www.baidu.com/" target="_blank">我是附件点我下载</a><br />
-													<a href="#" class="btn btn-primary btn-icon-split"><span class="text">Update</span></a>
-												</td>
-												<td>shuaibiwangyanpeng</td>
-												<td>shabiwangyanpeng</td>
-												<td>100</td>
-												<td style="text-align: center;">
-													<a href="#" class="btn btn-primary btn-icon-split" style="margin-bottom: 0.2rem;width: 100%;"><span class="text">Update</span></a><br /><a style="width: 100%;" href="#" class="btn btn-primary btn-icon-split"><span class="text">Delete</span></a>
-												</td>
+												</td-->
 											</tr>
 										</tbody>
-										<tfoot>
+										<!--tfoot>
 											<tr>
 												<td><input class="AddInput form-control" /></td>
 												<td><input class="AddInput form-control" /></td>
@@ -242,7 +210,7 @@
 													<a style="width: 100%;" href="#" class="btn btn-primary btn-icon-split"><span class="text">Add</span></a>
 												</td>
 											</tr>
-										</tfoot>
+										</tfoot-->
 									</table>
 								</div>
 							</div>

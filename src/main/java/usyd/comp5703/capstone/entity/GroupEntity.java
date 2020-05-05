@@ -12,6 +12,8 @@ public class GroupEntity {
     String student4;
     String student5;
     String presentation;
+    String projectid;
+    String clientid;
 
 
 
@@ -26,6 +28,22 @@ public class GroupEntity {
 
     public String getPresentation() {
         return presentation;
+    }
+
+    public void setProjectid(String projectid) {
+        this.projectid = projectid;
+    }
+
+    public String getProjectid() {
+        return projectid;
+    }
+
+    public String getClientid() {
+        return clientid;
+    }
+
+    public void setClientid(String clientid) {
+        this.clientid = clientid;
     }
 
     public void setMarks(String marks) {

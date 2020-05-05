@@ -39,5 +39,12 @@ public class ProjectService {
         return projectEntityList;
     }
 
+    public List<ProjectEntity> getAllProjectClient(String cid) {
+        //projectDao.updateGroupClient(cid);
+        List<ProjectEntity> projectEntityList;
+        projectEntityList = projectDao.getAllprojectClient(cid);
+        return projectEntityList;
+    }
+
 
 }

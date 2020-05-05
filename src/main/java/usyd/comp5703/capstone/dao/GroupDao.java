@@ -22,9 +22,126 @@ public class GroupDao {
     // update time
     public void updatePresentation(String id, String date){
         Map<String, Object> hopperUpdates = new HashMap<>();
-        hopperUpdates.put(id+"/presentation", date);
 
+        hopperUpdates.put(id+"/presentation", date);
         groupRef.updateChildrenAsync(hopperUpdates);
+    }
+
+    // update client
+    public void updateClient(String groupId, String cid){
+        Map<String, Object> hopperUpdates = new HashMap<>();
+        hopperUpdates.put("2/clientid", "client1");
+        hopperUpdates.put("4/clientid", "client1");
+        hopperUpdates.put("6/clientid", "client2");
+        groupRef.updateChildrenAsync(hopperUpdates);
+    }
+
+    // update client
+    public void updateMarks(String groupId, String marks){
+        Map<String, Object> hopperUpdates = new HashMap<>();
+        hopperUpdates.put(groupId+"/marks", marks);
+        groupRef.updateChildrenAsync(hopperUpdates);
+    }
+
+    // Get all group's name
+    public List<String> getMarkingName(String cid){
+        final List<String> groups = new ArrayList<>();
+        final String client = cid;
+        final CountDownLatch readData = new CountDownLatch(1);
+        groupRef.orderByChild("id").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
+                GroupEntity groupEntity = dataSnapshot.getValue(GroupEntity.class);
+                if (groupEntity.getClientid().equals(client)) {
+                    String name = groupEntity.getId();
+                    groups.add(name);
+                    readData.countDown();
+                }
+            }
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String prevChildKey) {}
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) { }
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String prevChildKey) {}
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        });
+        try {
+            readData.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return groups;
+    }
+
+    // Get all group's time
+    public List<GroupEntity> getPresentationClient(String cid){
+        final List<GroupEntity> groups = new ArrayList<>();
+        final String client = cid;
+        final CountDownLatch readData = new CountDownLatch(1);
+        groupRef.orderByChild("id").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
+                GroupEntity groupEntity = dataSnapshot.getValue(GroupEntity.class);
+                if (groupEntity.getClientid().equals(client)) {
+                    GroupEntity group = dataSnapshot.getValue(GroupEntity.class);
+                    String [] time = group.getPresentation().split("T");
+                    group.setPresentation(time[0]+ " "+time[1]);
+                    groups.add(group);
+                    readData.countDown();
+                }
+            }
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String prevChildKey) {}
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) { }
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String prevChildKey) {}
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        });
+        try {
+            readData.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return groups;
+    }
+
+    // Get all student in project
+    public List<String> getStudentInProject(String cid){
+        final List<String> students = new ArrayList<>();
+        final String client = cid;
+        final CountDownLatch readData = new CountDownLatch(1);
+        groupRef.orderByChild("id").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
+                GroupEntity groupEntity = dataSnapshot.getValue(GroupEntity.class);
+                if (groupEntity.getClientid().equals(client)) {
+                    students.add(groupEntity.getStudent1());
+                    students.add(groupEntity.getStudent2());
+                    students.add(groupEntity.getStudent3());
+                    students.add(groupEntity.getStudent4());
+                    students.add(groupEntity.getStudent5());
+                    readData.countDown();
+                }
+            }
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String prevChildKey) {}
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) { }
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String prevChildKey) {}
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        });
+        try {
+            readData.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return students;
     }
 
     // Add group

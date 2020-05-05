@@ -34,11 +34,13 @@ public class LoginController {
 
     @PostMapping("/client/login")
     public String loginClient(@RequestParam("username") String username,
-                               @RequestParam("password") String password,
-                               Map<String,Object> map) {
+                              @RequestParam("password") String password,
+                              Map<String,Object> map,
+                              HttpSession session) {
         boolean loginCheck;
         loginCheck = loginService.clientCheck(username, password);
         if (loginCheck) {
+            session.setAttribute("user", username);
             return "index-client";
         }
         else {
