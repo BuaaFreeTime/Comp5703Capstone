@@ -112,7 +112,6 @@
 										<div class="col mr-2">
 											<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">User Avatars</div>
 											<img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="/static/img/profile_picture.jpg">
-											<div class="h5 mb-0 font-weight-bold text-gray-800">Lenny Tan</div>
 											
 										</div>
 									</div>
@@ -133,9 +132,7 @@
 										<tbody>
 											<tr>
 												<td>Name</td>
-												<td>
-													Lenny Tan
-												</td>
+												<td th:text="${projectUnit}"></td>
 												<td style="text-align: center;">
 													<button type="button" class="btn btn-primary" onclick="editInfo()">Edit</button>
 												</td>
