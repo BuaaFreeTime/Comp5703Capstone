@@ -24,7 +24,7 @@ public class LoginController {
         loginCheck = loginService.studentCheck(username, password);
         if (loginCheck) {
             session.setAttribute("user", username);
-            return "index-student";
+            return "redirect:/index-student";
         }
         else {
             map.put("msg","wrong studentID or password");
@@ -41,7 +41,7 @@ public class LoginController {
         loginCheck = loginService.clientCheck(username, password);
         if (loginCheck) {
             session.setAttribute("user", username);
-            return "index-client";
+            return "redirect:/index-client";
         }
         else {
             map.put("msg","wrong clientID or password");
@@ -52,11 +52,13 @@ public class LoginController {
     @PostMapping("/admin/login")
     public String loginAdmin(@RequestParam("username") String username,
                              @RequestParam("password") String password,
-                             Map<String,Object> map) {
+                             Map<String,Object> map,
+                             HttpSession session) {
         boolean loginCheck;
         loginCheck = loginService.adminCheck(username, password);
         if (loginCheck) {
-            return "index-admin";
+            session.setAttribute("user", username);
+            return "redirect:/index-admin";
         }
         else {
             map.put("msg","wrong adminID or password");

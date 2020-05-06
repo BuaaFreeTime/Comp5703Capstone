@@ -92,6 +92,24 @@ public class GroupController {
         return "PresentationSlot-client";
     }
 
+    @RequestMapping(value = {"/studentgroup"})
+    public String allgroupAdmin(Model model) {
+        List<GroupEntity> groupEntityList;
+        groupEntityList = groupService.getAllgroup();
+        model.addAttribute("groups", groupEntityList);
+        return "StudentGroup";
+    }
 
+    @PostMapping(value = {"/addgroup"})
+    public String addGroup(@RequestParam("id") String id,
+                           @RequestParam("s1") String s1,
+                           @RequestParam("s2") String s2,
+                           @RequestParam("s3") String s3,
+                           @RequestParam("s4") String s4,
+                           @RequestParam("s5") String s5,
+                           @RequestParam("cid") String clientId) {
+        groupService.addGroup(id,s1,s2,s3,s4,s5,clientId);
+        return "redirect:/studentgroup";
+    }
 
 }

@@ -29,7 +29,7 @@
 			<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 				<!-- Sidebar - Brand -->
-				<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index-student.html">
+				<a class="sidebar-brand d-flex align-items-center justify-content-center" href="/index-student">
 					<div class="sidebar-brand-icon rotate-n-15">
 						<i class="fas fa-laugh-wink"></i>
 					</div>
@@ -41,7 +41,7 @@
 
 				<!-- Nav Item - Dashboard -->
 				<li class="nav-item active">
-					<a class="nav-link" href="index-admin.html">
+					<a class="nav-link" href="/index-admin">
 						<i class="fas fa-fw fa-tachometer-alt"></i>
 						<span>Dashboard</span></a>
 				</li>
@@ -63,12 +63,12 @@
 					<div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 						<div class="bg-white py-2 collapse-inner rounded">
 							<h6 class="collapse-header">Management:</h6>
-							<a class="collapse-item" href="ProposedProjects.html">Proposed Projects</a>
-							<a class="collapse-item" href="ProjectInformation.html">Project Information</a>
-							<a class="collapse-item" href="UploadStudentInfo.html">Upload Student Info</a>
-							<a class="collapse-item" href="StudentGroup.html">Student Group</a>
-							<a class="collapse-item" href="StudentPreferences.html">Student Preferences</a>
-							<a class="collapse-item" href="Presentation.html">Presentation</a>
+							<!--a class="collapse-item" href="/proposedprojects">Proposed Projects</a-->
+							<a class="collapse-item" href="/projectinformation">Project Information</a>
+							<a class="collapse-item" href="/uploadstudentinfo">Upload Student Info</a>
+							<a class="collapse-item" href="/studentgroup">Student Group</a>
+							<a class="collapse-item" href="/studentpreferences">Student Preferences</a>
+							<!--a class="collapse-item" href="Presentation.html">Presentation</a-->
 						</div>
 					</div>
 				</li>
@@ -90,8 +90,8 @@
 					<div id="collapsePages2" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 						<div class="bg-white py-2 collapse-inner rounded">
 							<h6 class="collapse-header">Management:</h6>
-							<a class="collapse-item" href="ProjectsandClients.html">Projects and Clients</a>
-							<a class="collapse-item" href="TypesofProjects.html">Types of Projects</a>
+							<a class="collapse-item" href="/projectsandclients">Projects and Clients</a>
+							<a class="collapse-item" href="/typesofprojects">Types of Projects</a>
 						</div>
 					</div>
 				</li>
@@ -104,7 +104,7 @@
 					<div id="collapsePages3" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 						<div class="bg-white py-2 collapse-inner rounded">
 							<h6 class="collapse-header">Management:</h6>
-							<a class="collapse-item" href="Marks-admin.html">Marks</a>
+							<a class="collapse-item" href="/marksadmin">Marks</a>
 						</div>
 					</div>
 				</li>
@@ -167,7 +167,6 @@
 
 						<!-- Page Heading -->
 						<h1 class="h3 mb-2 text-gray-800">Dashboard</h1>
-						<p class="mb-4">这里是你的工作台</p>
 
 						<!-- Content Row -->
 						<div class="row">
@@ -179,7 +178,7 @@
 										<div class="row no-gutters align-items-center">
 											<div class="col mr-2">
 												<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Projects Count</div>
-												<div class="h5 mb-0 font-weight-bold text-gray-800">121</div>
+												<div th:text="${projectNum}" class="h5 mb-0 font-weight-bold text-gray-800"></div>
 											</div>
 											<div class="col-auto">
 												<i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -196,7 +195,7 @@
 										<div class="row no-gutters align-items-center">
 											<div class="col mr-2">
 												<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Students Count</div>
-												<div class="h5 mb-0 font-weight-bold text-gray-800">428</div>
+												<div th:text="${studentNum}" class="h5 mb-0 font-weight-bold text-gray-800"></div>
 											</div>
 											<div class="col-auto">
 												<i class="fas fa-comments fa-2x text-gray-300"></i>

@@ -2,8 +2,11 @@ package usyd.comp5703.capstone.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 import usyd.comp5703.capstone.dao.StudentDao;
 import usyd.comp5703.capstone.entity.StudentEntity;
+
+import java.util.List;
 
 @Service
 public class ProfileService {
@@ -23,10 +26,25 @@ public class ProfileService {
          */
         studentDao.addStudent(studentEntity);
     }
+    public void addStudent(String sid, String age,String name,String email, String groupId, String projectId){
+        StudentEntity demo  = new StudentEntity();
+        demo.setName(name);
+        demo.setAge(age);
+        demo.setEmail(email);
+        demo.setGroupId(groupId);
+        demo.setProjectId(projectId);
+        demo.setSid(sid);
+        studentDao.addStudent(demo);
+    }
 
     public StudentEntity getStudent(String sid) {
         StudentEntity studentEntity = studentDao.getStudent(sid);
         return studentEntity;
+    }
+
+    public List<StudentEntity> getAllStudent() {
+        List<StudentEntity> studentEntityList = studentDao.getAllStudent();
+        return studentEntityList;
     }
 
 }

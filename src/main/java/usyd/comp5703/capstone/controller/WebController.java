@@ -15,18 +15,16 @@ public class WebController {
     public String loginClient() {
         return "login-client";
     }
-
-    @RequestMapping(value = {"/admin"})
     public String loginAdmin() { return "login-admin"; }
 
-    @RequestMapping(value = {"/MyProjects", "/student/MyProjects"})
-    public String MyProjects() { return "MyProjects"; }
+    @RequestMapping(value = {"/marksadmin"})
+    public String MyProjects() { return "Marks-admin"; }
 
-    @RequestMapping(value = {"/AllGroup", "/student/AllGroup"})
-    public String AllGroup() { return "AllGroup"; }
+    @RequestMapping(value = {"typesofprojects"})
+    public String AllGroup() { return "TypesofProjects"; }
 
-    @RequestMapping(value = {"/MyGroup", "/student/MyGroup"})
-    public String MyGroup() { return "MyGroup"; }
+    @RequestMapping(value = {"/projectsandclients"})
+    public String projectsandclients() { return "ProjectsandClients"; }
 
     @RequestMapping(value = {"/1"})
     public String indexStudent() {
@@ -37,9 +35,6 @@ public class WebController {
     public String clientAppList() {
         return "ApplicantsList";
     }
-
-    @RequestMapping(value = {"/index-admin"})
-    public String indexAdmin() { return "index-admin"; }
 
     @RequestMapping(value = {"/ProposedProjects"})
     public String ProposedProjects() { return "ProposedProjects"; }
@@ -67,6 +62,5 @@ public class WebController {
 
     @RequestMapping(value = {"/Marks-admin"})
     public String MarksAdmin() { return "Marks-admin"; }
-
 
 }

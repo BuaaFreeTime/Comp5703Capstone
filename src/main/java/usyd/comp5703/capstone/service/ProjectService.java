@@ -2,9 +2,12 @@ package usyd.comp5703.capstone.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
+import usyd.comp5703.capstone.dao.ClientDao;
 import usyd.comp5703.capstone.dao.GroupDao;
 import usyd.comp5703.capstone.dao.ProjectDao;
 import usyd.comp5703.capstone.dao.StudentDao;
+import usyd.comp5703.capstone.entity.ClientEntity;
 import usyd.comp5703.capstone.entity.GroupEntity;
 import usyd.comp5703.capstone.entity.ProjectEntity;
 import usyd.comp5703.capstone.entity.StudentEntity;
@@ -18,6 +21,8 @@ public class ProjectService {
     ProjectDao projectDao;
     @Autowired
     StudentDao studentDao;
+    @Autowired
+    ClientDao clientDao;
 
     public ProjectEntity getMyproject(String sid) {
         /*
@@ -44,6 +49,22 @@ public class ProjectService {
         List<ProjectEntity> projectEntityList;
         projectEntityList = projectDao.getAllprojectClient(cid);
         return projectEntityList;
+    }
+
+    public void addProject(String unit, String type, String name, String description, String clientid, String tutor){
+        List<ProjectEntity> projectEntityList;
+        projectEntityList = projectDao.getAllproject();
+        ClientEntity clientEntity = clientDao.getClient(clientid);
+        ProjectEntity newProject = new ProjectEntity();
+        newProject.setUnit(unit);
+        newProject.setType(type);
+        newProject.setName(name);
+        newProject.setDescription(description);
+        newProject.setTutor(tutor);
+        newProject.setClientid(clientid);
+        newProject.setClient(clientEntity.getName());
+        newProject.setId(String.valueOf(projectEntityList.size()+1));
+        projectDao.addProject(newProject);
     }
 
 

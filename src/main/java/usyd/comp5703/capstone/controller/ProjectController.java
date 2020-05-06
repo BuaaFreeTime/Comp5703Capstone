@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import usyd.comp5703.capstone.entity.ProjectEntity;
 import usyd.comp5703.capstone.service.ProjectService;
+import usyd.comp5703.capstone.service.StudentPreferenceService;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -18,6 +19,8 @@ public class ProjectController {
 
     @Autowired  //与service层进行交互
     private ProjectService projectService;
+    @Autowired
+    StudentPreferenceService studentPreferenceService;
 
 
 
@@ -32,6 +35,15 @@ public class ProjectController {
         map.put("projectClient", myprojectEntity.getClient());
         map.put("projectTutor", myprojectEntity.getTutor());
         return "MyProjects";
+
+    }
+
+    @RequestMapping(value = {"/projectinformation"})
+    public String adminAllproject(Model model) {
+        List<ProjectEntity> projectEntityList;
+        projectEntityList = projectService.getAllproject();
+        model.addAttribute("projects", projectEntityList);
+        return "ProjectInformation";
 
     }
 
@@ -65,10 +77,9 @@ public class ProjectController {
         model.addAttribute("project1s", projectEntityList);
         model.addAttribute("project2s", projectEntityList);
         model.addAttribute("project3s", projectEntityList);
-        System.out.println(firstChoice);
-        System.out.println(secondChoice);
-        System.out.println(thirdChoice);
-        return "ProjectPreference";
+        //String userId = session.getAttribute("user").toString();
+        studentPreferenceService.addPreference("student", firstChoice,secondChoice,thirdChoice);
+        return "/ProjectPreference";
     }
 
     @RequestMapping(value = {"/myprojects-client"})
@@ -80,5 +91,16 @@ public class ProjectController {
         return "MyProjects-client";
     }
 
+    @PostMapping(value = {"/addproject"})
+    public String addProject(@RequestParam("unit") String unit,
+                             @RequestParam("type") String type,
+                             @RequestParam("name") String name,
+                             @RequestParam("description") String description,
+                             @RequestParam("clientid") String clientid,
+                             @RequestParam("tutor") String tutor,
+                                          Model model) {
+       projectService.addProject(unit, type, name, description, clientid, tutor);
+       return "redirect:/projectinformation";
+    }
 
 }

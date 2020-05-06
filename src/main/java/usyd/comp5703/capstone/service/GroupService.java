@@ -83,5 +83,18 @@ public class GroupService {
         return groups;
     }
 
+    public void addGroup(String id,String s1, String s2, String s3, String s4, String s5, String clientId) {
+        GroupEntity groupEntity = new GroupEntity();
+        groupEntity.setPresentation("2020-06-06T15:15");
+        groupEntity.setMarks("0");
+        groupEntity.setStudent1(s1);
+        groupEntity.setStudent2(s2);
+        groupEntity.setStudent3(s3);
+        groupEntity.setStudent4(s4);
+        groupEntity.setStudent5(s5);
+        groupEntity.setClientid(clientId);
+        groupEntity.setId(id);
+        groupDao.addGroup(groupEntity);
+    }
 
 }
