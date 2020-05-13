@@ -27,18 +27,21 @@ public class DashboardController {
     @RequestMapping(value = {"/index-student", "/student/index-student"})
     public String studentDashboard(Map<String, Object> map) {
         //String sid = session.getAttribute("user").toString();
-        GroupEntity groupEntity = groupService.getMygroup("student");
-        ProjectEntity projectEntity = projectService.getMyproject("student");
-        String [] strArr = groupEntity.getPresentation().split("T");
-        map.put("presentTime", strArr[0] + " " + strArr[1]);
-        map.put("projectName", projectEntity.getName());
+        GroupEntity groupEntity = groupService.getMygroup("student1");
+        ProjectEntity projectEntity = projectService.getMyproject("student1");
+        System.out.println("fuck");
+        if (groupEntity!=null && projectEntity!=null) {
+            String[] strArr = groupEntity.getPresentation().split("T");
+            map.put("presentTime", strArr[0] + " " + strArr[1]);
+            map.put("projectName", projectEntity.getName());
+        }
         return "index-student";
     }
 
     @RequestMapping(value = {"/index-client"})
     public String clientDashboard(Map<String, Object> map) {
         //String sid = session.getAttribute("user").toString();
-        List<ProjectEntity> projectEntityList = projectService.getAllProjectClient("client");
+        List<ProjectEntity> projectEntityList = projectService.getAllProjectClient("client1");
         map.put("projects", projectEntityList);
         return "index-client";
     }

@@ -23,7 +23,7 @@ public class StudentDao {
 
     public List<StudentEntity> getAllStudent() {
         final List<StudentEntity> studentEntityList = new ArrayList<>();
-        final CountDownLatch readData = new CountDownLatch(1);
+        final CountDownLatch readData = new CountDownLatch(50);
         studentRef.orderByChild("sid").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {

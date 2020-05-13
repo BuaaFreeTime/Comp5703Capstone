@@ -23,17 +23,28 @@ public class ProjectController {
     StudentPreferenceService studentPreferenceService;
 
 
+    @PostMapping(value = {"/changeGnum"})
+    public String changeGroupNumber(@RequestParam("gnumber") String groupMum,
+                                    @RequestParam("pid") String pid) {
+        if (!groupMum.equals("") && !pid.equals("")) {
+            projectService.updateGnum(pid,groupMum);
+        }
+        return "redirect:/myprojects-client";
+
+    }
 
     @RequestMapping(value = {"/myproject"})
     public String studentMyproject(HttpSession session, Map<String,Object> map) {
         //String sid = session.getAttribute("user").toString();
-        ProjectEntity myprojectEntity = projectService.getMyproject("student");
-        map.put("projectUnit", myprojectEntity.getUnit());
-        map.put("projectType", myprojectEntity.getType());
-        map.put("projectName", myprojectEntity.getName());
-        map.put("projectDescription", myprojectEntity.getDescription());
-        map.put("projectClient", myprojectEntity.getClient());
-        map.put("projectTutor", myprojectEntity.getTutor());
+        ProjectEntity myprojectEntity = projectService.getMyproject("student1");
+        if (myprojectEntity!=null) {
+            map.put("projectUnit", myprojectEntity.getUnit());
+            map.put("projectType", myprojectEntity.getType());
+            map.put("projectName", myprojectEntity.getName());
+            map.put("projectDescription", myprojectEntity.getDescription());
+            map.put("projectClient", myprojectEntity.getClient());
+            map.put("projectTutor", myprojectEntity.getTutor());
+        }
         return "MyProjects";
 
     }
@@ -78,7 +89,7 @@ public class ProjectController {
         model.addAttribute("project2s", projectEntityList);
         model.addAttribute("project3s", projectEntityList);
         //String userId = session.getAttribute("user").toString();
-        studentPreferenceService.addPreference("student", firstChoice,secondChoice,thirdChoice);
+        studentPreferenceService.addPreference("student1", firstChoice,secondChoice,thirdChoice);
         return "/ProjectPreference";
     }
 
@@ -86,7 +97,7 @@ public class ProjectController {
     public String myProjectClient(Model model) {
         List<ProjectEntity> projectEntityList;
         //String cid = session.getAttribute("user").toString();
-        projectEntityList = projectService.getAllProjectClient("client");
+        projectEntityList = projectService.getAllProjectClient("client1");
         model.addAttribute("projects", projectEntityList);
         return "MyProjects-client";
     }

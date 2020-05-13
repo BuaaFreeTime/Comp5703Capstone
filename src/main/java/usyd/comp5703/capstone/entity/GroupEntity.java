@@ -26,6 +26,19 @@ public class GroupEntity {
         this.student5 = "Lei Zheng";
     }
 
+    public GroupEntity(String id, String s1, String s2, String s3, String s4, String s5, String pid, String cid){
+        this.id = id;
+        this.student1 = s1;
+        this.student2 = s2;
+        this.student3 = s3;
+        this.student4 = s4;
+        this.student5 = s5;
+        this.marks = "0";
+        this.presentation = "0";
+        this.projectid = pid;
+        this.clientid = cid;
+    }
+
     public String getPresentation() {
         return presentation;
     }

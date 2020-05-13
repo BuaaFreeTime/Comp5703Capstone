@@ -26,6 +26,7 @@ public class ProfileService {
          */
         studentDao.addStudent(studentEntity);
     }
+
     public void addStudent(String sid, String age,String name,String email, String groupId, String projectId){
         StudentEntity demo  = new StudentEntity();
         demo.setName(name);

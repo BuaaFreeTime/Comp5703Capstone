@@ -28,7 +28,9 @@ public class GroupService {
         String currentDate = formatter.format(current);
         time.add(currentDate);
         StudentEntity studentEntity = studentDao.getStudent(sid);
-        GroupEntity groupEntity = groupDao.getMygroup(studentEntity.getGroupId());
+        String gid = studentEntity.getGroupId();
+        if (gid.equals("")) return null;
+        GroupEntity groupEntity = groupDao.getMygroup(gid);
         String [] strArr = groupEntity.getPresentation().split("T");
         String presentTime = strArr[0];
         time.add(presentTime);
@@ -47,7 +49,9 @@ public class GroupService {
 
     public String getMarks(String sid) {
         StudentEntity studentEntity = studentDao.getStudent(sid);
-        GroupEntity groupEntity = groupDao.getMygroup(studentEntity.getGroupId());
+        String gid = studentEntity.getGroupId();
+        if (gid.equals("")) return "0";
+        GroupEntity groupEntity = groupDao.getMygroup(gid);
         return groupEntity.getMarks();
     }
 
@@ -60,7 +64,9 @@ public class GroupService {
 
     public GroupEntity getMygroup(String sid) {
         StudentEntity studentEntity = studentDao.getStudent(sid);
-        GroupEntity groupEntity = groupDao.getMygroup(studentEntity.getGroupId());
+        String gid = studentEntity.getGroupId();
+        if (gid.equals("")) return null;
+        GroupEntity groupEntity = groupDao.getMygroup(gid);
         return groupEntity;
     }
 

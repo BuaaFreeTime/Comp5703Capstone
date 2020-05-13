@@ -170,13 +170,12 @@
 												<th>Project Name</th>
 												<th>Project Description</th>
 												<th>Instruction</th>
-												<th>Client</th>
 												<th>Tutor</th>
-												<th>Capacity</th>
-												<!--<th>Action</th>-->
+												<th>Group Number</th>
+												<th>Action</th>
 											</tr>
 										</thead>
-										<tbody contenteditable="true">
+										<tbody>
 											<tr th:each="project:${projects}">
 												<td th:text="${project.unit}"></td>
 												<td th:text="${project.type}"></td>
@@ -186,13 +185,18 @@
 													<a href="https://www.baidu.com/" target="_blank">Download</a><br />
 													<a href="#" class="btn btn-primary btn-icon-split"><span class="text">Update</span></a>
 												</td>
-												<td th:text="${project.client}"></td>
 												<td th:text="${project.tutor}"></td>
-												<td>100</td>
-												<!--td style="text-align: center;">
-													<a href="#" class="btn btn-primary btn-icon-split" style="margin-bottom: 0.2rem;width: 100%;"><span class="text">Update</span></a><br /><a style="width: 100%;" href="#" class="btn btn-primary btn-icon-split"><span class="text">Delete</span></a>
-												</td-->
+												<form action="/changeGnum" method="post">
+													<td>
+														<input name="gnumber" class="AddInput form-control" />
+														<input type="hidden" name="pid" th:value="${project.id}" class="AddInput form-control" />
+													</td>
+													<td style="text-align: center;">
+														<button type="submit" class="btn btn-primary btn-icon-split" style="margin-bottom: 0.2rem;width: 100%;"><span class="text">Update</span></button><!--br /><a style="width: 100%;" href="#" class="btn btn-primary btn-icon-split"><span class="text">Delete</span></a-->
+													</td>
+												</form>
 											</tr>
+
 										</tbody>
 										<!--tfoot>
 											<tr>

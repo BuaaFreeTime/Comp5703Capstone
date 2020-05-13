@@ -23,7 +23,7 @@ public class LoginDao {
     }
 
     public boolean studentCheck(String username, String password){
-        if (username.equals("student") && password.equals("1"))
+        if (username.contains("student") && password.equals("1"))
             return true;
         else return false;
         /*

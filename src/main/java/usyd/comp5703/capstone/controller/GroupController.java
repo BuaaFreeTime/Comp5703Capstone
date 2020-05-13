@@ -24,7 +24,7 @@ public class GroupController {
     @RequestMapping(value = {"/marks"})
     public String studentMarks(HttpSession session, Map<String, Object> map) {
         //String sid = session.getAttribute("user").toString();
-        String marks = groupService.getMarks("student");
+        String marks = groupService.getMarks("student1");
         map.put("score", marks);
         return "Marks";
     }
@@ -40,16 +40,16 @@ public class GroupController {
     @RequestMapping(value = {"/mygroup"})
     public String mygroupStudent(Model model, HttpSession session) {
         //String sid = session.getAttribute("user").toString();
-        GroupEntity groupEntity = groupService.getMygroup("student");
-        model.addAttribute("groups", groupEntity);
+        GroupEntity groupEntity = groupService.getMygroup("student1");
+        if (groupEntity!=null)  model.addAttribute("groups", groupEntity);
         return "MyGroup";
     }
 
     @RequestMapping(value = {"/presentationslot"})
     public String studentPresentationslot( Map<String,Object> map) {
         //String sid = session.getAttribute("user").toString();
-        GroupEntity groupEntity = groupService.getMygroup("student");
-        map.put("groupID", groupEntity.getId());
+        GroupEntity groupEntity = groupService.getMygroup("student1");
+        if (groupEntity!=null) map.put("groupID", groupEntity.getId());
         return "PresentationSlot";
 
     }
@@ -58,7 +58,7 @@ public class GroupController {
     public String studentPresentationsTime(@RequestParam("presentationTime") String date,
                                            Map<String,Object> map) {
         //String sid = session.getAttribute("user").toString();
-        GroupEntity groupEntity = groupService.updatePresentation("student", date);
+        GroupEntity groupEntity = groupService.updatePresentation("student1", date);
         map.put("groupID", groupEntity.getId());
 
         return "PresentationSlot";
@@ -67,10 +67,12 @@ public class GroupController {
     @RequestMapping(value = {"/scheduletables"})
     public String scheduleTables(Map<String,Object> map){
         //String sid = session.getAttribute("user").toString();
-        List<String> time = groupService.getScheduleTables("student");
-        map.put("currentDate", time.get(0));
-        map.put("presentationDate", time.get(1));
-        map.put("remainingDays", time.get(2));
+        List<String> time = groupService.getScheduleTables("student1");
+        if (time!=null) {
+            map.put("currentDate", time.get(0));
+            map.put("presentationDate", time.get(1));
+            map.put("remainingDays", time.get(2));
+        }
         return "ScheduleTables";
     }
 
@@ -78,7 +80,7 @@ public class GroupController {
     public String allStudentClient(Model model, HttpSession session) {
         //String cid = session.getAttribute("user").toString();
         List<String> studentList;
-        studentList = groupService.getStudentsInProject("client");
+        studentList = groupService.getStudentsInProject("client1");
         model.addAttribute("students", studentList);
         return "StudentsinProjects";
     }
@@ -87,7 +89,7 @@ public class GroupController {
     public String presentationClient(Model model, HttpSession session) {
         //String cid = session.getAttribute("user").toString();
         List<GroupEntity> groupEntityList;
-        groupEntityList = groupService.getPresentationClient("client");
+        groupEntityList = groupService.getPresentationClient("client1");
         model.addAttribute("groups", groupEntityList);
         return "PresentationSlot-client";
     }

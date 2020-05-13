@@ -2,7 +2,6 @@ package usyd.comp5703.capstone.dao;
 
 import com.google.firebase.database.*;
 import org.springframework.stereotype.Repository;
-import usyd.comp5703.capstone.entity.GroupEntity;
 import usyd.comp5703.capstone.entity.ProjectEntity;
 
 import java.util.ArrayList;
@@ -30,6 +29,11 @@ public class ProjectDao {
         hopperUpdates.put("1/clientid", "client2");
         hopperUpdates.put("4/clientid", "client2");
         hopperUpdates.put("7/clientid", "client2");
+        projectRef.updateChildrenAsync(hopperUpdates);
+    }
+    public void updateGroupNumber(String pid, String gnum){
+        Map<String, Object> hopperUpdates = new HashMap<>();
+        hopperUpdates.put(pid+"/Gnumber", gnum);
         projectRef.updateChildrenAsync(hopperUpdates);
     }
 

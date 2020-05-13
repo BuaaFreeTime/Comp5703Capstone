@@ -11,6 +11,7 @@ public class ProjectEntity {
     String client;
     String clientid;
     String tutor;
+    String Gnumber;
 
     public ProjectEntity(){}
 
@@ -19,27 +20,41 @@ public class ProjectEntity {
         if (Integer.valueOf(id)% 3 == 0) {
             this.unit = "Comp5703";
             this.type = "Software Engineering";
-            this.name = "CAPSTONE PM";
+            this.name = "project"+id;
             this.description = "A capstone project management system";
             this.client = "Dr. Wu xi";
+            this.clientid = "client1";
             this.tutor = "Omid";
+            this.Gnumber = "4";
         }
         if (Integer.valueOf(id) % 3 == 1) {
             this.unit = "Comp5708";
             this.type = "Data Science";
-            this.name = "SPINGSTONE TECH";
+            this.name = "project"+id;
             this.description = "To provide customers with the function of remote modification and reset of debit card transaction password";
             this.client = "Dr. Wang";
-            this.tutor = "shuaibiwangyanpeng";
+            this.tutor = "Zhaohui";
+            this.clientid = "client2";
+            this.Gnumber = "4";
         }
         if (Integer.valueOf(id) % 3 == 2) {
             this.unit = "Comp5707";
             this.type = "Information System";
-            this.name = "ZHIMINGDENG";
+            this.name = "project"+id;
             this.description = "Service client";
-            this.client = "Dr. Zhang";
-            this.tutor = "shabiwangyanpeng";
+            this.client = "Dr. Wu xi";
+            this.tutor = "Jerry";
+            this.Gnumber = "4";
+            this.clientid = "client1";
         }
+    }
+
+    public void setGnumber(String gnumber) {
+        Gnumber = gnumber;
+    }
+
+    public String getGnumber() {
+        return Gnumber;
     }
 
     public String getClientid() {

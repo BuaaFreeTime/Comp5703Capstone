@@ -24,6 +24,9 @@ public class ProjectService {
     @Autowired
     ClientDao clientDao;
 
+    public void updateGnum(String pid, String gnum) {
+        projectDao.updateGroupNumber(pid,gnum);
+    }
     public ProjectEntity getMyproject(String sid) {
         /*
         myprojectEntity.setUnit("Comp5703");
@@ -34,7 +37,9 @@ public class ProjectService {
         myprojectEntity.setTutor("Omid");
          */
         StudentEntity studentEntity = studentDao.getStudent(sid);
-        ProjectEntity myprojectEntity = projectDao.getMyproject(studentEntity.getProjectId());
+        String pid = studentEntity.getProjectId();
+        if (pid.equals("")) return null;
+        ProjectEntity myprojectEntity = projectDao.getMyproject(pid);
         return myprojectEntity;
     }
 

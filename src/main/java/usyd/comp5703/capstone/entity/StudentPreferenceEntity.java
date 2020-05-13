@@ -1,11 +1,20 @@
 package usyd.comp5703.capstone.entity;
 
 public class StudentPreferenceEntity {
+    String time;
     String sid;
     String name;
     String first;
     String second;
     String third;
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
 
     public void setName(String name) {
         this.name = name;

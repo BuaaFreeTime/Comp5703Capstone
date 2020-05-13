@@ -6,6 +6,16 @@ public class ClientEntity {
     String email;
     String age;
 
+    public ClientEntity(){
+    }
+
+    public ClientEntity(String cid, String name, String email, String age){
+        this.cid = cid;
+        this.name = name;
+        this.email = email;
+        this.age = age;
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }

@@ -8,6 +8,18 @@ public class StudentEntity {
     String groupId;
     String projectId;
 
+    public StudentEntity(){
+    }
+
+    public StudentEntity(String sid, String name, String email, String age, String gid, String pid){
+        this.sid = sid;
+        this.name = name;
+        this.email = email;
+        this.age = age;
+        this.groupId = gid;
+        this.projectId = pid;
+    }
+
     public String getName() {
         return name;
     }
