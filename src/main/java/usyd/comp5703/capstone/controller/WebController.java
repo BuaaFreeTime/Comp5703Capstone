@@ -75,4 +75,7 @@ public class WebController {
     @RequestMapping(value = {"/Marks-admin"})
     public String MarksAdmin() { return "Marks-admin"; }
 
+    @RequestMapping(value = {"/Register"})
+    public String Register() { return "register"; }
+
 }
