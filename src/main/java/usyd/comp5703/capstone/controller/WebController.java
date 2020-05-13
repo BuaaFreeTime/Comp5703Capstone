@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class WebController {
-    @RequestMapping(value = {"", "/"})
+    @RequestMapping(value = {"", "/","login-student"})
     public String loginStudent() {
         return "login-student";
     }
@@ -75,7 +75,7 @@ public class WebController {
     @RequestMapping(value = {"/Marks-admin"})
     public String MarksAdmin() { return "Marks-admin"; }
 
-    @RequestMapping(value = {"/Register"})
+    @RequestMapping(value = {"/Register", "/register.html"})
     public String Register() { return "register"; }
 
 }
