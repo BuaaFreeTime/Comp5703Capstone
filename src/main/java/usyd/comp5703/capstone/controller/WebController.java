@@ -15,6 +15,8 @@ public class WebController {
     public String loginClient() {
         return "login-client";
     }
+
+    @RequestMapping(value = {"/admin"})
     public String loginAdmin() { return "login-admin"; }
 
     @RequestMapping(value = {"/marksadmin"})
@@ -31,6 +33,16 @@ public class WebController {
         return "index-student";
     }
 
+   /* @RequestMapping(value = {"/index-client"})
+    public String indexClient() {
+        return "index-client";
+    }
+
+    @RequestMapping(value = {"/index-admin"})
+    public String indexAdmin() {
+        return "index-admin";
+    }*/
+
     @RequestMapping(value = {"/applicantslist"})
     public String clientAppList() {
         return "ApplicantsList";
@@ -39,7 +51,7 @@ public class WebController {
     @RequestMapping(value = {"/ProposedProjects"})
     public String ProposedProjects() { return "ProposedProjects"; }
 
-    @RequestMapping(value = {"/ProjectInformation"})
+    @RequestMapping(value = {"/projectInformation"})
     public String ProjectInformation() { return "ProjectInformation"; }
 
     @RequestMapping(value = {"/UploadStudentInfo"})
