@@ -32,7 +32,8 @@ public class DashboardController {
 
         if (groupEntity!=null && projectEntity!=null) {
             String[] strArr = groupEntity.getPresentation().split("T");
-            map.put("presentTime", strArr[0] + " " + strArr[1]);
+            if (strArr.length==1) {map.put("presentTime", "Not yet set"); }
+            else {map.put("presentTime", strArr[0] + " " + strArr[1]);}
             map.put("projectName", projectEntity.getName());
         }
         return "index-student";
