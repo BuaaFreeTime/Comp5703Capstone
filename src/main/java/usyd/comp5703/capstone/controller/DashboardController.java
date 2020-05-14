@@ -29,7 +29,7 @@ public class DashboardController {
         //String sid = session.getAttribute("user").toString();
         GroupEntity groupEntity = groupService.getMygroup("student1");
         ProjectEntity projectEntity = projectService.getMyproject("student1");
-        System.out.println("fuck");
+
         if (groupEntity!=null && projectEntity!=null) {
             String[] strArr = groupEntity.getPresentation().split("T");
             map.put("presentTime", strArr[0] + " " + strArr[1]);

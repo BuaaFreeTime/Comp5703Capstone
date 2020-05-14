@@ -41,6 +41,7 @@ public class GroupController {
     public String mygroupStudent(Model model, HttpSession session) {
         //String sid = session.getAttribute("user").toString();
         GroupEntity groupEntity = groupService.getMygroup("student1");
+        System.out.println(groupEntity.getId());
         if (groupEntity!=null)  model.addAttribute("groups", groupEntity);
         return "MyGroup";
     }
