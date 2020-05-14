@@ -87,7 +87,8 @@ public class GroupDao {
                 if (groupEntity.getClientid().equals(client)) {
                     GroupEntity group = dataSnapshot.getValue(GroupEntity.class);
                     String [] time = group.getPresentation().split("T");
-                    group.setPresentation(time[0]+ " "+time[1]);
+                    if (time.length==1) {group.setPresentation("Not yet set");}
+                    else {group.setPresentation(time[0]+ " "+time[1]);}
                     groups.add(group);
                     readData.countDown();
                 }
