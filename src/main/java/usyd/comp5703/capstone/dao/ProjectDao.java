@@ -53,6 +53,7 @@ public class ProjectDao {
                     projectEntity.setTutor(myProject.getTutor());
                     projectEntity.setType(myProject.getType());
                     projectEntity.setUnit(myProject.getUnit());
+                    projectEntity.setClientid(myProject.getClientid());
                     readData.countDown();
                 }
             }
@@ -75,7 +76,7 @@ public class ProjectDao {
 
     public List<ProjectEntity> getAllproject(){
         final List<ProjectEntity> projectEntityList = new ArrayList<>();
-        final CountDownLatch readData = new CountDownLatch(1);
+        final CountDownLatch readData = new CountDownLatch(10);
         projectRef.orderByChild("id").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {

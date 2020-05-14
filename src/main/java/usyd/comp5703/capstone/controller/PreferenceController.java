@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import usyd.comp5703.capstone.entity.ProjectEntity;
 import usyd.comp5703.capstone.entity.StudentPreferenceEntity;
+import usyd.comp5703.capstone.service.GroupService;
 import usyd.comp5703.capstone.service.StudentPreferenceService;
 
 import java.util.List;
@@ -17,6 +18,8 @@ public class PreferenceController {
 
     @Autowired
     StudentPreferenceService studentPreferenceService;
+    @Autowired
+    GroupService groupService;
 
     @PostMapping(value = {"/add"})
     public String addGroup(@RequestParam("id") String id,
@@ -36,7 +39,12 @@ public class PreferenceController {
         studentPreferenceEntityList = studentPreferenceService.getAllPreference();
         model.addAttribute("preferences", studentPreferenceEntityList);
         return "StudentPreferences";
+    }
 
+    @RequestMapping(value = {"/grouping"})
+    public String grouping(Model model) {
+        groupService.grouping();
+        return "redirect:/studentpreferences";
     }
 
 }

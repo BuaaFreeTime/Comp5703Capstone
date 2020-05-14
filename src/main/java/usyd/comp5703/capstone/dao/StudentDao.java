@@ -5,7 +5,9 @@ import org.springframework.stereotype.Repository;
 import usyd.comp5703.capstone.entity.StudentEntity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 
 @Repository
@@ -15,6 +17,22 @@ public class StudentDao {
             ref =  FirebaseDatabase.getInstance().getReference("/");
 
     private static DatabaseReference studentRef = ref.child("student");
+
+    // update item
+    public void updateStudentGid(String id, String gid){
+        Map<String, Object> hopperUpdates = new HashMap<>();
+
+        hopperUpdates.put(id+"/groupId", gid);
+        studentRef.updateChildrenAsync(hopperUpdates);
+    }
+
+    // update item
+    public void updateStudentPid(String id, String pid){
+        Map<String, Object> hopperUpdates = new HashMap<>();
+
+        hopperUpdates.put(id+"/projectId", pid);
+        studentRef.updateChildrenAsync(hopperUpdates);
+    }
 
     // Add student
     public void addStudent(StudentEntity studentEntity){

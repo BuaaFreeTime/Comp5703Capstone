@@ -176,7 +176,6 @@
 									<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 										<thead>
 											<tr>
-												<th>Group Project</th>
 												<th>Group ID</th>
 												<th>Project ID</th>
 												<th>Group Member 1</th>
@@ -190,7 +189,6 @@
 										</thead>
 										<tbody contenteditable="true">
 											<tr th:each="group:${groups}">
-												<td th:text="${group.getProjectid()}"></td>
 												<td th:text="${group.id}"></td>
 												<td th:text="${group.projectid}"></td>
 												<td th:text="${group.student1}"></td>
@@ -207,7 +205,6 @@
 										<tfoot>
 											<form action="/addgroup" method="post">
 												<tr>
-													<td><input name="pid" class="AddInput form-control" /></td>
 													<td><input name="id" class="AddInput form-control" /></td>
 													<td><input name="pid" class="AddInput form-control" /></td>
 													<td><input name="s1" class="AddInput form-control" /></td>
