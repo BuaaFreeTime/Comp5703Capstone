@@ -41,7 +41,7 @@
                                         <h1 class="h4 text-gray-900 mb-4">Capstone Project </h1>
                                     </div>
                                     <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
-                                    <form class="user" action="/client/login" method="post">
+                                    <form class="user" action="/semester/login" method="post">
                                         <div class="form-group">
                                             <select data-plugin-selectTwo class="form-control populate" name="ST"  th:value="${ST}" >
                                             <optgroup label="Project Semester"> 
@@ -54,7 +54,7 @@
                                             </select>
                                         </div>
                                         <div class="text-center">
-                                            <a class="small" href="createsemester.html">Create a Semester</a>
+                                            <a class="small" href="/createsemester">Create a Semester</a>
                                         </div>
                                        
                                         <hr>

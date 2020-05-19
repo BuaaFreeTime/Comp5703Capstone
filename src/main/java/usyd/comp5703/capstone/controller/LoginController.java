@@ -58,11 +58,19 @@ public class LoginController {
         loginCheck = loginService.adminCheck(username, password);
         if (loginCheck) {
             session.setAttribute("user", username);
-            return "redirect:/index-admin";
+            return "redirect:/projectsemester";
         }
         else {
             map.put("msg","wrong adminID or password");
             return "login-admin";
         }
     }
-}
+
+    @PostMapping("/semester/login")
+    public String loginSemester() {
+
+            return "redirect:/index-admin";
+        }
+
+    }
+
