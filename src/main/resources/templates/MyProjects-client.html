@@ -21,6 +21,33 @@
 			.AddInput {
 				width: 100%;
 			}
+			.btn-upload{
+				position: relative;
+				display: inline-block;
+				width: 75px;
+				height: 25px;
+				overflow: hidden;
+				text-align: center;
+				font-size: 14px;
+				line-height: 25px;
+				vertical-align: center;
+				border: 1px solid #23c6c8;
+				background-color: #23c6c8;
+				color:#fff;
+				border-radius: 3px;
+			}
+
+			.btn-upload:hover{
+				border: 1px solid #23babc;
+				background-color: #23babc;
+			}
+
+			.btn-upload input{
+				position: absolute;
+				top:0;
+				left: 0;
+				opacity: 0;
+			}
 		</style>
 
 	</head>
@@ -171,19 +198,21 @@
 												<th>Project Description</th>
 												<th>Instruction</th>
 												<th>Tutor</th>
-												<th>Group Capacity</th>
+												<th>Capacity(Groups)</th>
 												<th>Action</th>
 											</tr>
 										</thead>
-										<tbody>
+										<tbody contenteditable="true">
 											<tr th:each="project:${projects}">
 												<td th:text="${project.unit}"></td>
 												<td th:text="${project.type}"></td>
 												<td th:text="${project.name}"></td>
 												<td th:text="${project.description}"></td>
 												<td>
-													<a href="https://www.baidu.com/" target="_blank">Download</a><br />
-													<a href="#" class="btn btn-primary btn-icon-split"><span class="text">Update</span></a>
+													<label type="button" class="btn-upload">
+														<span>Upload</span>
+														<input type="file">
+													</label>
 												</td>
 												<td th:text="${project.tutor}"></td>
 												<form action="/changeGnum" method="post">
@@ -205,9 +234,11 @@
 												<td><input class="AddInput form-control" /></td>
 												<td><input class="AddInput form-control" /></td>
 												<td style="text-align: center;">
-													<a href="#" class="btn btn-primary btn-icon-split"><span class="text">Upload</span></a>
+													<label type="button" class="btn-upload">
+														<span>Upload</span>
+														<input type="file">
+													</label>
 												</td>
-												<td><input class="AddInput form-control" /></td>
 												<td><input class="AddInput form-control" /></td>
 												<td><input class="AddInput form-control" /></td>
 												<td style="text-align: center;word-break: keep-all;">
