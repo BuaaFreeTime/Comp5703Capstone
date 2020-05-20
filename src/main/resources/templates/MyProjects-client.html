@@ -209,10 +209,7 @@
 												<td th:text="${project.name}"></td>
 												<td th:text="${project.description}"></td>
 												<td>
-													<label type="button" class="btn-upload">
-														<span>Upload</span>
-														<input type="file">
-													</label>
+													<input id="upload" type="file" class="file text-center"  name="file" data-show-preview="false"  />
 												</td>
 												<td th:text="${project.tutor}"></td>
 												<form action="/changeGnum" method="post">
