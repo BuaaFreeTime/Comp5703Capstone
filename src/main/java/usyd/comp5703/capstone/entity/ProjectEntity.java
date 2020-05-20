@@ -12,6 +12,7 @@ public class ProjectEntity {
     String clientid;
     String tutor;
     String Gnumber;
+    String semester;
 
     public ProjectEntity(){}
 
@@ -47,6 +48,14 @@ public class ProjectEntity {
             this.Gnumber = "4";
             this.clientid = "client1";
         }
+    }
+
+    public void setSemester(String semester) {
+        this.semester = semester;
+    }
+
+    public String getSemester() {
+        return semester;
     }
 
     public void setGnumber(String gnumber) {

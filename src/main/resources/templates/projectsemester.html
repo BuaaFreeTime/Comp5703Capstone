@@ -40,17 +40,15 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Capstone Project </h1>
                                     </div>
-                                    <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
                                     <form class="user" action="/semester/login" method="post">
                                         <div class="form-group">
                                             <select data-plugin-selectTwo class="form-control populate" name="ST"  th:value="${ST}" >
-                                            <optgroup label="Project Semester"> 
+                                                <option value="">Project Semester</option>
                                                 <option th:each="semester:${semesters}"
-													th:selected="$${ST}=={semester.time}"
-													th:value="${semester.time}"
-													th:text="${semester.time}">
-											</option>
-                                            </optgroup> 
+                                                    th:selected="${ST}==${semester.name}"
+                                                    th:value="${semester.name}"
+                                                    th:text="${semester.name}">
+                                                </option>
                                             </select>
                                         </div>
                                         <div class="text-center">

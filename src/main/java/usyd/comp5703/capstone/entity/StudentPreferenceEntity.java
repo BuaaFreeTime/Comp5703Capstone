@@ -7,6 +7,7 @@ public class StudentPreferenceEntity {
     String first;
     String second;
     String third;
+    String semester;
 
     public String getTime() {
         return time;
@@ -14,6 +15,14 @@ public class StudentPreferenceEntity {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public void setSemester(String semester) {
+        this.semester = semester;
+    }
+
+    public String getSemester() {
+        return semester;
     }
 
     public void setName(String name) {
