@@ -12,13 +12,14 @@ public class StudentEntity {
     public StudentEntity(){
     }
 
-    public StudentEntity(String sid, String name, String email, String age, String gid, String pid){
+    public StudentEntity(String sid, String name, String email, String age, String gid, String pid, String semester){
         this.sid = sid;
         this.name = name;
         this.email = email;
         this.age = age;
         this.groupId = gid;
         this.projectId = pid;
+        this.semester = semester;
     }
 
     public String getSemester() {

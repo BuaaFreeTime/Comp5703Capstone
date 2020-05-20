@@ -36,7 +36,12 @@ public class LoginService {
         // Add initial student function
         int i;
         for (i=1;i<=50; i++) {
-            StudentEntity studentEntity = new StudentEntity("student"+i, Integer.toString(i), i+"@gmail.com", "26", "", "");
+            StudentEntity studentEntity = new StudentEntity("student"+i,
+                                                            "student"+i,
+                                                            i+"@gmail.com",
+                                                            "26",
+                                                            "", "",
+                                                            "2020 Semester 1");
             studentDao.addStudent(studentEntity);
         }
 
@@ -51,9 +56,9 @@ public class LoginService {
             if (x==0) x=10;
             if (y==0) y=10;
             if (z==0) z=10;
-            studentPreferenceService.addPreference("student"+i, p+x, p+y, p+z);
+            studentPreferenceService.addPreference("student"+i, p+x, p+y, p+z, "2020 Semester 1");
         }
-        */
+ */
         if (loginDao.studentCheck(username, password)) return true;
         else return false;
 
@@ -82,6 +87,7 @@ public class LoginService {
     }
 
     public boolean adminCheck(String username, String password) {
+
         // Add initial project function
         int i;
         for (i=1;i<=10; i++) {

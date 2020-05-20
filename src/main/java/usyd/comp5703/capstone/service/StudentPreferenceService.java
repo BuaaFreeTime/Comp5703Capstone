@@ -6,6 +6,8 @@ import usyd.comp5703.capstone.dao.StudentDao;
 import usyd.comp5703.capstone.dao.StudentPreferenceDao;
 import usyd.comp5703.capstone.entity.StudentPreferenceEntity;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -15,7 +17,7 @@ public class StudentPreferenceService {
     @Autowired
     StudentDao studentDao;
 
-    public void addPreference(String sid, String p1, String p2, String p3){
+    public void addPreference(String sid, String p1, String p2, String p3, String semester){
         String name = studentDao.getStudent(sid).getName();
         StudentPreferenceEntity studentPreferenceEntity = new StudentPreferenceEntity();
         studentPreferenceEntity.setFirst(p1);
@@ -23,6 +25,11 @@ public class StudentPreferenceService {
         studentPreferenceEntity.setThird(p3);
         studentPreferenceEntity.setSid(sid);
         studentPreferenceEntity.setName(name);
+        Date current = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
+        String currentDate = formatter.format(current);
+        studentPreferenceEntity.setTime(currentDate);
+        studentPreferenceEntity.setSemester(semester);
         studentPreferenceDao.addStudentPreference(studentPreferenceEntity);
     }
 

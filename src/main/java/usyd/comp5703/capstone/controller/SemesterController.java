@@ -21,6 +21,7 @@ public class SemesterController {
     @RequestMapping(value = {"/projectsemester"})
     public String projectSemester(Model model) {
         List<SemesterEntity> semesterEntities = semesterService.getAllSemester();
+        System.out.println(semesterEntities.size());
         model.addAttribute("semesters", semesterEntities);
         return "projectsemester";
     }

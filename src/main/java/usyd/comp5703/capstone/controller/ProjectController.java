@@ -89,7 +89,8 @@ public class ProjectController {
         model.addAttribute("project2s", projectEntityList);
         model.addAttribute("project3s", projectEntityList);
         //String userId = session.getAttribute("user").toString();
-        studentPreferenceService.addPreference("student1", firstChoice,secondChoice,thirdChoice);
+        //String userSem = session.getAttribute("semester").toString();
+        studentPreferenceService.addPreference("student1", firstChoice,secondChoice,thirdChoice, "2020 Semester 1");
         return "/ProjectPreference";
     }
 
