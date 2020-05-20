@@ -87,6 +87,7 @@ public class LoginService {
     }
 
     public boolean adminCheck(String username, String password) {
+
         // Add initial project function
         int i;
         for (i=1;i<=10; i++) {
