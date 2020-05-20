@@ -36,6 +36,11 @@ public class ProjectDao {
         hopperUpdates.put(pid+"/Gnumber", gnum);
         projectRef.updateChildrenAsync(hopperUpdates);
     }
+    public void updateApprove(String pid, String state){
+        Map<String, Object> hopperUpdates = new HashMap<>();
+        hopperUpdates.put(pid+"/approve", state);
+        projectRef.updateChildrenAsync(hopperUpdates);
+    }
 
     public ProjectEntity getMyproject(String id){
         final ProjectEntity projectEntity = new ProjectEntity();
