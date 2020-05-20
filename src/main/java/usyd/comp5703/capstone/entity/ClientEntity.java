@@ -5,6 +5,7 @@ public class ClientEntity {
     String name;
     String email;
     String age;
+    String semester;
 
     public ClientEntity(){
     }
@@ -14,6 +15,14 @@ public class ClientEntity {
         this.name = name;
         this.email = email;
         this.age = age;
+    }
+
+    public void setSemester(String semester) {
+        this.semester = semester;
+    }
+
+    public String getSemester() {
+        return semester;
     }
 
     public void setEmail(String email) {

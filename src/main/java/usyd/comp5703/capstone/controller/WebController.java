@@ -78,12 +78,4 @@ public class WebController {
     @RequestMapping(value = {"/Register", "/register.html"})
     public String Register() { return "register"; }
 
-    @RequestMapping(value = {"/Marks-client", "/marks-client"})
-    public String MarksClient() { return "Marks-client"; }
-
-    @RequestMapping(value = {"/projectsemester"})
-    public String ProjectSemester() { return "projectsemester"; }
-
-    @RequestMapping(value = {"/createsemester"})
-    public String CreateSemester() { return "createsemester"; }
 }

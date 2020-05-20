@@ -14,7 +14,7 @@ public class GroupEntity {
     String presentation;
     String projectid;
     String clientid;
-
+    String semester;
 
 
     public GroupEntity(String id){
@@ -34,9 +34,16 @@ public class GroupEntity {
         this.student4 = s4;
         this.student5 = s5;
         this.marks = "0";
-        this.presentation = "0";
         this.projectid = pid;
         this.clientid = cid;
+    }
+
+    public String getSemester() {
+        return semester;
+    }
+
+    public void setSemester(String semester) {
+        this.semester = semester;
     }
 
     public String getPresentation() {

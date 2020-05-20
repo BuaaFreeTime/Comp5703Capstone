@@ -7,6 +7,7 @@ public class StudentEntity {
     String age;
     String groupId;
     String projectId;
+    String semester;
 
     public StudentEntity(){
     }
@@ -18,6 +19,14 @@ public class StudentEntity {
         this.age = age;
         this.groupId = gid;
         this.projectId = pid;
+    }
+
+    public String getSemester() {
+        return semester;
+    }
+
+    public void setSemester(String semester) {
+        this.semester = semester;
     }
 
     public String getName() {

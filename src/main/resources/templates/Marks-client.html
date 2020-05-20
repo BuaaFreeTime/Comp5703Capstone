@@ -163,7 +163,7 @@
 							<div class="card-body">
 								<div class="table-responsive">
 									<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-										<form action="/clientmarking" method="post">
+
 											<thead>
 												<tr>
 													<th>Group ID</th>
@@ -177,18 +177,20 @@
 											</thead>
 											<tbody>
 												<tr th:each="group:${groups}">
-													<td th:text="${group.id}"></td>
-													<td><input name="Proposal" class="form-control" style="width: auto;height: auto;" ></td>
-													<td><input name="Progress" class="form-control" style="width: auto;height: auto;" ></td>
-													<td><input name="Final" class="form-control" style="width: auto;height: auto;" ></td>
-													<td><input name="Presentation" class="form-control" style="width: auto;height: auto;" ></td>
-													<td><input name="Feedback" class="form-control" style="width: auto;height: auto;" ></td>
-													<td>
-														<button type="submit"  class="btn btn-primary btn-icon-split"><span class="text">Calculate</span></button>
-													</td>
+													<form action="/clientmarking" method="post">
+														<td th:text="${group.id}"></td>
+														<td><input name="Proposal" class="form-control" style="width: auto;height: auto;" ></td>
+														<td><input name="Progress" class="form-control" style="width: auto;height: auto;" ></td>
+														<td><input name="Final" class="form-control" style="width: auto;height: auto;" ></td>
+														<td><input name="Presentation" class="form-control" style="width: auto;height: auto;" ></td>
+														<td><input name="Feedback" class="form-control" style="width: auto;height: auto;" ></td>
+														<td>
+															<button type="submit"  class="btn btn-primary btn-icon-split"><span class="text">Calculate</span></button>
+														</td>
+													</form>
 												</tr>
 											</tbody>
-										</form>
+
 									</table>
 								</div>
 							</div>
