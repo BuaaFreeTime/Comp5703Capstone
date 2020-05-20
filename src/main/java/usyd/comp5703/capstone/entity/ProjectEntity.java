@@ -14,6 +14,7 @@ public class ProjectEntity {
     String Gnumber;
     String semester;
     String approve;
+    String feedback;
 
     public ProjectEntity(){}
 
@@ -30,6 +31,7 @@ public class ProjectEntity {
             this.Gnumber = "4";
             this.approve = "no";
             this.semester = "2020 Semester 1";
+            this.feedback = "";
         }
         if (Integer.valueOf(id) % 3 == 1) {
             this.unit = "Comp5708";
@@ -42,6 +44,7 @@ public class ProjectEntity {
             this.Gnumber = "4";
             this.approve = "no";
             this.semester = "2020 Semester 1";
+            this.feedback = "";
         }
         if (Integer.valueOf(id) % 3 == 2) {
             this.unit = "Comp5707";
@@ -54,6 +57,7 @@ public class ProjectEntity {
             this.clientid = "client1";
             this.approve = "no";
             this.semester = "2020 Semester 1";
+            this.feedback = "";
         }
     }
 

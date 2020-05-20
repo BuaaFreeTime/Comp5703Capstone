@@ -29,7 +29,6 @@ public class DashboardController {
         //String sid = session.getAttribute("user").toString();
         GroupEntity groupEntity = groupService.getMygroup("student1");
         ProjectEntity projectEntity = projectService.getMyproject("student1");
-
         if (groupEntity!=null && projectEntity!=null) {
             String[] strArr = groupEntity.getPresentation().split("T");
             if (strArr.length==1) {map.put("presentTime", "Not yet set"); }

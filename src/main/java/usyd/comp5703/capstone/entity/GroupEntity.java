@@ -36,6 +36,7 @@ public class GroupEntity {
         this.marks = "0";
         this.projectid = pid;
         this.clientid = cid;
+        this.presentation = "Not yet set";
     }
 
     public String getSemester() {
