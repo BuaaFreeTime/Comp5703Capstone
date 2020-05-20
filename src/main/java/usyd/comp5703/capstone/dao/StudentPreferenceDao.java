@@ -24,7 +24,7 @@ public class StudentPreferenceDao {
     public List<StudentPreferenceEntity> getAllPreference(){
         final List<StudentPreferenceEntity> studentPreferenceEntityList = new ArrayList<>();
         final CountDownLatch readData = new CountDownLatch(50);
-        preferenceRef.orderByChild("sid").addChildEventListener(new ChildEventListener() {
+        preferenceRef.orderByChild("time").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
                 studentPreferenceEntityList.add(dataSnapshot.getValue(StudentPreferenceEntity.class));

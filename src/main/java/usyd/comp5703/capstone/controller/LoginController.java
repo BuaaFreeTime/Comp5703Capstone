@@ -58,7 +58,7 @@ public class LoginController {
         loginCheck = loginService.adminCheck(username, password);
         if (loginCheck) {
             session.setAttribute("user", username);
-            return "projectsemester";
+            return "redirect:/projectsemester";
         }
         else {
             map.put("msg","wrong adminID or password");

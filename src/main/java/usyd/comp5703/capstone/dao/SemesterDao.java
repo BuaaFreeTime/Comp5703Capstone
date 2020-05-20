@@ -24,7 +24,7 @@ public class SemesterDao {
     //Get All
     public List<SemesterEntity> getAllSemester(){
         final List<SemesterEntity> semesters = new ArrayList<>();
-        final CountDownLatch readData = new CountDownLatch(1);
+        final CountDownLatch readData = new CountDownLatch(3);
         semesterRef.orderByChild("name").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
