@@ -61,6 +61,14 @@ public class ProjectEntity {
         }
     }
 
+    public void setFeedback(String feedback) {
+        this.feedback = feedback;
+    }
+
+    public String getFeedback() {
+        return feedback;
+    }
+
     public void setApprove(String approve) {
         this.approve = approve;
     }
