@@ -46,7 +46,7 @@
                                             <select data-plugin-selectTwo class="form-control populate" name="ST"  th:value="${ST}" >
                                             <optgroup label="Project Semester"> 
                                                 <option th:each="semester:${semesters}"
-													th:selected="$${ST}=={semester.time}"
+													th:selected="${ST}==${semester.time}"
 													th:value="${semester.time}"
 													th:text="${semester.time}">
 											</option>
