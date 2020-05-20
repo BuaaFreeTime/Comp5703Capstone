@@ -87,14 +87,14 @@ public class LoginService {
     }
 
     public boolean adminCheck(String username, String password) {
-
+/*
         // Add initial project function
         int i;
         for (i=1;i<=10; i++) {
             ProjectEntity projectEntity = new ProjectEntity(Integer.toString(i));
             projectDao.addProject(projectEntity);
         }
-
+*/
 
         if ((username.equals("admin")) && (password.equals("1"))) {
             return true;
