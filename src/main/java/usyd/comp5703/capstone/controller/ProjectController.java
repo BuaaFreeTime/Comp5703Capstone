@@ -34,10 +34,9 @@ public class ProjectController {
     }
 
     @PostMapping(value = {"/changeApprove"})
-    public String changeApprove(@RequestParam("state") String state,
-                                    @RequestParam("pid") String pid) {
-        if (!state.equals("") && !pid.equals("")) {
-            projectService.updateApprove(pid,state);
+    public String changeApprove(@RequestParam("pid") String pid) {
+        if (!pid.equals("")) {
+            projectService.updateApprove(pid);
         }
         return "redirect:/projectinformation";
 
