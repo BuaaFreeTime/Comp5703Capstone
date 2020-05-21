@@ -205,18 +205,18 @@
                                     <td>11/100</td>
                                     <form action="/changeApprove" method="post">
                                         <td>
-                                            <a href="#" class="btn btn-primary btn-icon-split"
-                                               style="margin: 0.1rem;"><span class="text">Update</span></a>
-                                            <a style="margin: 0.1rem;" href="#"
-                                               class="btn btn-primary btn-icon-split"><span
-                                                    class="text">Delete</span></a>
-                                            <button type="submit" class="btn btn-primary btn-icon-split"
+                                            <button type="submit" class="btn btn-primary btn-icon-split" th:if="${project.approve} eq 'no'"
                                                     style="margin: 0.1rem;"><span class="text">Approve</span></button>
                                             <input type="hidden" name="pid" th:value="${project.id}"
                                                    class="AddInput form-control"/>
-                                            <a style="margin: 0.1rem;" href="#"
+                                            <button href="#" class="btn btn-primary btn-icon-split"
+                                               style="margin: 0.1rem;"><span class="text">Update</span></button>
+                                            <button style="margin: 0.1rem;" href="#"
                                                class="btn btn-primary btn-icon-split"><span
-                                                    class="text">Deny</span></a>
+                                                    class="text">Delete</span></button>
+                                            <button style="margin: 0.1rem;" href="#"
+                                               class="btn btn-primary btn-icon-split"><span
+                                                    class="text">Deny</span></button>
                                         </td>
                                     </form>
                                 </tr>
