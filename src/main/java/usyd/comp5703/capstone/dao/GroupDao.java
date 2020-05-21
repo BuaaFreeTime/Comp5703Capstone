@@ -111,15 +111,16 @@ public class GroupDao {
     }
 
     // Get all student in project
-    public List<String> getStudentInProject(String cid){
+    public List<String> getStudentInProject(String cid, final String ppid){
         final List<String> students = new ArrayList<>();
         final String client = cid;
+        final String approve = ppid;
         final CountDownLatch readData = new CountDownLatch(1);
         groupRef.orderByChild("id").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
                 GroupEntity groupEntity = dataSnapshot.getValue(GroupEntity.class);
-                if (groupEntity.getClientid().equals(client)) {
+                if (groupEntity.getClientid().equals(client) && approve.contains(groupEntity.getProjectid())) {
                     students.add(groupEntity.getStudent1());
                     students.add(groupEntity.getStudent2());
                     students.add(groupEntity.getStudent3());

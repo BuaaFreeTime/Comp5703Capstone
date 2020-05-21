@@ -153,7 +153,12 @@ public class GroupService {
 
     public List<String> getStudentsInProject(String cid) {
         //groupDao.updateClient("x","x");
-        List<String> students = groupDao.getStudentInProject(cid);
+        String ppid = "";
+        List<ProjectEntity> projectEntityList = projectDao.getAllprojectClient(cid);
+        for (ProjectEntity i:projectEntityList) {
+            if (i.getApprove().equals("yes")) ppid = ppid + "," + i.getId();
+        }
+        List<String> students = groupDao.getStudentInProject(cid, ppid);
         return students;
     }
 

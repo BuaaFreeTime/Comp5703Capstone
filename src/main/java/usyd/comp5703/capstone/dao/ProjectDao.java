@@ -105,10 +105,10 @@ public class ProjectDao {
         return projectEntityList;
     }
 
-    public List<ProjectEntity> getAllprojectClient(final String cid){
+    public List<ProjectEntity> getAllprojectClient(String cid){
         final List<ProjectEntity> projectEntityList = new ArrayList<>();
         final String client = cid;
-        final CountDownLatch readData = new CountDownLatch(1);
+        final CountDownLatch readData = new CountDownLatch(6);
         projectRef.orderByChild("id").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {

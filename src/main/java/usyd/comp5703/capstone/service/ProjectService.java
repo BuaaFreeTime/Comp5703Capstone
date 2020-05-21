@@ -12,6 +12,7 @@ import usyd.comp5703.capstone.entity.GroupEntity;
 import usyd.comp5703.capstone.entity.ProjectEntity;
 import usyd.comp5703.capstone.entity.StudentEntity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -58,6 +59,17 @@ public class ProjectService {
         List<ProjectEntity> projectEntityList;
         projectEntityList = projectDao.getAllprojectClient(cid);
         return projectEntityList;
+    }
+
+    public List<ProjectEntity> getAllApproveProjectClient(String cid) {
+        //projectDao.updateGroupClient(cid);
+        List<ProjectEntity> projectEntityList;
+        projectEntityList = projectDao.getAllprojectClient(cid);
+        List<ProjectEntity> projectEntityApproveList = new ArrayList<>();
+        for (ProjectEntity i:projectEntityList) {
+            if (i.getApprove().equals("yes")) projectEntityApproveList.add(i);
+        }
+        return projectEntityApproveList;
     }
 
     public void addProject(String unit, String type, String name, String description, String clientid, String tutor){

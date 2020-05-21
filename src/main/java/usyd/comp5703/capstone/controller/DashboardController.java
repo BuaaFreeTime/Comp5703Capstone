@@ -41,7 +41,7 @@ public class DashboardController {
     @RequestMapping(value = {"/index-client"})
     public String clientDashboard(Map<String, Object> map) {
         //String sid = session.getAttribute("user").toString();
-        List<ProjectEntity> projectEntityList = projectService.getAllProjectClient("client1");
+        List<ProjectEntity> projectEntityList = projectService.getAllApproveProjectClient("client1");
         map.put("projects", projectEntityList);
         return "index-client";
     }
