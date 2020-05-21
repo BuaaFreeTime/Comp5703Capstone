@@ -129,6 +129,13 @@ public class GroupService {
         return groupEntity.getMarks();
     }
 
+    public String getFeedback(String sid) {
+        StudentEntity studentEntity = studentDao.getStudent(sid);
+        String gid = studentEntity.getGroupId();
+        if (gid.equals("")) return "Not yet feedback";
+        GroupEntity groupEntity = groupDao.getMygroup(gid);
+        return groupEntity.getFeedback();
+    }
 
     public List<GroupEntity> getAllgroup() {
         List<GroupEntity> groupEntityList;

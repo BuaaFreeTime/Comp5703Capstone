@@ -17,6 +17,7 @@ public class MarkingService {
         marks = marks + Integer.valueOf(Report.split(",")[0]) + Integer.valueOf(presentation.split(",")[0]);
         marks = marks / 4;
         groupDao.updateMarks(id, String.valueOf(marks));
+        if (!feedback.equals("")) groupDao.updateFeedback(id, feedback);
     }
 
     public List<String> getMarkingName(String cid){

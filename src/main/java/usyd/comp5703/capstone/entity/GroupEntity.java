@@ -15,6 +15,7 @@ public class GroupEntity {
     String projectid;
     String clientid;
     String semester;
+    String feedback;
 
 
     public GroupEntity(String id){
@@ -37,6 +38,15 @@ public class GroupEntity {
         this.projectid = pid;
         this.clientid = cid;
         this.presentation = "Not yet set";
+        this.feedback = "Not yet feedback";
+    }
+
+    public void setFeedback(String feedback) {
+        this.feedback = feedback;
+    }
+
+    public String getFeedback() {
+        return feedback;
     }
 
     public String getSemester() {

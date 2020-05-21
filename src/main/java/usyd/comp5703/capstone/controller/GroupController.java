@@ -25,7 +25,9 @@ public class GroupController {
     public String studentMarks(HttpSession session, Map<String, Object> map) {
         //String sid = session.getAttribute("user").toString();
         String marks = groupService.getMarks("student1");
+        String feedback =  groupService.getFeedback("student1");
         map.put("score", marks);
+        map.put("feedback", feedback);
         return "Marks";
     }
 

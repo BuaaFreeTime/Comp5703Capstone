@@ -43,6 +43,12 @@ public class GroupDao {
         groupRef.updateChildrenAsync(hopperUpdates);
     }
 
+    public void updateFeedback(String groupId, String feedback){
+        Map<String, Object> hopperUpdates = new HashMap<>();
+        hopperUpdates.put(groupId+"/feedback", feedback);
+        groupRef.updateChildrenAsync(hopperUpdates);
+    }
+
     // Get all group's name
     public List<String> getMarkingName(String cid){
         final List<String> groups = new ArrayList<>();
@@ -197,6 +203,7 @@ public class GroupDao {
                     groupEntity.setStudent4(myGroup.getStudent4());
                     groupEntity.setStudent5(myGroup.getStudent5());
                     groupEntity.setMarks(myGroup.getMarks());
+                    groupEntity.setFeedback(myGroup.getFeedback());
                     groupEntity.setPresentation(myGroup.getPresentation());
                     readData.countDown();
                 }
