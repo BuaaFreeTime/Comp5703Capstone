@@ -41,7 +41,7 @@ public class LoginController {
         loginCheck = loginService.clientCheck(username, password);
         if (loginCheck) {
             session.setAttribute("user", username);
-            return "redirect:/index-client";
+            return "redirect:/projectsemester-client";
         }
         else {
             map.put("msg","wrong clientID or password");

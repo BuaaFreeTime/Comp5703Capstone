@@ -26,6 +26,15 @@ public class SemesterController {
         return "projectsemester";
     }
 
+    @RequestMapping(value = {"/projectsemester-client"})
+    public String projectclientSemester(Model model) {
+        List<SemesterEntity> semesterEntities = semesterService.getAllSemester();
+        System.out.println(semesterEntities.size());
+        model.addAttribute("semesters", semesterEntities);
+        return "projectsemester-client";
+    }
+
+
     @PostMapping("/semester/login")
     public String loginSemester(@RequestParam("ST") String semester,
                                 HttpSession session){
@@ -33,6 +42,12 @@ public class SemesterController {
         return "redirect:/index-admin";
     }
 
+    @PostMapping("/semester-client/login")
+    public String loginClientSemester(@RequestParam("ST") String semester,
+                                HttpSession session){
+        session.setAttribute("semester",semester);
+        return "redirect:/index-client";
+    }
 
 
     @RequestMapping(value = {"/createsemester"})
