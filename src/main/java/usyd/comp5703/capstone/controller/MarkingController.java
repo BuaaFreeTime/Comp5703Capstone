@@ -34,9 +34,10 @@ public class MarkingController {
                                 @RequestParam("Progress") String progress,
                                 @RequestParam("Final") String report,
                                 @RequestParam("Presentation") String presentation,
+                                @RequestParam("Feedback") String feedback,
                                 Model model, HttpSession session) {
         //String cid = session.getAttribute("user").toString();
-        markingService.updateMarksClient("1", proposal, progress, report, presentation);
+        markingService.updateMarksClient("1", proposal, progress, report, presentation, feedback);
         return "redirect:marks-client";
     }
 
