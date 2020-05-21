@@ -164,7 +164,12 @@ public class GroupService {
 
 
     public List<GroupEntity> getPresentationClient(String cid) {
-        List<GroupEntity> groups = groupDao.getPresentationClient(cid);
+        String ppid = "";
+        List<ProjectEntity> projectEntityList = projectDao.getAllprojectClient(cid);
+        for (ProjectEntity i:projectEntityList) {
+            if (i.getApprove().equals("yes")) ppid = ppid + "," + i.getId();
+        }
+        List<GroupEntity> groups = groupDao.getPresentationClient(cid, ppid);
         return groups;
     }
 

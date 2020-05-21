@@ -76,15 +76,16 @@ public class GroupDao {
     }
 
     // Get all group's time
-    public List<GroupEntity> getPresentationClient(String cid){
+    public List<GroupEntity> getPresentationClient(String cid, String ppid){
         final List<GroupEntity> groups = new ArrayList<>();
         final String client = cid;
+        final String approve = ppid;
         final CountDownLatch readData = new CountDownLatch(1);
         groupRef.orderByChild("id").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
                 GroupEntity groupEntity = dataSnapshot.getValue(GroupEntity.class);
-                if (groupEntity.getClientid().equals(client)) {
+                if (groupEntity.getClientid().equals(client)&& approve.contains(groupEntity.getProjectid())) {
                     GroupEntity group = dataSnapshot.getValue(GroupEntity.class);
                     String [] time = group.getPresentation().split("T");
                     if (time.length==1) {group.setPresentation("Not yet set");}
