@@ -124,4 +124,16 @@ public class ProjectController {
        return "redirect:/projectinformation";
     }
 
+    @PostMapping(value = {"/addproject-client"})
+    public String addProjectClient(@RequestParam("unit") String unit,
+                             @RequestParam("type") String type,
+                             @RequestParam("name") String name,
+                             @RequestParam("description") String description,
+                             @RequestParam("clientid") String clientid,
+                             @RequestParam("tutor") String tutor,
+                             Model model) {
+        projectService.addProject(unit, type, name, description, clientid, tutor);
+        return "redirect:/myprojects-client";
+
+    }
 }

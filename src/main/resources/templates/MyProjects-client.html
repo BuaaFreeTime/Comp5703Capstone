@@ -225,23 +225,26 @@
 
 										</tbody>
 										<tfoot>
+										<form action="/addproject-client" method="post">
 											<tr>
-												<td><input class="AddInput form-control" /></td>
-												<td><input class="AddInput form-control" /></td>
-												<td><input class="AddInput form-control" /></td>
-												<td><input class="AddInput form-control" /></td>
+												<td><input name="unit" class="AddInput form-control"/></td>
+												<td><input name="type" class="AddInput form-control"/></td>
+												<td><input name="name" class="AddInput form-control"/></td>
+												<td><input name="description" class="AddInput form-control"/></td>
 												<td style="text-align: center;">
-													<label type="button" class="btn-upload">
-														<span>Upload</span>
-														<input type="file">
-													</label>
+													<a href="#" class="btn btn-primary btn-icon-split"><span
+															class="text">Upload</span></a>
 												</td>
-												<td><input class="AddInput form-control" /></td>
-												<td><input class="AddInput form-control" /></td>
+												<td><input name="tutor" class="AddInput form-control"/></td>
+												<td><input name="capacity" class="AddInput form-control"/></td>
+												<!--td><input class="AddInput form-control" /></td-->
 												<td style="text-align: center;word-break: keep-all;">
-													<a style="width: 100%;" href="#" class="btn btn-primary btn-icon-split"><span class="text">Add</span></a>
+													<button style="" type="submit" class="btn btn-primary btn-icon-split"><span
+															class="text">Add</span></button>
+												<td><input type="hidden" name="clientid" class="AddInput form-control"/></td>
 												</td>
 											</tr>
+										</form>
 										</tfoot>
 									</table>
 								</div>
