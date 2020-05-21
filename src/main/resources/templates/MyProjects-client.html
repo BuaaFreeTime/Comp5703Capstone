@@ -218,7 +218,7 @@
 														<input type="hidden" name="pid" th:value="${project.id}" class="AddInput form-control" />
 													</td>
 													<td style="text-align: center;">
-														<button type="submit" class="btn btn-primary btn-icon-split" style="margin-bottom: 0.2rem;width: 100%;"><span class="text">Update</span></button><!--br /><a style="width: 100%;" href="#" class="btn btn-primary btn-icon-split"><span class="text">Delete</span></a-->
+														<button type="submit" class="btn btn-primary btn-icon-split" th:if="${project.approve} eq 'no'" style="margin-bottom: 0.2rem;width: 100%;"><span class="text">Update</span></button><!--br /><a style="width: 100%;" href="#" class="btn btn-primary btn-icon-split"><span class="text">Delete</span></a-->
 													</td>
 												</form>
 											</tr>

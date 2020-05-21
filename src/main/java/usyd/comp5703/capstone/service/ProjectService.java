@@ -27,6 +27,10 @@ public class ProjectService {
     public void updateGnum(String pid, String gnum) {
         projectDao.updateGroupNumber(pid,gnum);
     }
+    public void updateApprove(String pid, String state) {
+        state = "yes";
+        projectDao.updateApprove(pid,state);
+    }
     public ProjectEntity getMyproject(String sid) {
         /*
         myprojectEntity.setUnit("Comp5703");

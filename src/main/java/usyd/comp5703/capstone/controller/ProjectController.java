@@ -33,6 +33,16 @@ public class ProjectController {
 
     }
 
+    @PostMapping(value = {"/changeApprove"})
+    public String changeApprove(@RequestParam("state") String state,
+                                    @RequestParam("pid") String pid) {
+        if (!state.equals("") && !pid.equals("")) {
+            projectService.updateApprove(pid,state);
+        }
+        return "redirect:/projectinformation";
+
+    }
+
     @RequestMapping(value = {"/myproject"})
     public String studentMyproject(HttpSession session, Map<String,Object> map) {
         //String sid = session.getAttribute("user").toString();
