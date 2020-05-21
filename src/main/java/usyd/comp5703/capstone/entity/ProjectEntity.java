@@ -16,7 +16,12 @@ public class ProjectEntity {
     String approve;
     String feedback;
 
-    public ProjectEntity(){}
+    public ProjectEntity(){
+        this.Gnumber = "4";
+        this.approve = "no";
+        this.semester = "2020 Semester 1";
+        this.feedback = "";
+    }
 
     public ProjectEntity(String id) {
         this.id = id;
