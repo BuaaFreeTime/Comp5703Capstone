@@ -179,8 +179,8 @@
 
                 <!-- Page Heading -->
                 <h1 class="h3 mb-2 text-gray-800">Marks</h1>
-                <p class="mb-4">Final Mark = Total*Individual</p>
-
+                <p class="mb-4">Final Mark = Proposal Report Mark + Progress Report Mark + Final Report Mark + Presentation Mark</p>
+                <p class="mb-4">Each part = (grade of part/total grade of part)*100*(weight of part)(%)
                 <div class="card shadow mb-4">
                     <div class="card-body">
                         <div class="table-responsive">
@@ -188,11 +188,7 @@
                                 <thead>
                                 <tr>
                                     <th>Unit</th>
-                                    <th>Proposal Report Mark(%)</th>
-                                    <th>Progress Report Mark(%)</th>
-                                    <th>Final Report Mark(%)</th>
-                                    <th>Presentation Mark(%)</th>
-                                    <th>Individual Mark(%)</th>
+                                    <th>Project Name</th>
                                     <th>Feedback</th>
                                 </tr>
                                 </thead>
@@ -200,11 +196,7 @@
                                 <tbody>
                                 <tr>
                                     <td>COMP5708</td>
-                                    <td>15</td>
-                                    <td>30</td>
-                                    <td>40</td>
-                                    <td>15</td>
-                                    <td>100</td>
+                                    <td>project1</td>
                                     <td th:text="${feedback}"></td>
                                 </tr>
                                 </tbody>
@@ -219,7 +211,7 @@
                         <div class="card shadow mb-4">
                             <!-- Card Header - Dropdown -->
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">CAPSTONE PM</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">FINAL MARK</h6>
                             </div>
                             <!-- Card Body -->
                             <div class="card-body">

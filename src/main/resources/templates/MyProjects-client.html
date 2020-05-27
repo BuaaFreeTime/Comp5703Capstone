@@ -196,7 +196,7 @@
 												<th>Project Type</th>
 												<th>Project Name</th>
 												<th>Project Description</th>
-												<th>Instruction</th>
+												<th>Instruction(upload detail pdf/doc)</th>
 												<th>Capacity(Groups)</th>
 												<th>Action</th>
 											</tr>
@@ -230,8 +230,19 @@
 										<tfoot>
 										<form action="/addproject-client" method="post">
 											<tr>
-												<td><input name="unit" class="AddInput form-control"/></td>
-												<td><input name="type" class="AddInput form-control"/></td>
+												<td><select name="unit" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+													<option value="">Please select</option>
+													<option value="5703">5703</option>
+													<option value="5707">5707</option>
+													<option value="5708">5708</option>
+													<option value="5709">5709</option>
+												</select></td>
+												<td><select name="type" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+													<option value="">Please select</option>
+													<option value="Information System">Information System</option>
+													<option value="Software Engineering">Software Engineering</option>
+													<option value="Data Science">Data Science</option>
+												</select></td>
 												<td><input name="name" class="AddInput form-control"/></td>
 												<td><input name="description" class="AddInput form-control"/></td>
 												<td style="text-align: center;">
