@@ -30,14 +30,10 @@ public class MarkingController {
     }
 
     @PostMapping(value = {"/clientmarking"})
-    public String markingClient(@RequestParam("Proposal") String proposal,
-                                @RequestParam("Progress") String progress,
-                                @RequestParam("Final") String report,
-                                @RequestParam("Presentation") String presentation,
-                                @RequestParam("Feedback") String feedback,
+    public String markingClient(@RequestParam("Feedback") String feedback,
                                 Model model, HttpSession session) {
         //String cid = session.getAttribute("user").toString();
-        markingService.updateMarksClient("1", proposal, progress, report, presentation, feedback);
+        markingService.updateMarksClient("1",  feedback);
         return "redirect:marks-client";
     }
 

@@ -94,7 +94,7 @@
 				<li class="nav-item">
 					<a class="nav-link" href="/marks-client">
 						<i class="fas fa-fw fa-cog"></i>
-						<span>Marks</span>
+						<span>Feedback</span>
 					</a>
 				</li>
 
@@ -155,8 +155,8 @@
 					<div class="container-fluid">
 
 						<!-- Page Heading -->
-						<h1 class="h3 mb-2 text-gray-800">Marks</h1>
-						<p class="mb-4">Grade your students</p>
+						<h1 class="h3 mb-2 text-gray-800">Feedback</h1>
+						<p class="mb-4">Give the Feedback </p>
 
 						<!-- DataTales Example -->
 						<div class="card shadow mb-4">
@@ -167,25 +167,17 @@
 											<thead>
 												<tr>
 													<th>Group ID</th>
-													<th>Proposal Report Mark</th>
-													<th>Progress Report Mark</th>
-													<th>Final Report Mark</th>
-													<th>Presentation Mark</th>
 													<th>Feedback</th>
-													<th>Calculate</th>
+													<th>Submit</th>
 												</tr>
 											</thead>
 											<tbody>
 												<tr th:each="group:${groups}">
 													<form action="/clientmarking" method="post">
 														<td th:text="${group.id}"></td>
-														<td><input name="Proposal" class="form-control" style="width: auto;height: auto;" ></td>
-														<td><input name="Progress" class="form-control" style="width: auto;height: auto;" ></td>
-														<td><input name="Final" class="form-control" style="width: auto;height: auto;" ></td>
-														<td><input name="Presentation" class="form-control" style="width: auto;height: auto;" ></td>
 														<td><input name="Feedback" class="form-control" style="width: auto;height: auto;" ></td>
 														<td>
-															<button type="submit"  class="btn btn-primary btn-icon-split"><span class="text">Calculate</span></button>
+															<button type="submit"  class="btn btn-primary btn-icon-split"><span class="text">Submit</span></button>
 														</td>
 													</form>
 												</tr>

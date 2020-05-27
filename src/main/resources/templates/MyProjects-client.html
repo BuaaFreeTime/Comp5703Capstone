@@ -121,7 +121,7 @@
 				<li class="nav-item">
 					<a class="nav-link" href="/marks-client">
 						<i class="fas fa-fw fa-cog"></i>
-						<span>Marks</span>
+						<span>Feedback</span>
 					</a>
 				</li>
 
@@ -197,7 +197,6 @@
 												<th>Project Name</th>
 												<th>Project Description</th>
 												<th>Instruction</th>
-												<th>Tutor</th>
 												<th>Capacity(Groups)</th>
 												<th>Action</th>
 											</tr>
@@ -208,10 +207,14 @@
 												<td th:text="${project.type}"></td>
 												<td th:text="${project.name}"></td>
 												<td th:text="${project.description}"></td>
-												<td>
-													<input id="upload" type="file" class="file text-center"  name="file" data-show-preview="false"  />
+												<td style="text-align: center;">
+													<label type="button" class="btn-upload">
+														<span>Upload</span>
+														<input type="file">
+													</label>
 												</td>
-												<td th:text="${project.tutor}"></td>
+
+
 												<form action="/changeGnum" method="post">
 													<td>
 														<input name="gnumber" class="AddInput form-control" />
@@ -235,7 +238,6 @@
 													<a href="#" class="btn btn-primary btn-icon-split"><span
 															class="text">Upload</span></a>
 												</td>
-												<td><input name="tutor" class="AddInput form-control"/></td>
 												<td><input name="capacity" class="AddInput form-control"/></td>
 												<!--td><input class="AddInput form-control" /></td-->
 												<td style="text-align: center;word-break: keep-all;">

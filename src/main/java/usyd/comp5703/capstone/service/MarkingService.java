@@ -11,12 +11,8 @@ public class MarkingService {
     @Autowired
     GroupDao groupDao;
 
-    public void updateMarksClient(String id, String proposal, String progress, String Report,String presentation, String feedback) {
-        int marks = 0;
-        marks = Integer.valueOf(proposal.split(",")[0]) + Integer.valueOf(progress.split(",")[0]);
-        marks = marks + Integer.valueOf(Report.split(",")[0]) + Integer.valueOf(presentation.split(",")[0]);
-        marks = marks / 4;
-        groupDao.updateMarks(id, String.valueOf(marks));
+    public void updateMarksClient(String id,  String feedback) {
+
         if (!feedback.equals("")) groupDao.updateFeedback(id, feedback);
     }
 

@@ -36,12 +36,7 @@ public class GroupDao {
         groupRef.updateChildrenAsync(hopperUpdates);
     }
 
-    // update client
-    public void updateMarks(String groupId, String marks){
-        Map<String, Object> hopperUpdates = new HashMap<>();
-        hopperUpdates.put(groupId+"/marks", marks);
-        groupRef.updateChildrenAsync(hopperUpdates);
-    }
+
 
     public void updateFeedback(String groupId, String feedback){
         Map<String, Object> hopperUpdates = new HashMap<>();
