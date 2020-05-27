@@ -65,7 +65,7 @@
 							<h6 class="collapse-header">Management:</h6>
 							<!--a class="collapse-item" href="/proposedprojects">Proposed Projects</a-->
 							<a class="collapse-item" href="/projectinformation">Project Information</a>
-							<a class="collapse-item" href="/uploadstudentinfo">Upload Student Info</a>
+							<a class="collapse-item" href="/uploadstudentinfo">Upload  Info</a>
 							<a class="collapse-item" href="/studentgroup">Student Group</a>
 							<a class="collapse-item" href="/studentpreferences">Student Preferences</a>
 							<a class="collapse-item" href="Presentation">Presentation</a>
@@ -166,40 +166,70 @@
 					<div class="container-fluid">
 
 						<!-- Page Heading -->
-						<h1 class="h3 mb-2 text-gray-800">Upload Student Info</h1>
+						<h1 class="h3 mb-2 text-gray-800">Upload  Info</h1>
 
 						<!-- DataTales Example -->
 						<div class="card shadow mb-4" style="width: 100%;">
 							<div class="card-body">
 								<div class="table-responsive">
-									<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+									<table class="table table-bordered" id="uploadTable" width="100%" cellspacing="0">
 										<thead>
 											<tr>
-												<th>Student Name</th>
-												<th>Student ID</th>
-												<th>Student Age</th>
-												<th>Student Email</th>
-												<th>Group id</th>
-												<th>project id</th>
-												<th>Action</th>
-											</tr>
+												<th>Upload Student List</th>
+												<th>Upload Client List</th>
+												</tr>
 										</thead>
 										<tfoot>
 											<form action="/addstudent" method="post">
 												<tr>
-													<td><input name="name" class="AddInput form-control" /></td>
-													<td><input name="sid" class="AddInput form-control" /></td>
-													<td><input name="age" class="AddInput form-control" /></td>
-													<td><input name="email" class="AddInput form-control" /></td>
-													<td><input name="groupId" class="AddInput form-control" /></td>
-													<td><input name="projectId" class="AddInput form-control" /></td>
-													<td style="text-align: center;word-break: keep-all;">
-														<button type="submit"  class="btn btn-primary btn-icon-split"><span class="text">Add</span></button>
+													<td style="text-align: center;">
+														<label type="button" class="btn-upload">
+															<span>Upload Excel</span>
+															<input type="file">
+														</label>
 													</td>
-												</tr>
+													<td style="text-align: center;">
+														<label type="button" class="btn-upload">
+															<span>Upload Excel</span>
+															<input type="file">
+														</label>
+													</td>
+													</tr>
 											</form>
 										</tfoot>
 									</table>
+
+								</div>
+							</div>
+						</div>
+						<div class="card shadow mb-4" style="width: 100%;">
+							<div class="card-body">
+								<div class="table-responsive">
+									<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+										<thead>
+										<tr>
+											<th>Student Name</th>
+											<th>Student ID</th>
+											<th>Student Email</th>
+											<th>project id</th>
+											<th>Action</th>
+										</tr>
+										</thead>
+										<tfoot>
+										<form action="/addstudent" method="post">
+											<tr>
+												<td><input name="name" class="AddInput form-control" /></td>
+												<td><input name="sid" class="AddInput form-control" /></td>
+												<td><input name="email" class="AddInput form-control" /></td>
+												<td><input name="projectId" class="AddInput form-control" /></td>
+												<td style="text-align: center;word-break: keep-all;">
+													<button type="submit"  class="btn btn-primary btn-icon-split"><span class="text">Add</span></button>
+												</td>
+											</tr>
+										</form>
+										</tfoot>
+									</table>
+
 								</div>
 							</div>
 						</div>
