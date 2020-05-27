@@ -175,7 +175,7 @@
 
 						<!-- Page Heading -->
 						<h1 class="h3 mb-2 text-gray-800">Project List</h1>
-						<p class="mb-4">Here are all the projects you can choose</p>
+						<p class="mb-4">Here are all the approved projects you can choose</p>
 
 						<!-- DataTales Example -->
 						<div class="card shadow mb-4">
@@ -194,20 +194,8 @@
 												<th>Joined/Capacity</th>
 											</tr>
 										</thead>
-										<tfoot>
-											<tr>
-												<th>Unit</th>
-												<th>Project Type</th>
-												<th>Project Name</th>
-												<th>Project Description</th>
-												<th>Instruction</th>
-												<th>Client</th>
-												<th>Tutor</th>
-												<th>Joined/Capacity</th>
-											</tr>
-										</tfoot>
 										<tbody>
-											<tr th:each="project:${projects}">
+											<tr th:each="project:${projects}" th:if="${project.approve} eq yes">
 												<td th:text="${project.unit}"></td>
 												<td th:text="${project.type}"></td>
 												<td th:text="${project.name}"></td>
