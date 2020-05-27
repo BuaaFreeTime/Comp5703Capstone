@@ -176,10 +176,10 @@
 
 						<!-- DataTales Example -->
 						<form action="/preferencesubmit" method="post">
-							<nav class="navbar navbar-expand navbar-light bg-light mb-4" style="background-color: #FFFFFF!important;width: 33%;">
-								<a class="navbar-brand" href="#">First preference project:</a>
+							<nav class="navbar navbar-expand navbar-light bg-light mb-4" style="border:1px solid #36b9cc;background-color: #FFFFFF!important;width: 33%;">
+								<a class="navbar-brand" href="#">First&nbsp;&nbsp; preference&nbsp;&nbsp;&nbsp; project:</a>
 								<ul class="navbar-nav ml-auto">
-									<li class="nav-item dropdown">
+									<li class="nav-item dropdown" >
 										<select name="first"  th:value="${first}" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
 											<option value="">Please select</option>
 											<option th:each="project1:${project1s}"
@@ -191,8 +191,8 @@
 									</li>
 								</ul>
 							</nav>
-							<nav class="navbar navbar-expand navbar-light bg-light mb-4" style="background-color: #FFFFFF!important;width: 33%;">
-								<a class="navbar-brand" href="#">First preference project:</a>
+							<nav class="navbar navbar-expand navbar-light bg-light mb-4" style="border:1px solid #36b9cc;background-color: #FFFFFF!important;width: 33%;">
+								<a class="navbar-brand" href="#">Second preference project:</a>
 								<ul class="navbar-nav ml-auto">
 									<li class="nav-item dropdown">
 										<select name="second"  th:value="${second}" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
@@ -206,8 +206,8 @@
 									</li>
 								</ul>
 							</nav>
-							<nav class="navbar navbar-expand navbar-light bg-light mb-4" style="background-color: #FFFFFF!important;width: 33%;">
-								<a class="navbar-brand" href="#">First preference project:</a>
+							<nav class="navbar navbar-expand navbar-light bg-light mb-4" style="border:1px solid #36b9cc;background-color: #FFFFFF!important;width: 33%;">
+								<a class="navbar-brand" href="#">Third&nbsp;&nbsp; preference&nbsp;&nbsp; project:</a>
 								<ul class="navbar-nav ml-auto">
 									<li class="nav-item dropdown">
 										<select name="third"  th:value="${third}" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
@@ -221,7 +221,7 @@
 									</li>
 								</ul>
 							</nav>
-							<label type="button" class="btn" style="width: 36%">
+							<label th:if="${projectUnit}!=5703" type="button" class="btn" style="width: 36%">
 								<span>Upload CV</span>
 								<input type="file">
 							</label>
