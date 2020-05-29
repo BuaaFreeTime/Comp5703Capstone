@@ -11,6 +11,7 @@ import usyd.comp5703.capstone.service.GroupService;
 import usyd.comp5703.capstone.service.ProfileService;
 import usyd.comp5703.capstone.service.ProjectService;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
@@ -25,10 +26,10 @@ public class DashboardController {
     ProfileService profileService;
 
     @RequestMapping(value = {"/index-student", "/student/index-student"})
-    public String studentDashboard(Map<String, Object> map) {
-        //String sid = session.getAttribute("user").toString();
-        GroupEntity groupEntity = groupService.getMygroup("student1");
-        ProjectEntity projectEntity = projectService.getMyproject("student1");
+    public String studentDashboard(Map<String, Object> map, HttpSession session ) {
+        String sid = session.getAttribute("user").toString();
+        GroupEntity groupEntity = groupService.getMygroup(sid);
+        ProjectEntity projectEntity = projectService.getMyproject(sid);
         if (groupEntity!=null && projectEntity!=null) {
             String[] strArr = groupEntity.getPresentation().split("T");
             if (strArr.length==1) {map.put("presentTime", "Not yet set"); }

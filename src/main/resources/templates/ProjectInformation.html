@@ -195,7 +195,9 @@
                                 </thead>
                                 <tbody >
                                 <tr th:each="project:${projects}">
-                                    <td th:text="${project.unit}"></td>
+                                    <td>
+                                        <input th:border="1000px" th:placeholder="${project.unit}">
+                                    </td>
                                     <td th:text="${project.type}"></td>
                                     <td th:text="${project.name}"></td>
                                     <td th:text="${project.description}"></td>

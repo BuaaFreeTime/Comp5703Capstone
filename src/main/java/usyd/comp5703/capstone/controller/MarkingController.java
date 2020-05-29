@@ -24,7 +24,7 @@ public class MarkingController {
     public String marksClient(Model model, HttpSession session) {
         //String cid = session.getAttribute("user").toString();
         List<GroupEntity> groupEntityList;
-        GroupEntity groupEntity = groupService.getMygroup("student1");
+        GroupEntity groupEntity = groupService.getMygroup("student2");
         if (groupEntity!=null) {
             groupEntityList = groupService.getPresentationClient("client1");
             model.addAttribute("groups", groupEntityList);

@@ -35,12 +35,9 @@ public class ProfileController {
 
     @PostMapping(value = {"/addstudent"})
     public String addStudent(@RequestParam("sid") String sid,
-                             @RequestParam("age") String age,
                              @RequestParam("name") String name,
-                             @RequestParam("email") String email,
-                             @RequestParam("groupId") String groupId,
-                             @RequestParam("projectId") String projectId) {
-        profileService.addStudent(sid,age,name,email,groupId,projectId);
+                             @RequestParam("email") String email) {
+        profileService.addStudent(sid,name,email,"", "");
         return "redirect:/uploadstudentinfo";
     }
 

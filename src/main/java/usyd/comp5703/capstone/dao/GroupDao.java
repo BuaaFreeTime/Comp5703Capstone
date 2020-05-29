@@ -200,7 +200,6 @@ public class GroupDao {
                     groupEntity.setMarks(myGroup.getMarks());
                     groupEntity.setFeedback(myGroup.getFeedback());
                     groupEntity.setPresentation(myGroup.getPresentation());
-                    groupEntity.setRoom(myGroup.getRoom());
                     readData.countDown();
                 }
             }

@@ -45,7 +45,7 @@ public class ProjectController {
     @RequestMapping(value = {"/myproject"})
     public String studentMyproject(HttpSession session, Map<String,Object> map) {
         //String sid = session.getAttribute("user").toString();
-        ProjectEntity myprojectEntity = projectService.getMyproject("student1");
+        ProjectEntity myprojectEntity = projectService.getMyproject("student2");
         if (myprojectEntity!=null) {
             map.put("projectUnit", myprojectEntity.getUnit());
             map.put("projectType", myprojectEntity.getType());

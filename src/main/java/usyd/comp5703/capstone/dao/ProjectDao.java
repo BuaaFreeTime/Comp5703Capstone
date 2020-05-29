@@ -108,7 +108,7 @@ public class ProjectDao {
     public List<ProjectEntity> getAllprojectClient(String cid){
         final List<ProjectEntity> projectEntityList = new ArrayList<>();
         final String client = cid;
-        final CountDownLatch readData = new CountDownLatch(6);
+        final CountDownLatch readData = new CountDownLatch(1);
         projectRef.orderByChild("id").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {

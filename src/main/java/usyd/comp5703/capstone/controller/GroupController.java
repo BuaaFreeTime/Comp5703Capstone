@@ -25,8 +25,8 @@ public class GroupController {
     @RequestMapping(value = {"/marks"})
     public String studentMarks(HttpSession session, Map<String, Object> map) {
         //String sid = session.getAttribute("user").toString();
-        String marks = groupService.getMarks("student1");
-        String feedback =  groupService.getFeedback("student1");
+        String marks = groupService.getMarks("student2");
+        String feedback =  groupService.getFeedback("student2");
         map.put("score", marks);
         map.put("feedback", feedback);
         return "Marks";
@@ -36,7 +36,7 @@ public class GroupController {
     @RequestMapping(value = {"/allgroup"})
     public String allgroupStudent(Model model) {
          List<GroupEntity> groupEntityList;
-        GroupEntity groupEntity = groupService.getMygroup("student1");
+        GroupEntity groupEntity = groupService.getMygroup("student2");
         if (groupEntity!=null) {
             groupEntityList = groupService.getAllgroup();
             model.addAttribute("groups", groupEntityList);
@@ -47,7 +47,7 @@ public class GroupController {
     @RequestMapping(value = {"/mygroup"})
     public String mygroupStudent(Model model, HttpSession session) {
         //String sid = session.getAttribute("user").toString();
-        GroupEntity groupEntity = groupService.getMygroup("student1");
+        GroupEntity groupEntity = groupService.getMygroup("student2");
         if (groupEntity!=null)  model.addAttribute("groups", groupEntity);
         return "MyGroup";
     }
@@ -55,9 +55,8 @@ public class GroupController {
     @RequestMapping(value = {"/presentationslot"})
     public String studentPresentationslot( Map<String,Object> map) {
         //String sid = session.getAttribute("user").toString();
-        GroupEntity groupEntity = groupService.getMygroup("student1");
+        GroupEntity groupEntity = groupService.getMygroup("student2");
         if (groupEntity!=null) map.put("groupID", groupEntity.getId());
-        if (groupEntity!=null) map.put("groupRoom", groupEntity.getRoom());
         return "PresentationSlot";
 
     }
@@ -66,9 +65,8 @@ public class GroupController {
     public String studentPresentationsTime(@RequestParam("presentationTime") String date,
                                            Map<String,Object> map) {
         //String sid = session.getAttribute("user").toString();
-        GroupEntity groupEntity = groupService.updatePresentation("student1", date);
+        GroupEntity groupEntity = groupService.updatePresentation("student2", date);
         map.put("groupID", groupEntity.getId());
-        map.put("groupRoom", groupEntity.getRoom());
 
         return "PresentationSlot";
     }
@@ -76,7 +74,7 @@ public class GroupController {
     @RequestMapping(value = {"/scheduletables"})
     public String scheduleTables(Map<String,Object> map){
         //String sid = session.getAttribute("user").toString();
-        List<String> time = groupService.getScheduleTables("student1");
+        List<String> time = groupService.getScheduleTables("student2");
         if (time!=null) {
             map.put("currentDate", time.get(0));
             map.put("presentationDate", time.get(1));
@@ -89,7 +87,7 @@ public class GroupController {
     public String allStudentClient(Model model, HttpSession session) {
         //String cid = session.getAttribute("user").toString();
         List<String> studentList;
-        GroupEntity groupEntity = groupService.getMygroup("student1");
+        GroupEntity groupEntity = groupService.getMygroup("student2");
         if (groupEntity!=null) {
             studentList = groupService.getStudentsInProject("client1");
             model.addAttribute("students", studentList);
@@ -101,7 +99,7 @@ public class GroupController {
     public String presentationClient(Model model, HttpSession session) {
         //String cid = session.getAttribute("user").toString();
         List<GroupEntity> groupEntityList;
-        GroupEntity groupEntity = groupService.getMygroup("student1");
+        GroupEntity groupEntity = groupService.getMygroup("student2");
         if (groupEntity!=null) {
             groupEntityList = groupService.getPresentationClient("client1");
             model.addAttribute("groups", groupEntityList);
@@ -113,7 +111,7 @@ public class GroupController {
     public String allgroupAdmin(Model model) {
         List<GroupEntity> groupEntityList;
         List<StudentEntity> studentEntityList;
-        GroupEntity groupEntity = groupService.getMygroup("student1");
+        GroupEntity groupEntity = groupService.getMygroup("student2");
         if (groupEntity!=null) {
             groupEntityList = groupService.getAllgroup();
             model.addAttribute("groups", groupEntityList);

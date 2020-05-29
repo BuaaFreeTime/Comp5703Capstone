@@ -1,8 +1,5 @@
 package usyd.comp5703.capstone.entity;
 
-import javax.swing.*;
-import java.util.Date;
-
 public class GroupEntity {
     String id;
     String marks;
@@ -16,7 +13,6 @@ public class GroupEntity {
     String clientid;
     String semester;
     String feedback;
-    String room;
 
 
     public GroupEntity(String id){
@@ -40,15 +36,6 @@ public class GroupEntity {
         this.clientid = cid;
         this.presentation = "Not yet set";
         this.feedback = "Not yet feedback";
-        this.room = "Not yet set";
-    }
-
-    public void setRoom(String room) {
-        this.room = room;
-    }
-
-    public String getRoom() {
-        return room;
     }
 
     public void setFeedback(String feedback) {
