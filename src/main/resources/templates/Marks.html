@@ -179,7 +179,8 @@
 
                 <!-- Page Heading -->
                 <h1 class="h3 mb-2 text-gray-800">Marks</h1>
-                <p class="mb-4">Final Mark = Proposal Report Mark + Progress Report Mark + Final Report Mark + Presentation Mark</p>
+                <p class="mb-4">Final Mark = Proposal Report Mark + Progress Report Mark + Final Report Mark +
+                    Presentation Mark</p>
                 <p class="mb-4">Each part = (grade of part/total grade of part)*100*(weight of part)(%)
                 <div class="card shadow mb-4">
                     <div class="card-body">
@@ -204,7 +205,36 @@
                         </div>
                     </div>
                 </div>
+                <div class="card shadow mb-4">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>Proposal Report Mark</th>
+                                    <th>Progress Report Mark</th>
+                                    <th>Final Report Mark</th>
+                                    <th>Presentation Mark</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
 
+                                <tbody>
+                                <form action="/calculate" method="post">
+                                    <tr>
+                                        <td><input name="Proposal" class="AddInput form-control"/></td>
+                                        <td><input name="Progress" class="AddInput form-control"/></td>
+                                        <td><input name="Final" class="AddInput form-control"/></td>
+                                        <td><input name="Presentation" class="AddInput form-control"/></td>
+                                        <td><button type="submit" class="btn btn-primary btn-icon-split"><span class="text">Calculate</span></button>
+                                        </td>
+                                    </tr>
+                                </form>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
                 <!-- Color System -->
                 <div class="row">
                     <div class="col-xl-4 col-lg-5" style="flex: 0 0 40%;max-width: 40%;">
