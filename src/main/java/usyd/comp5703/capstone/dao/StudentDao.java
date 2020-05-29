@@ -79,7 +79,6 @@ public class StudentDao {
                     studentEntity.setGroupId(student.getGroupId());
                     studentEntity.setName(student.getName());
                     studentEntity.setEmail(student.getEmail());
-                    studentEntity.setAge(student.getAge());
                     readData.countDown();
                 }
             }

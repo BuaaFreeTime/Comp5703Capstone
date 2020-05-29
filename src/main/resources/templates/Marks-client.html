@@ -175,7 +175,10 @@
 												<tr th:each="group:${groups}">
 													<form action="/clientmarking" method="post">
 														<td th:text="${group.id}"></td>
-														<td><input name="Feedback" class="form-control" style="width: auto;height: auto;" ></td>
+														<td>
+															<input name="Feedback" class="form-control" style="width: auto;height: auto;" >
+															<input type="hidden" name="gid" th:value="${group.id}" class="form-control" style="width: auto;height: auto;" >
+														</td>
 														<td>
 															<button type="submit"  class="btn btn-primary btn-icon-split"><span class="text">Submit</span></button>
 														</td>

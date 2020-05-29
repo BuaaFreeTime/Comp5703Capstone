@@ -30,7 +30,6 @@ public class ProfileService {
     public void addStudent(String sid, String age,String name,String email, String groupId, String projectId){
         StudentEntity demo  = new StudentEntity();
         demo.setName(name);
-        demo.setAge(age);
         demo.setEmail(email);
         demo.setGroupId(groupId);
         demo.setProjectId(projectId);

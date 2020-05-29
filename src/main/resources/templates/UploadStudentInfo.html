@@ -180,22 +180,23 @@
 												</tr>
 										</thead>
 										<tfoot>
-											<form action="/addstudent" method="post">
-												<tr>
-													<td style="text-align: center;">
-														<label type="button" class="btn-upload">
-															<span>Upload Excel</span>
-															<input type="file">
-														</label>
-													</td>
-													<td style="text-align: center;">
-														<label type="button" class="btn-upload">
-															<span>Upload Excel</span>
-															<input type="file">
-														</label>
-													</td>
-													</tr>
-											</form>
+											<tr>
+												<td style="text-align: center;">
+													<form enctype="multipart/form-data" action="/addstudentlist" method="post">
+														<span>Upload Excel</span>
+														<input type="file" name="studentfile">
+														<button type="submit" value="upload" ></button>
+													</form>
+												</td>
+
+												<td style="text-align: center;">
+													<span>Upload Excel</span>
+													<label type="button" class="btn-upload">
+														<input type="file">
+													</label>
+												</td>
+												</tr>
+
 										</tfoot>
 									</table>
 

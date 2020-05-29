@@ -5,6 +5,7 @@ package usyd.comp5703.capstone.controller;
         import org.springframework.web.bind.annotation.PostMapping;
         import org.springframework.web.bind.annotation.RequestMapping;
         import org.springframework.web.bind.annotation.RequestParam;
+        import org.springframework.web.multipart.MultipartFile;
         import usyd.comp5703.capstone.entity.StudentEntity;
         import usyd.comp5703.capstone.service.ProfileService;
 
@@ -22,7 +23,6 @@ public class ProfileController {
         //String sid = session.getAttribute("user").toString();
         StudentEntity studentEntity = profileService.getStudent("student");
         map.put("name", studentEntity.getName());
-        map.put("age", studentEntity.getAge());
         map.put("email", studentEntity.getEmail());
         return "profile";
     }
@@ -41,6 +41,12 @@ public class ProfileController {
                              @RequestParam("groupId") String groupId,
                              @RequestParam("projectId") String projectId) {
         profileService.addStudent(sid,age,name,email,groupId,projectId);
+        return "redirect:/uploadstudentinfo";
+    }
+
+    @PostMapping(value = {"/addstudentlist"})
+    public String addStudentList(@RequestParam("studentfile") MultipartFile file){
+        System.out.println(file.getContentType());
         return "redirect:/uploadstudentinfo";
     }
 

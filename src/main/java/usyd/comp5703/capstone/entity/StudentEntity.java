@@ -4,7 +4,6 @@ public class StudentEntity {
     String sid;
     String name;
     String email;
-    String age;
     String groupId;
     String projectId;
     String semester;
@@ -12,13 +11,21 @@ public class StudentEntity {
     public StudentEntity(){
     }
 
-    public StudentEntity(String sid, String name, String email, String age, String gid, String pid, String semester){
+    public StudentEntity(String sid, String name, String email, String gid, String pid, String semester){
         this.sid = sid;
         this.name = name;
         this.email = email;
-        this.age = age;
         this.groupId = gid;
         this.projectId = pid;
+        this.semester = semester;
+    }
+
+    public StudentEntity(String sid, String name, String email, String semester){
+        this.sid = sid;
+        this.name = name;
+        this.email = email;
+        this.groupId = "";
+        this.projectId = "";
         this.semester = semester;
     }
 
@@ -32,10 +39,6 @@ public class StudentEntity {
 
     public String getName() {
         return name;
-    }
-
-    public String getAge() {
-        return age;
     }
 
     public String getEmail() {
@@ -56,10 +59,6 @@ public class StudentEntity {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
     }
 
     public void setEmail(String email) {
