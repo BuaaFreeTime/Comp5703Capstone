@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import usyd.comp5703.capstone.entity.GroupEntity;
+import usyd.comp5703.capstone.entity.StudentEntity;
 import usyd.comp5703.capstone.service.GroupService;
 
 import javax.servlet.http.HttpSession;
@@ -34,8 +35,11 @@ public class GroupController {
     @RequestMapping(value = {"/allgroup"})
     public String allgroupStudent(Model model) {
          List<GroupEntity> groupEntityList;
-        groupEntityList = groupService.getAllgroup();
-        model.addAttribute("groups", groupEntityList);
+        GroupEntity groupEntity = groupService.getMygroup("student1");
+        if (groupEntity!=null) {
+            groupEntityList = groupService.getAllgroup();
+            model.addAttribute("groups", groupEntityList);
+        }
         return "AllGroup";
     }
 
@@ -43,7 +47,6 @@ public class GroupController {
     public String mygroupStudent(Model model, HttpSession session) {
         //String sid = session.getAttribute("user").toString();
         GroupEntity groupEntity = groupService.getMygroup("student1");
-        System.out.println(groupEntity.getId());
         if (groupEntity!=null)  model.addAttribute("groups", groupEntity);
         return "MyGroup";
     }
@@ -102,8 +105,11 @@ public class GroupController {
     @RequestMapping(value = {"/studentgroup"})
     public String allgroupAdmin(Model model) {
         List<GroupEntity> groupEntityList;
+        List<StudentEntity> studentEntityList;
         groupEntityList = groupService.getAllgroup();
+        studentEntityList = groupService.getUngroupStudent();
         model.addAttribute("groups", groupEntityList);
+        model.addAttribute("students", studentEntityList);
         return "StudentGroup";
     }
 

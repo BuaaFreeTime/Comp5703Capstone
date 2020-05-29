@@ -39,7 +39,6 @@ public class LoginService {
             StudentEntity studentEntity = new StudentEntity("student"+i,
                                                             "student"+i,
                                                             i+"@gmail.com",
-                                                            "26",
                                                             "", "",
                                                             "2020 Semester 1");
             studentDao.addStudent(studentEntity);

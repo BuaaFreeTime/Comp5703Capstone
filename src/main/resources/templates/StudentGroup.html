@@ -233,32 +233,11 @@
 										<tr>
 											<th>Student ID</th>
 											<th>Student Name</th>
-											<th>Preference 1</th>
-											<th>Preference 2</th>
-											<th>Preference 3</th>
 										</thead>
-										<tbody contenteditable="true">
-										<tr>
-											<td>student55</td>
-											<td>student55</td>
-											<td>project1</td>
-											<td>project3</td>
-											<td>project5</td>
-										</tr>
-										<tr>
-											<td>student52</td>
-											<td>student52</td>
-											<td>project12</td>
-											<td>project3</td>
-											<td>project7</td>
-										</tr>
-										<tr>
-											<td>student78</td>
-											<td>student78</td>
-											<td>project2</td>
-											<td>project6</td>
-											<td>project13</td>
-
+										<tbody >
+										<tr th:each="student:${students}">
+											<td th:text="${student.sid}"></td>
+											<td th:text="${student.name}" ></td>
 										</tr>
 										</tbody>
 

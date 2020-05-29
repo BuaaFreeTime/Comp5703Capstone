@@ -9,6 +9,8 @@ public class StudentEntity {
     String semester;
 
     public StudentEntity(){
+        this.groupId = "";
+        this.projectId = "";
     }
 
     public StudentEntity(String sid, String name, String email, String gid, String pid, String semester){

@@ -27,6 +27,17 @@ public class GroupService {
     @Autowired
     ProjectDao projectDao;
 
+    public List<StudentEntity> getUngroupStudent(){
+        List<StudentEntity> studentEntityList = studentDao.getAllStudent();
+        List<StudentEntity> ungroup = new ArrayList<>();
+        for (StudentEntity studentEntity:studentEntityList) {
+            if (studentEntity.getGroupId().equals("")) {
+                ungroup.add(studentEntity);
+            }
+        }
+        return ungroup;
+    }
+
     public void grouping(){
         List<StudentPreferenceEntity> studentPreferenceEntityList;
         studentPreferenceEntityList = studentPreferenceDao.getAllPreference();

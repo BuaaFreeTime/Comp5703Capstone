@@ -35,20 +35,17 @@ public class ProfileController {
 
     @PostMapping(value = {"/addstudent"})
     public String addStudent(@RequestParam("sid") String sid,
+                             @RequestParam("age") String age,
                              @RequestParam("name") String name,
-                             @RequestParam("email") String email) {
-        profileService.addStudent(sid,name,email);
+                             @RequestParam("email") String email,
+                             @RequestParam("groupId") String groupId,
+                             @RequestParam("projectId") String projectId) {
+        profileService.addStudent(sid,age,name,email,groupId,projectId);
         return "redirect:/uploadstudentinfo";
     }
 
     @PostMapping(value = {"/addstudentlist"})
     public String addStudentList(@RequestParam("studentfile") MultipartFile file){
-        System.out.println(file.getContentType());
-        return "redirect:/uploadstudentinfo";
-    }
-
-    @PostMapping(value = {"/addclientlist"})
-    public String addClientList(@RequestParam("clientfile") MultipartFile file){
         System.out.println(file.getContentType());
         return "redirect:/uploadstudentinfo";
     }
