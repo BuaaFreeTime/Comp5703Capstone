@@ -89,8 +89,11 @@ public class GroupController {
     public String allStudentClient(Model model, HttpSession session) {
         //String cid = session.getAttribute("user").toString();
         List<String> studentList;
-        studentList = groupService.getStudentsInProject("client1");
-        model.addAttribute("students", studentList);
+        GroupEntity groupEntity = groupService.getMygroup("student1");
+        if (groupEntity!=null) {
+            studentList = groupService.getStudentsInProject("client1");
+            model.addAttribute("students", studentList);
+        }
         return "StudentsinProjects";
     }
 
@@ -98,8 +101,11 @@ public class GroupController {
     public String presentationClient(Model model, HttpSession session) {
         //String cid = session.getAttribute("user").toString();
         List<GroupEntity> groupEntityList;
-        groupEntityList = groupService.getPresentationClient("client1");
-        model.addAttribute("groups", groupEntityList);
+        GroupEntity groupEntity = groupService.getMygroup("student1");
+        if (groupEntity!=null) {
+            groupEntityList = groupService.getPresentationClient("client1");
+            model.addAttribute("groups", groupEntityList);
+        }
         return "PresentationSlot-client";
     }
 
@@ -107,9 +113,14 @@ public class GroupController {
     public String allgroupAdmin(Model model) {
         List<GroupEntity> groupEntityList;
         List<StudentEntity> studentEntityList;
-        groupEntityList = groupService.getAllgroup();
+        GroupEntity groupEntity = groupService.getMygroup("student1");
+        if (groupEntity!=null) {
+            groupEntityList = groupService.getAllgroup();
+            model.addAttribute("groups", groupEntityList);
+            groupEntityList = groupService.getAllgroup();
+            model.addAttribute("groups", groupEntityList);
+        }
         studentEntityList = groupService.getUngroupStudent();
-        model.addAttribute("groups", groupEntityList);
         model.addAttribute("students", studentEntityList);
         return "StudentGroup";
     }
