@@ -129,10 +129,9 @@ public class ProjectController {
                              @RequestParam("type") String type,
                              @RequestParam("name") String name,
                              @RequestParam("description") String description,
-                             @RequestParam("tutor") String tutor,
                              Model model) {
         //String cid = session.getAttribute("user").toString();
-        projectService.addProject(unit, type, name, description, "client1", tutor);
+        projectService.addProject(unit, type, name, description, "client1");
         return "redirect:/myprojects-client";
 
     }

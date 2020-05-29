@@ -72,6 +72,22 @@ public class ProjectService {
         return projectEntityApproveList;
     }
 
+    public void addProject(String unit, String type, String name, String description, String clientid){
+        List<ProjectEntity> projectEntityList;
+        projectEntityList = projectDao.getAllproject();
+        ClientEntity clientEntity = clientDao.getClient(clientid);
+        ProjectEntity newProject = new ProjectEntity();
+        newProject.setUnit(unit);
+        newProject.setType(type);
+        newProject.setName(name);
+        newProject.setDescription(description);
+        newProject.setTutor("not yet set tutor");
+        newProject.setClientid(clientid);
+        newProject.setClient(clientEntity.getName());
+        newProject.setId(String.valueOf(projectEntityList.size()+1));
+        projectDao.addProject(newProject);
+    }
+
     public void addProject(String unit, String type, String name, String description, String clientid, String tutor){
         List<ProjectEntity> projectEntityList;
         projectEntityList = projectDao.getAllproject();
@@ -87,6 +103,5 @@ public class ProjectService {
         newProject.setId(String.valueOf(projectEntityList.size()+1));
         projectDao.addProject(newProject);
     }
-
 
 }
