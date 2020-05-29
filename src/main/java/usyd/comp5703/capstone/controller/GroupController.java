@@ -32,6 +32,7 @@ public class GroupController {
         return "Marks";
     }
 
+
     @RequestMapping(value = {"/allgroup"})
     public String allgroupStudent(Model model) {
          List<GroupEntity> groupEntityList;
