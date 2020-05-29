@@ -64,6 +64,7 @@ public class GroupController {
         //String sid = session.getAttribute("user").toString();
         GroupEntity groupEntity = groupService.updatePresentation("student1", date);
         map.put("groupID", groupEntity.getId());
+        map.put("groupRoom", groupEntity.getRoom());
 
         return "PresentationSlot";
     }
