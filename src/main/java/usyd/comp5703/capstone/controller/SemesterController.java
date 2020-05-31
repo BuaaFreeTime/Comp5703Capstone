@@ -21,7 +21,6 @@ public class SemesterController {
     @RequestMapping(value = {"/projectsemester"})
     public String projectSemester(Model model) {
         List<SemesterEntity> semesterEntities = semesterService.getAllSemester();
-        System.out.println(semesterEntities.size());
         model.addAttribute("semesters", semesterEntities);
         return "projectsemester";
     }
@@ -29,7 +28,6 @@ public class SemesterController {
     @RequestMapping(value = {"/projectsemester-client"})
     public String projectclientSemester(Model model) {
         List<SemesterEntity> semesterEntities = semesterService.getAllSemester();
-        System.out.println(semesterEntities.size());
         model.addAttribute("semesters", semesterEntities);
         return "projectsemester-client";
     }

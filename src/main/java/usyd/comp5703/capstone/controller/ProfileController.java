@@ -36,8 +36,12 @@ public class ProfileController {
     @PostMapping(value = {"/addstudent"})
     public String addStudent(@RequestParam("sid") String sid,
                              @RequestParam("name") String name,
-                             @RequestParam("email") String email) {
-        profileService.addStudent(sid,name,email,"", "");
+                             @RequestParam("email") String email,
+                             HttpSession session) {
+        String semester = session.getAttribute("semester").toString();
+        if (semester.equals("2020 Semester 1")) {
+            profileService.addStudent(sid, name, email, "", "");
+        }
         return "redirect:/uploadstudentinfo";
     }
 

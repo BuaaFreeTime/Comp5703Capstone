@@ -30,7 +30,7 @@ public class LoginController {
             session.setAttribute("user", username);
             StudentEntity studentEntity = profileService.getStudent(username);
             //session.setAttribute("group", studentEntity.getGroup());
-            session.setAttribute("group", "no");
+            session.setAttribute("group", studentEntity.getGroup());
             return "redirect:/index-student";
         }
         else {

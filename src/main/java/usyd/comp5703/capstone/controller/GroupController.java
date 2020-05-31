@@ -11,8 +11,6 @@ import usyd.comp5703.capstone.entity.StudentEntity;
 import usyd.comp5703.capstone.service.GroupService;
 
 import javax.servlet.http.HttpSession;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -88,13 +86,10 @@ public class GroupController {
 
     @RequestMapping(value = {"/studentsinprojects"})
     public String allStudentClient(Model model, HttpSession session) {
-        //String cid = session.getAttribute("user").toString();
+        String cid = session.getAttribute("user").toString();
         List<String> studentList;
-        GroupEntity groupEntity = groupService.getMygroup("student2");
-        if (groupEntity!=null) {
-            studentList = groupService.getStudentsInProject("client1");
-            model.addAttribute("students", studentList);
-        }
+        studentList = groupService.getStudentsInProject(cid);
+        model.addAttribute("students", studentList);
         return "StudentsinProjects";
     }
 
@@ -133,8 +128,12 @@ public class GroupController {
                            @RequestParam("s3") String s3,
                            @RequestParam("s4") String s4,
                            @RequestParam("s5") String s5,
-                           @RequestParam("cid") String clientId) {
-        groupService.addGroup(id,s1,s2,s3,s4,s5,clientId);
+                           @RequestParam("cid") String clientId,
+                           HttpSession session) {
+        String semester = session.getAttribute("semester").toString();
+        if (semester.equals("2020 Semester 1")) {
+            groupService.addGroup(id, s1, s2, s3, s4, s5, clientId);
+        }
         return "redirect:/studentgroup";
     }
 

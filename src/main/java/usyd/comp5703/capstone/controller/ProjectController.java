@@ -42,7 +42,7 @@ public class ProjectController {
                                     @RequestParam("clientid") String clientid,
                                     @RequestParam("tutor") String tutor,
                                      @RequestParam("pid") String pid) {
-        projectService.updateProjectAdmin(unit, type, name, description,clientid,tutor, pid);
+        //projectService.updateProjectAdmin(unit, type, name, description,clientid,tutor, pid);
         return "redirect:/projectinformation";
     }
 
@@ -73,10 +73,13 @@ public class ProjectController {
     }
 
     @RequestMapping(value = {"/projectinformation"})
-    public String adminAllproject(Model model) {
-        List<ProjectEntity> projectEntityList;
-        projectEntityList = projectService.getAllproject();
-        model.addAttribute("projects", projectEntityList);
+    public String adminAllproject(Model model,HttpSession session) {
+        String semester = session.getAttribute("semester").toString();
+        if (semester.equals("2020 Semester 1")) {
+            List<ProjectEntity> projectEntityList;
+            projectEntityList = projectService.getAllproject();
+            model.addAttribute("projects", projectEntityList);
+        }
         return "ProjectInformation";
 
     }

@@ -54,12 +54,17 @@ public class DashboardController {
     }
 
     @RequestMapping(value = {"/index-admin"})
-    public String adminDashboard(Model model) {
-        List<ProjectEntity> projectEntityList = projectService.getAllproject();
-        List<StudentEntity> studentEntities = profileService.getAllStudent();
-        System.out.println(projectEntityList.size());
-        model.addAttribute("studentNum", studentEntities.size());
-        model.addAttribute("projectNum", projectEntityList.size());
+    public String adminDashboard(Model model, HttpSession session) {
+        String semester = session.getAttribute("semester").toString();
+        if (semester.equals("2020 Semester 1")) {
+            List<ProjectEntity> projectEntityList = projectService.getAllproject();
+            List<StudentEntity> studentEntities = profileService.getAllStudent();
+            model.addAttribute("studentNum", studentEntities.size());
+            model.addAttribute("projectNum", projectEntityList.size());
+        }else {
+            model.addAttribute("studentNum", 0);
+            model.addAttribute("projectNum", 0);
+        }
         return "index-admin";
     }
 }

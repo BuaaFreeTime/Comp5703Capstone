@@ -30,16 +30,23 @@ public class PreferenceController {
                            @RequestParam("s3") String s3,
                            @RequestParam("s4") String s4,
                            @RequestParam("s5") String s5,
-                           @RequestParam("cid") String clientId) {
-        //groupService.addGroup(id,s1,s2,s3,s4,s5,clientId);
+                           @RequestParam("cid") String clientId,
+                           HttpSession session) {
+        String semester = session.getAttribute("semester").toString();
+        if (semester.equals("2020 Semester 1")) {
+            //groupService.addGroup(id,s1,s2,s3,s4,s5,clientId);
+        }
         return "redirect:/studentpreferences";
     }
 
     @RequestMapping(value = {"/studentpreferences"})
-    public String allPreference(Model model) {
-        List<StudentPreferenceEntity> studentPreferenceEntityList;
-        studentPreferenceEntityList = studentPreferenceService.getAllPreference();
-        model.addAttribute("preferences", studentPreferenceEntityList);
+    public String allPreference(Model model, HttpSession session) {
+        String semester = session.getAttribute("semester").toString();
+        if (semester.equals("2020 Semester 1")) {
+            List<StudentPreferenceEntity> studentPreferenceEntityList;
+            studentPreferenceEntityList = studentPreferenceService.getAllPreference();
+            model.addAttribute("preferences", studentPreferenceEntityList);
+        }
         return "StudentPreferences";
     }
 
