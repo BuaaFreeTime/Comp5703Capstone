@@ -12,6 +12,7 @@ import usyd.comp5703.capstone.entity.GroupEntity;
 import usyd.comp5703.capstone.entity.ProjectEntity;
 import usyd.comp5703.capstone.entity.StudentEntity;
 
+import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,8 +26,17 @@ public class ProjectService {
     @Autowired
     ClientDao clientDao;
 
-    public void updateGnum(String pid, String gnum) {
-        projectDao.updateGroupNumber(pid,gnum);
+    public void deleteProject(String pid){
+        projectDao.deleteProject(pid);
+    }
+
+    public void updateProject(String pid,String unit, String type, String name, String description, String gnum) {
+        if (!unit.equals("")) projectDao.updateUnit(pid, unit);
+        if (!type.equals("")) projectDao.updateType(pid, type);
+        if (!name.equals("")) projectDao.updateName(pid, name);
+        if (!description.equals("")) projectDao.updateDescription(pid, description);
+        if (!gnum.equals("")) projectDao.updateGroupNumber(pid,gnum);
+        System.out.println("Client update project:"+pid);
     }
     public void updateApprove(String pid) {
         String state = "yes";
@@ -72,7 +82,7 @@ public class ProjectService {
         return projectEntityApproveList;
     }
 
-    public void addProject(String unit, String type, String name, String description, String clientid){
+    public void addProject(String unit, String type, String name, String description, String clientid, String gunm){
         List<ProjectEntity> projectEntityList;
         projectEntityList = projectDao.getAllproject();
         ClientEntity clientEntity = clientDao.getClient(clientid);
@@ -84,10 +94,12 @@ public class ProjectService {
         newProject.setTutor("not yet set tutor");
         newProject.setClientid(clientid);
         newProject.setClient(clientEntity.getName());
+        if (!gunm.equals("")) newProject.setGnumber(gunm);
         newProject.setId(String.valueOf(projectEntityList.size()+1));
+        System.out.println("Client add project:"+newProject.getId());
         projectDao.addProject(newProject);
     }
-
+/*
     public void addProject(String unit, String type, String name, String description, String clientid, String tutor){
         List<ProjectEntity> projectEntityList;
         projectEntityList = projectDao.getAllproject();
@@ -102,6 +114,6 @@ public class ProjectService {
         newProject.setClient(clientEntity.getName());
         newProject.setId(String.valueOf(projectEntityList.size()+1));
         projectDao.addProject(newProject);
-    }
+    }*/
 
 }

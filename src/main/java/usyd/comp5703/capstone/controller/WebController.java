@@ -43,11 +43,6 @@ public class WebController {
         return "index-admin";
     }*/
 
-    @RequestMapping(value = {"/applicantslist"})
-    public String clientAppList() {
-        return "ApplicantsList";
-    }
-
     @RequestMapping(value = {"/ProposedProjects"})
     public String ProposedProjects() { return "ProposedProjects"; }
 

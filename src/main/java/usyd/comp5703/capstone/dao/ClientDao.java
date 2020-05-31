@@ -33,6 +33,7 @@ public class ClientDao {
                     clientEntity.setName(client.getName());
                     clientEntity.setEmail(client.getEmail());
                     clientEntity.setAge(client.getAge());
+                    clientEntity.setSemester(client.getSemester());
                     readData.countDown();
                 }
             }

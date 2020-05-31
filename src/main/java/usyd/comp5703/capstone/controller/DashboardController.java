@@ -30,11 +30,15 @@ public class DashboardController {
         String sid = session.getAttribute("user").toString();
         GroupEntity groupEntity = groupService.getMygroup(sid);
         ProjectEntity projectEntity = projectService.getMyproject(sid);
-        if (groupEntity!=null && projectEntity!=null) {
+
+        if (projectEntity!=null){
+            map.put("projectName", projectEntity.getName());
+        }
+
+        if (groupEntity!=null) {
             String[] strArr = groupEntity.getPresentation().split("T");
             if (strArr.length==1) {map.put("presentTime", "Not yet set"); }
             else {map.put("presentTime", strArr[0] + " " + strArr[1]);}
-            map.put("projectName", projectEntity.getName());
         }
         //StudentEntity studentEntity = profileService.getStudent(sid);
         map.put("group", session.getAttribute("group"));
@@ -42,9 +46,9 @@ public class DashboardController {
     }
 
     @RequestMapping(value = {"/index-client"})
-    public String clientDashboard(Map<String, Object> map) {
-        //String sid = session.getAttribute("user").toString();
-        List<ProjectEntity> projectEntityList = projectService.getAllApproveProjectClient("client1");
+    public String clientDashboard(Map<String, Object> map, HttpSession session) {
+        String cid = session.getAttribute("user").toString();
+        List<ProjectEntity> projectEntityList = projectService.getAllApproveProjectClient(cid);
         map.put("projects", projectEntityList);
         return "index-client";
     }

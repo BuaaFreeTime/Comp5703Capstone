@@ -203,19 +203,25 @@
 										</thead>
 										<tbody>
 											<tr th:each="project:${projects}">
-												<td th:text="${project.unit}"></td>
-												<td th:text="${project.type}"></td>
-												<td th:text="${project.name}"></td>
-												<td th:text="${project.description}"></td>
-												<td style="text-align: center;">
-													<label type="button" class="btn-upload">
-														<span>Upload</span>
-														<input type="file">
-													</label>
-												</td>
-
-
-												<form action="/changeGnum" method="post">
+												<form action="/updateproject" method="post">
+													<td>
+														<input name="unit" style="outline:none;border:0" th:placeholder="${project.unit}">
+													</td>
+													<td>
+														<input name="type" style="outline:none;border:0" th:placeholder="${project.type}">
+													</td>
+													<td>
+														<input name="name" style="outline:none;border:0" th:placeholder="${project.name}">
+													</td>
+													<td>
+														<input name="description" style="outline:none;border:0" th:placeholder="${project.description}">
+													</td>
+													<td style="text-align: center;">
+														<label type="button" class="btn-upload">
+															<span>Upload</span>
+															<input type="file">
+														</label>
+													</td>
 													<td>
 														<input name="gnumber" class="AddInput form-control" />
 														<input type="hidden" name="pid" th:value="${project.id}" class="AddInput form-control" />
@@ -249,7 +255,7 @@
 													<a href="#" class="btn btn-primary btn-icon-split"><span
 															class="text">Upload</span></a>
 												</td>
-												<td><input name="capacity" class="AddInput form-control"/></td>
+												<td><input name="gnumber" class="AddInput form-control"/></td>
 												<!--td><input class="AddInput form-control" /></td-->
 												<td style="text-align: center;word-break: keep-all;">
 													<button style="" type="submit" class="btn btn-primary btn-icon-split"><span

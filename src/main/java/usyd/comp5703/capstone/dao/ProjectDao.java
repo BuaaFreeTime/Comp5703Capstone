@@ -23,6 +23,11 @@ public class ProjectDao {
         projectRef.child(projectEntity.getId()).setValueAsync(projectEntity);
     }
 
+    //delete project
+    public void deleteProject(String pid){
+        projectRef.child(pid).removeValueAsync();
+    }
+
     // update
     public void updateGroupClient(String cid){
         Map<String, Object> hopperUpdates = new HashMap<>();
@@ -33,7 +38,7 @@ public class ProjectDao {
     }
     public void updateGroupNumber(String pid, String gnum){
         Map<String, Object> hopperUpdates = new HashMap<>();
-        hopperUpdates.put(pid+"/Gnumber", gnum);
+        hopperUpdates.put(pid+"/gnumber", gnum);
         projectRef.updateChildrenAsync(hopperUpdates);
     }
     public void updateApprove(String pid, String state){
@@ -41,6 +46,27 @@ public class ProjectDao {
         hopperUpdates.put(pid+"/approve", state);
         projectRef.updateChildrenAsync(hopperUpdates);
     }
+    public void updateUnit(String pid, String unit){
+        Map<String, Object> hopperUpdates = new HashMap<>();
+        hopperUpdates.put(pid+"/unit", unit);
+        projectRef.updateChildrenAsync(hopperUpdates);
+    }
+    public void updateName(String pid, String name){
+        Map<String, Object> hopperUpdates = new HashMap<>();
+        hopperUpdates.put(pid+"/name", name);
+        projectRef.updateChildrenAsync(hopperUpdates);
+    }
+    public void updateType(String pid, String type){
+        Map<String, Object> hopperUpdates = new HashMap<>();
+        hopperUpdates.put(pid+"/type", type);
+        projectRef.updateChildrenAsync(hopperUpdates);
+    }
+    public void updateDescription(String pid, String description){
+        Map<String, Object> hopperUpdates = new HashMap<>();
+        hopperUpdates.put(pid+"/description", description);
+        projectRef.updateChildrenAsync(hopperUpdates);
+    }
+
 
     public ProjectEntity getMyproject(String id){
         final ProjectEntity projectEntity = new ProjectEntity();
@@ -114,7 +140,7 @@ public class ProjectDao {
     public List<ProjectEntity> getAllprojectClient(String cid){
         final List<ProjectEntity> projectEntityList = new ArrayList<>();
         final String client = cid;
-        final CountDownLatch readData = new CountDownLatch(1);
+        final CountDownLatch readData = new CountDownLatch(4);
         projectRef.orderByChild("id").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {

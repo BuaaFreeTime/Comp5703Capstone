@@ -38,6 +38,7 @@ public class ProjectEntity {
             this.approve = "no";
             this.semester = "2020 Semester 1";
             this.feedback = "Not yet feedback";
+            this.group = "yes";
         }
         if (Integer.valueOf(id) % 3 == 1) {
             this.unit = "Comp5708";
@@ -51,6 +52,7 @@ public class ProjectEntity {
             this.approve = "no";
             this.semester = "2020 Semester 1";
             this.feedback = "Not yet feedback";
+            this.group = "no";
         }
         if (Integer.valueOf(id) % 3 == 2) {
             this.unit = "Comp5707";
@@ -64,6 +66,7 @@ public class ProjectEntity {
             this.approve = "no";
             this.semester = "2020 Semester 1";
             this.feedback = "Not yet feedback";
+            this.group = "no";
         }
     }
 
@@ -100,7 +103,7 @@ public class ProjectEntity {
     }
 
     public void setGnumber(String gnumber) {
-        gnumber = gnumber;
+        this.gnumber = gnumber;
     }
 
     public String getGnumber() {

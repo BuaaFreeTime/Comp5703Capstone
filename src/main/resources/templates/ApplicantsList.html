@@ -165,109 +165,34 @@
 									<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 										<thead>
 											<tr>
+												<th>Project Id</th>
 												<th>Project Name</th>
 												<th>Unit</th>
 												<th>Applicant Name</th>
-												<th>Applicant ID</th>
 												<th>CV</th>
 												<th>Action</th>
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
-												<td>CAPSTONE PM</td>
-												<td>COMP5707</td>
-												<td>shabiwangyanpeng</td>
-												<td>428428428</td>
+											<tr th:each="applicant:${applicantslist}">
+												<td th:text="${applicant.pid}"></td>
+												<td th:text="${applicant.pname}"></td>
+												<td th:text="${applicant.ptype}"></td>
+												<td th:text="${applicant.sname}"></td>
 												<td>
 													<a href="https://www.baidu.com/" target="_blank">Download</a>
 												</td>
 												<td>
-													<a href="#" class="btn btn-primary btn-icon-split"><span class="text">Accept</span></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" class="btn btn-primary btn-icon-split"><span class="text">Deny</span></a>
-												</td>
-											</tr>
-											<tr>
-												<td>CAPSTONE PM</td>
-												<td>COMP5707</td>
-												<td>shabiwangyanpeng</td>
-												<td>428428428</td>
-												<td>
-													<a href="https://www.baidu.com/" target="_blank">Download</a>
-												</td>
-												<td>
-													<a href="#" class="btn btn-primary btn-icon-split"><span class="text">Accept</span></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" class="btn btn-primary btn-icon-split"><span class="text">Deny</span></a>
-												</td>
-											</tr>
-											<tr>
-												<td>CAPSTONE PM</td>
-												<td>COMP5707</td>
-												<td>shabiwangyanpeng</td>
-												<td>428428428</td>
-												<td>
-													<a href="https://www.baidu.com/" target="_blank">Download</a>
-												</td>
-												<td>
-													<a href="#" class="btn btn-primary btn-icon-split"><span class="text">Accept</span></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" class="btn btn-primary btn-icon-split"><span class="text">Deny</span></a>
-												</td>
-											</tr>
-											<tr>
-												<td>CAPSTONE PM</td>
-												<td>COMP5707</td>
-												<td>shabiwangyanpeng</td>
-												<td>428428428</td>
-												<td>
-													<a href="https://www.baidu.com/" target="_blank">Download</a>
-												</td>
-												<td>
-													<a href="#" class="btn btn-primary btn-icon-split"><span class="text">Accept</span></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" class="btn btn-primary btn-icon-split"><span class="text">Deny</span></a>
-												</td>
-											</tr>
-											<tr>
-												<td>CAPSTONE PM</td>
-												<td>COMP5707</td>
-												<td>shabiwangyanpeng</td>
-												<td>428428428</td>
-												<td>
-													<a href="https://www.baidu.com/" target="_blank">Download</a>
-												</td>
-												<td>
-													<a href="#" class="btn btn-primary btn-icon-split"><span class="text">Accept</span></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" class="btn btn-primary btn-icon-split"><span class="text">Deny</span></a>
-												</td>
-											</tr>
-											<tr>
-												<td>CAPSTONE PM</td>
-												<td>COMP5707</td>
-												<td>shabiwangyanpeng</td>
-												<td>428428428</td>
-												<td>
-													<a href="https://www.baidu.com/" target="_blank">Download</a>
-												</td>
-												<td>
-													<a href="#" class="btn btn-primary btn-icon-split"><span class="text">Accept</span></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" class="btn btn-primary btn-icon-split"><span class="text">Deny</span></a>
-												</td>
-											</tr>
-											<tr>
-												<td>CAPSTONE PM</td>
-												<td>COMP5707</td>
-												<td>shabiwangyanpeng</td>
-												<td>428428428</td>
-												<td>
-													<a href="https://www.baidu.com/" target="_blank">Download</a>
-												</td>
-												<td>
-													<a href="#" class="btn btn-primary btn-icon-split"><span class="text">Accept</span></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" class="btn btn-primary btn-icon-split"><span class="text">Deny</span></a>
-												</td>
-											</tr>
-											<tr>
-												<td>CAPSTONE PM</td>
-												<td>COMP5707</td>
-												<td>shabiwangyanpeng</td>
-												<td>428428428</td>
-												<td>
-													<a href="https://www.baidu.com/" target="_blank">Download</a>
-												</td>
-												<td>
-													<a href="#" class="btn btn-primary btn-icon-split"><span class="text">Accept</span></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" class="btn btn-primary btn-icon-split"><span class="text">Deny</span></a>
+													<form method="post" action="/applicantslistAccept">
+														<input name="pid" type="hidden" th:value="${applicant.pid}">
+														<input name="sid" type="hidden" th:value="${applicant.sid}">
+														<button type="submit" class="btn btn-primary btn-icon-split"><span class="text">Accept</span></button>
+													</form>
+													<form method="post" action="/applicantslistdeny">
+														<input name="pname" type="hidden" th:value="${applicant.pname}">
+														<input name="sid" type="hidden" th:value="${applicant.sid}">
+														<button type="submit" class="btn btn-primary btn-icon-split"><span class="text">Deny</span></button>
+													</form>
 												</td>
 											</tr>
 										</tbody>

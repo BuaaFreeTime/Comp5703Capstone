@@ -19,6 +19,11 @@ public class GroupDao {
 
     private static DatabaseReference groupRef = ref.child("group");
 
+    //delete group
+    public void deleteGroup(String gid){
+        groupRef.child(gid).removeValueAsync();
+    }
+
     // update time
     public void updatePresentation(String id, String date){
         Map<String, Object> hopperUpdates = new HashMap<>();

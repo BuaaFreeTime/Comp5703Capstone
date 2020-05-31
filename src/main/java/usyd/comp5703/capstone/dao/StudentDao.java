@@ -21,7 +21,6 @@ public class StudentDao {
     // update item
     public void updateStudentGid(String id, String gid){
         Map<String, Object> hopperUpdates = new HashMap<>();
-
         hopperUpdates.put(id+"/groupId", gid);
         studentRef.updateChildrenAsync(hopperUpdates);
     }
@@ -29,7 +28,6 @@ public class StudentDao {
     // update item
     public void updateStudentPid(String id, String pid){
         Map<String, Object> hopperUpdates = new HashMap<>();
-
         hopperUpdates.put(id+"/projectId", pid);
         studentRef.updateChildrenAsync(hopperUpdates);
     }

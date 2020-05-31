@@ -23,12 +23,14 @@ public class ProjectController {
     StudentPreferenceService studentPreferenceService;
 
 
-    @PostMapping(value = {"/changeGnum"})
-    public String changeGroupNumber(@RequestParam("gnumber") String groupMum,
+    @PostMapping(value = {"/updateproject"})
+    public String changeGroupNumber(@RequestParam("unit") String unit,
+                                    @RequestParam("type") String type,
+                                    @RequestParam("name") String name,
+                                    @RequestParam("description") String description,
+                                    @RequestParam("gnumber") String groupMum,
                                     @RequestParam("pid") String pid) {
-        if (!groupMum.equals("") && !pid.equals("")) {
-            projectService.updateGnum(pid,groupMum);
-        }
+        projectService.updateProject(pid, unit, type, name, description, groupMum);
         return "redirect:/myprojects-client";
 
     }
@@ -96,23 +98,24 @@ public class ProjectController {
     public String studentPreferenceSubmit(@RequestParam("first") String firstChoice,
                                           @RequestParam("second") String secondChoice,
                                           @RequestParam("third") String thirdChoice,
-                                          Model model) {
+                                          Model model, HttpSession session) {
         List<ProjectEntity> projectEntityList;
         projectEntityList = projectService.getAllproject();
         model.addAttribute("project1s", projectEntityList);
         model.addAttribute("project2s", projectEntityList);
         model.addAttribute("project3s", projectEntityList);
-        //String userId = session.getAttribute("user").toString();
+        String userId = session.getAttribute("user").toString();
         //String userSem = session.getAttribute("semester").toString();
-        studentPreferenceService.addPreference("student1", firstChoice,secondChoice,thirdChoice, "2020 Semester 1");
-        return "/ProjectPreference";
+        String group = session.getAttribute("group").toString();
+        studentPreferenceService.addPreference(userId, firstChoice,secondChoice,thirdChoice, "2020 Semester 1",group);
+        return "redirect:/projectpreference";
     }
 
     @RequestMapping(value = {"/myprojects-client"})
-    public String myProjectClient(Model model) {
+    public String myProjectClient(Model model, HttpSession session) {
         List<ProjectEntity> projectEntityList;
-        //String cid = session.getAttribute("user").toString();
-        projectEntityList = projectService.getAllProjectClient("client1");
+        String cid = session.getAttribute("user").toString();
+        projectEntityList = projectService.getAllProjectClient(cid);
         model.addAttribute("projects", projectEntityList);
         return "MyProjects-client";
     }
@@ -134,9 +137,11 @@ public class ProjectController {
                              @RequestParam("type") String type,
                              @RequestParam("name") String name,
                              @RequestParam("description") String description,
-                             Model model) {
-        //String cid = session.getAttribute("user").toString();
-        projectService.addProject(unit, type, name, description, "client1");
+                             @RequestParam("gnumber") String gnum,
+                             HttpSession session) {
+        String cid = session.getAttribute("user").toString();
+        System.out.println(gnum);
+        projectService.addProject(unit, type, name, description, cid, gnum);
         return "redirect:/myprojects-client";
 
     }

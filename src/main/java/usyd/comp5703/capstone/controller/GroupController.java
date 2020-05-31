@@ -65,12 +65,12 @@ public class GroupController {
 
     @PostMapping(value = {"/preferencestimesubmit"})
     public String studentPresentationsTime(@RequestParam("presentationTime") String date,
-                                           Map<String,Object> map) {
-        //String sid = session.getAttribute("user").toString();
-        GroupEntity groupEntity = groupService.updatePresentation("student2", date);
+                                           Map<String,Object> map, HttpSession session) {
+        String sid = session.getAttribute("user").toString();
+        GroupEntity groupEntity = groupService.updatePresentation(sid, date);
         map.put("groupID", groupEntity.getId());
 
-        return "PresentationSlot";
+        return "redirect:/presentationslot";
     }
 
     @RequestMapping(value = {"/scheduletables"})

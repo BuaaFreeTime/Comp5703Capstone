@@ -26,25 +26,25 @@ public class LoginService {
     StudentPreferenceService studentPreferenceService;
 
     public boolean studentCheck(String username, String password) {
-
-        /* Add student account function
+ /*
+        // Add student account function
         LoginEntity loginEntity = new LoginEntity(username, password);
         loginDao.addStudent(loginEntity);
 
         System.out.println(username+" "+password);
-
+ */
+ /*
         // Add initial student function
         int i;
         for (i=1;i<=50; i++) {
             StudentEntity studentEntity = new StudentEntity("student"+i,
                                                             "student"+i,
                                                             i+"@gmail.com",
-                                                            "", "",
-                                                            "2020 Semester 1");
+                                                            "2020 Semester 1", "no");
             studentDao.addStudent(studentEntity);
         }
 
-
+ /*
         // Add student preference function
         int i;
         String p = "project";
@@ -55,7 +55,7 @@ public class LoginService {
             if (x==0) x=10;
             if (y==0) y=10;
             if (z==0) z=10;
-            studentPreferenceService.addPreference("student"+i, p+x, p+y, p+z, "2020 Semester 1");
+            studentPreferenceService.addPreference("student"+i, p+x, p+y, p+z, "2020 Semester 1", "no");
         }
  */
         if (loginDao.studentCheck(username, password)) return true;

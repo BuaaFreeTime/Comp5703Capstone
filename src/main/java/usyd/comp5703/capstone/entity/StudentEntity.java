@@ -32,6 +32,16 @@ public class StudentEntity {
         this.semester = semester;
     }
 
+    public StudentEntity(String sid, String name, String email, String semester, String group){
+        this.sid = sid;
+        this.name = name;
+        this.email = email;
+        this.groupId = "";
+        this.projectId = "";
+        this.semester = semester;
+        this.group = group;
+    }
+
     public String getGroup() {
         return group;
     }
