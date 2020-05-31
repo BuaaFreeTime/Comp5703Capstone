@@ -63,18 +63,11 @@
 				</li>
 
 				<!-- Nav Item - Utilities Collapse Menu -->
-				<li class="nav-item">
-					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+				<li class="nav-item" th:if="${group} eq 'yes'">
+					<a class="nav-link" href="/mygroup">
 						<i class="fas fa-fw fa-wrench"></i>
-						<span>Group</span>
+						<span>My Group</span>
 					</a>
-					<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-						<div class="bg-white py-2 collapse-inner rounded">
-							<h6 class="collapse-header">Group Information:</h6>
-							<a class="collapse-item" href="/allgroup">All Group</a>
-							<a class="collapse-item" href="/mygroup">My Group</a>
-						</div>
-					</div>
 				</li>
 
 				<!-- Divider -->

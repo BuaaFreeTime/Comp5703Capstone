@@ -24,11 +24,11 @@ public class GroupController {
 
     @RequestMapping(value = {"/marks"})
     public String studentMarks(HttpSession session, Map<String, Object> map) {
-        //String sid = session.getAttribute("user").toString();
-        String marks = groupService.getMarks("student2");
-        String feedback =  groupService.getFeedback("student2");
-        map.put("score", marks);
+        String sid = session.getAttribute("user").toString();
+        String marks = groupService.getMarks(sid);
+        String feedback =  groupService.getFeedback(sid);
         map.put("feedback", feedback);
+        map.put("group", session.getAttribute("group"));
         return "Marks";
     }
 
@@ -46,17 +46,19 @@ public class GroupController {
 
     @RequestMapping(value = {"/mygroup"})
     public String mygroupStudent(Model model, HttpSession session) {
-        //String sid = session.getAttribute("user").toString();
-        GroupEntity groupEntity = groupService.getMygroup("student2");
+        String sid = session.getAttribute("user").toString();
+        GroupEntity groupEntity = groupService.getMygroup(sid);
         if (groupEntity!=null)  model.addAttribute("groups", groupEntity);
+        model.addAttribute("group", session.getAttribute("group"));
         return "MyGroup";
     }
 
     @RequestMapping(value = {"/presentationslot"})
-    public String studentPresentationslot( Map<String,Object> map) {
-        //String sid = session.getAttribute("user").toString();
-        GroupEntity groupEntity = groupService.getMygroup("student2");
+    public String studentPresentationslot( Map<String,Object> map, HttpSession session) {
+        String sid = session.getAttribute("user").toString();
+        GroupEntity groupEntity = groupService.getMygroup(sid);
         if (groupEntity!=null) map.put("groupID", groupEntity.getId());
+        map.put("group", session.getAttribute("group"));
         return "PresentationSlot";
 
     }
@@ -72,14 +74,15 @@ public class GroupController {
     }
 
     @RequestMapping(value = {"/scheduletables"})
-    public String scheduleTables(Map<String,Object> map){
-        //String sid = session.getAttribute("user").toString();
-        List<String> time = groupService.getScheduleTables("student2");
+    public String scheduleTables(Map<String,Object> map, HttpSession session){
+        String sid = session.getAttribute("user").toString();
+        List<String> time = groupService.getScheduleTables(sid);
         if (time!=null) {
             map.put("currentDate", time.get(0));
             map.put("presentationDate", time.get(1));
             map.put("remainingDays", time.get(2));
         }
+        map.put("group", session.getAttribute("group"));
         return "ScheduleTables";
     }
 

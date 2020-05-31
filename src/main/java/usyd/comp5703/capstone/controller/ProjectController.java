@@ -44,8 +44,9 @@ public class ProjectController {
 
     @RequestMapping(value = {"/myproject"})
     public String studentMyproject(HttpSession session, Map<String,Object> map) {
-        //String sid = session.getAttribute("user").toString();
-        ProjectEntity myprojectEntity = projectService.getMyproject("student2");
+        String sid = session.getAttribute("user").toString();
+        ProjectEntity myprojectEntity = projectService.getMyproject(sid);
+        map.put("group", session.getAttribute("group"));
         if (myprojectEntity!=null) {
             map.put("projectUnit", myprojectEntity.getUnit());
             map.put("projectType", myprojectEntity.getType());
@@ -68,19 +69,23 @@ public class ProjectController {
     }
 
     @RequestMapping(value = {"/projectlist"})
-    public String studentAllproject(Model model) {
+    public String studentAllproject(Model model, HttpSession session) {
         List<ProjectEntity> projectEntityList;
         projectEntityList = projectService.getAllproject();
         model.addAttribute("projects", projectEntityList);
+        model.addAttribute("group", session.getAttribute("group"));
         return "ProjectList";
 
     }
 
 
     @RequestMapping(value = {"/projectpreference"})
-    public String studentProjectPreference(Model model) {
+    public String studentProjectPreference(Model model, HttpSession session) {
+        String group = session.getAttribute("group").toString();
         List<ProjectEntity> projectEntityList;
+        //projectEntityList = projectService.getAllproject(group);
         projectEntityList = projectService.getAllproject();
+        model.addAttribute("group", group);
         model.addAttribute("project1s", projectEntityList);
         model.addAttribute("project2s", projectEntityList);
         model.addAttribute("project3s", projectEntityList);

@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import usyd.comp5703.capstone.entity.StudentEntity;
 import usyd.comp5703.capstone.service.LoginService;
+import usyd.comp5703.capstone.service.ProfileService;
 
 import javax.servlet.http.HttpSession;
 import java.util.Map;
@@ -14,6 +16,8 @@ public class LoginController {
 
     @Autowired  //与service层进行交互
     private LoginService loginService;
+    @Autowired
+    private ProfileService profileService;
 
     @PostMapping("/student/login")
     public String loginStudent(@RequestParam("username") String username,
@@ -24,6 +28,9 @@ public class LoginController {
         loginCheck = loginService.studentCheck(username, password);
         if (loginCheck) {
             session.setAttribute("user", username);
+            StudentEntity studentEntity = profileService.getStudent(username);
+            //session.setAttribute("group", studentEntity.getGroup());
+            session.setAttribute("group", "no");
             return "redirect:/index-student";
         }
         else {

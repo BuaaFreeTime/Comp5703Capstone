@@ -11,13 +11,14 @@ public class ProjectEntity {
     String client;
     String clientid;
     String tutor;
-    String Gnumber;
+    String gnumber;
     String semester;
     String approve;
     String feedback;
+    String group;
 
     public ProjectEntity(){
-        this.Gnumber = "4";
+        this.gnumber = "4";
         this.approve = "no";
         this.semester = "2020 Semester 1";
         this.feedback = "Not yet feedback";
@@ -33,7 +34,7 @@ public class ProjectEntity {
             this.client = "Dr. Wu xi";
             this.clientid = "client1";
             this.tutor = "Omid";
-            this.Gnumber = "4";
+            this.gnumber = "4";
             this.approve = "no";
             this.semester = "2020 Semester 1";
             this.feedback = "Not yet feedback";
@@ -46,7 +47,7 @@ public class ProjectEntity {
             this.client = "Dr. Wang";
             this.tutor = "Zhaohui";
             this.clientid = "client2";
-            this.Gnumber = "4";
+            this.gnumber = "4";
             this.approve = "no";
             this.semester = "2020 Semester 1";
             this.feedback = "Not yet feedback";
@@ -58,12 +59,20 @@ public class ProjectEntity {
             this.description = "Service client";
             this.client = "Dr. Wu xi";
             this.tutor = "Jerry";
-            this.Gnumber = "4";
+            this.gnumber = "4";
             this.clientid = "client1";
             this.approve = "no";
             this.semester = "2020 Semester 1";
             this.feedback = "Not yet feedback";
         }
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
+    public String getGroup() {
+        return group;
     }
 
     public void setFeedback(String feedback) {
@@ -91,11 +100,11 @@ public class ProjectEntity {
     }
 
     public void setGnumber(String gnumber) {
-        Gnumber = gnumber;
+        gnumber = gnumber;
     }
 
     public String getGnumber() {
-        return Gnumber;
+        return gnumber;
     }
 
     public String getClientid() {

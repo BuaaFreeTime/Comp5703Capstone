@@ -64,20 +64,11 @@
         </li>
 
         <!-- Nav Item - Utilities Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-               aria-expanded="true" aria-controls="collapseUtilities">
+        <li class="nav-item" th:if="${group} eq 'yes'">
+            <a class="nav-link" href="/mygroup">
                 <i class="fas fa-fw fa-wrench"></i>
-                <span>Group</span>
+                <span>My Group</span>
             </a>
-            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                 data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Group Information:</h6>
-                    <a class="collapse-item" href="/allgroup">All Group</a>
-                    <a class="collapse-item" href="/mygroup">My Group</a>
-                </div>
-            </div>
         </li>
 
         <!-- Divider -->
@@ -227,7 +218,8 @@
                                         <td><input name="Progress" class="AddInput form-control"/></td>
                                         <td><input name="Final" class="AddInput form-control"/></td>
                                         <td><input name="Presentation" class="AddInput form-control"/></td>
-                                        <td><button type="submit" class="btn btn-primary btn-icon-split"><span class="text">Calculate</span></button>
+                                        <td>
+                                            <button type="submit" class="btn btn-primary btn-icon-split"><span class="text">Calculate</span></button>
                                         </td>
                                         <td></td>
                                     </tr>
@@ -237,33 +229,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Color System -->
-                <div class="row">
-                    <div class="col-xl-4 col-lg-5" style="flex: 0 0 40%;max-width: 40%;">
-                        <div class="card shadow mb-4">
-                            <!-- Card Header - Dropdown -->
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">FINAL MARK</h6>
-                            </div>
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                <!--
-                                <div class="chart-pie pt-4">
-                                    <a id="get" value="22"></a>
-                                    <canvas id="studentmarks"></canvas>
-
-                                </div>
-                                -->
-                                Your Score:
-                                <span th:text="${score}"></span>
-                                out of 100.
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.container-fluid -->
-
             </div>
             <!-- End of Main Content -->
 

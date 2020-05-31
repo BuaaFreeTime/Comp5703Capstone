@@ -47,7 +47,7 @@ public class GroupService {
         HashMap<String, String> projectMapid = new HashMap<>();
         HashMap<String, Integer> projectMapGnum = new HashMap<>();
         HashMap<String, String> groupMap = new HashMap<>();
-        System.out.println(projectEntityList.size());
+        //System.out.println(projectEntityList.size());
         for (ProjectEntity projectEntity:projectEntityList) {
             map.put(projectEntity.getName(), Integer.valueOf(projectEntity.getGnumber())*5);
             projectMapGnum.put(projectEntity.getName(), Integer.valueOf(projectEntity.getGnumber()));

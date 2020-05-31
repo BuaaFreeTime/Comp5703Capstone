@@ -81,12 +81,18 @@ public class ProjectDao {
 
     public List<ProjectEntity> getAllproject(){
         final List<ProjectEntity> projectEntityList = new ArrayList<>();
-        final CountDownLatch readData = new CountDownLatch(10);
+        final CountDownLatch readData = new CountDownLatch(5);
         projectRef.orderByChild("id").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
-                projectEntityList.add(dataSnapshot.getValue(ProjectEntity.class));
+                ProjectEntity projectEntity = dataSnapshot.getValue(ProjectEntity.class);
+                projectEntityList.add(projectEntity);
                 readData.countDown();
+                /*
+                if (projectEntity.getGroup().equals(group)) {
+                    projectEntityList.add(projectEntity);
+                    readData.countDown();
+                }*/
             }
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String prevChildKey) {}

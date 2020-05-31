@@ -36,6 +36,8 @@ public class DashboardController {
             else {map.put("presentTime", strArr[0] + " " + strArr[1]);}
             map.put("projectName", projectEntity.getName());
         }
+        //StudentEntity studentEntity = profileService.getStudent(sid);
+        map.put("group", session.getAttribute("group"));
         return "index-student";
     }
 
