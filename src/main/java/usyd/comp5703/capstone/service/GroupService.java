@@ -49,11 +49,13 @@ public class GroupService {
         HashMap<String, String> groupMap = new HashMap<>();
         //System.out.println(projectEntityList.size());
         for (ProjectEntity projectEntity:projectEntityList) {
+            if (projectEntity.getGroup().equals("no")) continue;
             map.put(projectEntity.getName(), Integer.valueOf(projectEntity.getGnumber())*5);
             projectMapGnum.put(projectEntity.getName(), Integer.valueOf(projectEntity.getGnumber()));
             projectMapid.put(projectEntity.getName(), projectEntity.getId());
         }
         for (StudentPreferenceEntity sp:studentPreferenceEntityList) {
+            if (sp.getGroup().equals("no")) continue;
             String project;
             int x;
             x = map.get(sp.getFirst());
@@ -157,6 +159,7 @@ public class GroupService {
     public GroupEntity getMygroup(String sid) {
         StudentEntity studentEntity = studentDao.getStudent(sid);
         String gid = studentEntity.getGroupId();
+        System.out.println(gid);
         if (gid.equals("")) return null;
         GroupEntity groupEntity = groupDao.getMygroup(gid);
         return groupEntity;
@@ -167,6 +170,21 @@ public class GroupService {
         GroupEntity groupEntity = groupDao.getMygroup(studentEntity.getGroupId());
         groupDao.updatePresentation(groupEntity.getId(), date);
         return groupEntity;
+    }
+
+    public void updateStudentGroup(String gid,String pid,String s1,String s2,String s3,String s4,String s5,String cid) {
+        if (!gid.equals("")) groupDao.updateGid(gid, gid);
+        if (!pid.equals("")) groupDao.updatePid(gid, pid);
+        if (!s1.equals("")) groupDao.updateS1(gid, s1);
+        if (!s2.equals("")) groupDao.updateS2(gid, s2);
+        if (!s3.equals("")) groupDao.updateS3(gid,s3);
+        if (!cid.equals("")) groupDao.updateCid(gid,cid);
+        if (!s4.equals("")) groupDao.updateS4(gid,s4);
+        if (!s4.equals("")) groupDao.updateS5(gid,s5);
+    }
+
+    public void deleteStudentGroup(String gid){
+        groupDao.deleteGroup(gid);
     }
 
     public List<String> getStudentsInProject(String cid) {
@@ -202,17 +220,28 @@ public class GroupService {
         return groups;
     }
 
-    public void addGroup(String id,String s1, String s2, String s3, String s4, String s5, String clientId) {
+    public void addGroup(String gid,String pid, String s1, String s2, String s3, String s4, String s5, String clientId) {
         GroupEntity groupEntity = new GroupEntity();
         groupEntity.setPresentation("2020-06-06T15:15");
         groupEntity.setMarks("0");
         groupEntity.setStudent1(s1);
+        groupEntity.setProjectid(pid);
+        studentDao.updateStudentGid(studentDao.getStudent(s1).getSid(),gid);
+        studentDao.updateStudentPid(studentDao.getStudent(s1).getSid(), pid);
         groupEntity.setStudent2(s2);
+        studentDao.updateStudentGid(studentDao.getStudent(s2).getSid(),gid);
+        studentDao.updateStudentPid(studentDao.getStudent(s2).getSid(), pid);
         groupEntity.setStudent3(s3);
+        studentDao.updateStudentGid(studentDao.getStudent(s3).getSid(),gid);
+        studentDao.updateStudentPid(studentDao.getStudent(s3).getSid(), pid);
         groupEntity.setStudent4(s4);
+        studentDao.updateStudentGid(studentDao.getStudent(s4).getSid(),gid);
+        studentDao.updateStudentPid(studentDao.getStudent(s4).getSid(), pid);
         groupEntity.setStudent5(s5);
+        studentDao.updateStudentGid(studentDao.getStudent(s5).getSid(),gid);
+        studentDao.updateStudentPid(studentDao.getStudent(s5).getSid(), pid);
         groupEntity.setClientid(clientId);
-        groupEntity.setId(id);
+        groupEntity.setId(gid);
         groupDao.addGroup(groupEntity);
     }
 

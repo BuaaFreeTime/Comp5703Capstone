@@ -28,14 +28,18 @@ public class DashboardController {
     @RequestMapping(value = {"/index-student", "/student/index-student"})
     public String studentDashboard(Map<String, Object> map, HttpSession session ) {
         String sid = session.getAttribute("user").toString();
+
         GroupEntity groupEntity = groupService.getMygroup(sid);
+        System.out.println(sid);
         ProjectEntity projectEntity = projectService.getMyproject(sid);
+        System.out.println(sid);
 
         if (projectEntity!=null){
             map.put("projectName", projectEntity.getName());
         }
 
         if (groupEntity!=null) {
+            System.out.println(sid);
             String[] strArr = groupEntity.getPresentation().split("T");
             if (strArr.length==1) {map.put("presentTime", "Not yet set"); }
             else {map.put("presentTime", strArr[0] + " " + strArr[1]);}

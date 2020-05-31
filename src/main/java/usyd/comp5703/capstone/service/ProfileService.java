@@ -34,6 +34,7 @@ public class ProfileService {
         demo.setGroupId(groupId);
         demo.setProjectId(projectId);
         demo.setSid(sid);
+        demo.setGroup("yes");
         studentDao.addStudent(demo);
     }
 

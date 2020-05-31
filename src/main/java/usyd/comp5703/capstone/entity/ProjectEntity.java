@@ -27,7 +27,7 @@ public class ProjectEntity {
     public ProjectEntity(String id) {
         this.id = id;
         if (Integer.valueOf(id)% 3 == 0) {
-            this.unit = "Comp5703";
+            this.unit = "Comp5709";
             this.type = "Software Engineering";
             this.name = "project"+id;
             this.description = "A capstone project management system";
@@ -38,10 +38,10 @@ public class ProjectEntity {
             this.approve = "no";
             this.semester = "2020 Semester 1";
             this.feedback = "Not yet feedback";
-            this.group = "yes";
+            this.group = "no";
         }
         if (Integer.valueOf(id) % 3 == 1) {
-            this.unit = "Comp5708";
+            this.unit = "Comp5703";
             this.type = "Data Science";
             this.name = "project"+id;
             this.description = "To provide customers with the function of remote modification and reset of debit card transaction password";
@@ -52,10 +52,10 @@ public class ProjectEntity {
             this.approve = "no";
             this.semester = "2020 Semester 1";
             this.feedback = "Not yet feedback";
-            this.group = "no";
+            this.group = "yes";
         }
         if (Integer.valueOf(id) % 3 == 2) {
-            this.unit = "Comp5707";
+            this.unit = "Comp5703";
             this.type = "Information System";
             this.name = "project"+id;
             this.description = "Service client";
@@ -66,7 +66,7 @@ public class ProjectEntity {
             this.approve = "no";
             this.semester = "2020 Semester 1";
             this.feedback = "Not yet feedback";
-            this.group = "no";
+            this.group = "yes";
         }
     }
 

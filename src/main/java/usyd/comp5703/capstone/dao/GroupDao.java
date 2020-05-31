@@ -27,21 +27,49 @@ public class GroupDao {
     // update time
     public void updatePresentation(String id, String date){
         Map<String, Object> hopperUpdates = new HashMap<>();
-
         hopperUpdates.put(id+"/presentation", date);
         groupRef.updateChildrenAsync(hopperUpdates);
     }
-
-    // update client
-    public void updateClient(String groupId, String cid){
+    public void updateS1(String id, String s1){
         Map<String, Object> hopperUpdates = new HashMap<>();
-        hopperUpdates.put("2/clientid", "client1");
-        hopperUpdates.put("4/clientid", "client1");
-        hopperUpdates.put("6/clientid", "client2");
+        hopperUpdates.put(id+"/student1", s1);
         groupRef.updateChildrenAsync(hopperUpdates);
     }
-
-
+    public void updateS2(String id, String s2){
+        Map<String, Object> hopperUpdates = new HashMap<>();
+        hopperUpdates.put(id+"/student2", s2);
+        groupRef.updateChildrenAsync(hopperUpdates);
+    }
+    public void updateS3(String id, String s3){
+        Map<String, Object> hopperUpdates = new HashMap<>();
+        hopperUpdates.put(id+"/student3", s3);
+        groupRef.updateChildrenAsync(hopperUpdates);
+    }
+    public void updateS4(String id, String s4){
+        Map<String, Object> hopperUpdates = new HashMap<>();
+        hopperUpdates.put(id+"/student4", s4);
+        groupRef.updateChildrenAsync(hopperUpdates);
+    }
+    public void updateS5(String id, String s5){
+        Map<String, Object> hopperUpdates = new HashMap<>();
+        hopperUpdates.put(id+"/student5", s5);
+        groupRef.updateChildrenAsync(hopperUpdates);
+    }
+    public void updatePid(String id, String pid){
+        Map<String, Object> hopperUpdates = new HashMap<>();
+        hopperUpdates.put(id+"/projectid", pid);
+        groupRef.updateChildrenAsync(hopperUpdates);
+    }
+    public void updateGid(String id, String gid){
+        Map<String, Object> hopperUpdates = new HashMap<>();
+        hopperUpdates.put(id+"/id", gid);
+        groupRef.updateChildrenAsync(hopperUpdates);
+    }
+    public void updateCid(String id, String cid){
+        Map<String, Object> hopperUpdates = new HashMap<>();
+        hopperUpdates.put(id+"/clientid", cid);
+        groupRef.updateChildrenAsync(hopperUpdates);
+    }
 
     public void updateFeedback(String groupId, String feedback){
         Map<String, Object> hopperUpdates = new HashMap<>();
@@ -165,8 +193,8 @@ public class GroupDao {
         groupRef.orderByChild("id").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
+                System.out.println("ss");
                 groupEntityList.add(dataSnapshot.getValue(GroupEntity.class));
-
                 readData.countDown();
             }
             @Override

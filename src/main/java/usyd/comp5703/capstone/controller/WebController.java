@@ -22,9 +22,6 @@ public class WebController {
     @RequestMapping(value = {"/marksadmin"})
     public String MyProjects() { return "Marks-admin"; }
 
-    @RequestMapping(value = {"/typesofprojects"})
-    public String AllGroup() { return "TypesofProjects"; }
-
     @RequestMapping(value = {"/projectsandclients"})
     public String projectsandclients() { return "ProjectsandClients"; }
 

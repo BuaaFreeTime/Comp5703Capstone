@@ -41,8 +41,16 @@ public class ProjectController {
                                     @RequestParam("description") String description,
                                     @RequestParam("clientid") String clientid,
                                     @RequestParam("tutor") String tutor,
-                                     @RequestParam("pid") String pid) {
-        //projectService.updateProjectAdmin(unit, type, name, description,clientid,tutor, pid);
+                                     @RequestParam("pid") String pid,
+                                     @RequestParam("gnum") String groupMum) {
+        projectService.updateProject(pid, unit, type, name, description, groupMum,clientid,tutor);
+        return "redirect:/projectinformation";
+    }
+
+
+    @PostMapping(value = {"/deleteProjectAdmin"})
+    public String updateProjectAdmin(@RequestParam("pid") String pid) {
+        projectService.deleteProject(pid);
         return "redirect:/projectinformation";
     }
 
@@ -141,8 +149,9 @@ public class ProjectController {
                              @RequestParam("description") String description,
                              @RequestParam("clientid") String clientid,
                              @RequestParam("tutor") String tutor,
+                             @RequestParam("gnumber") String gnum,
                                           Model model) {
-       projectService.addProject(unit, type, name, description, clientid, tutor);
+       projectService.addProject(unit, type, name, description, gnum, clientid, tutor);
        return "redirect:/projectinformation";
     }
 
@@ -155,7 +164,7 @@ public class ProjectController {
                              HttpSession session) {
         String cid = session.getAttribute("user").toString();
         System.out.println(gnum);
-        projectService.addProject(unit, type, name, description, cid, gnum);
+        projectService.addProject(unit, type, name, description, gnum, cid);
         return "redirect:/myprojects-client";
 
     }

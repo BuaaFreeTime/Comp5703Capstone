@@ -32,32 +32,46 @@ public class LoginService {
         loginDao.addStudent(loginEntity);
 
         System.out.println(username+" "+password);
- */
- /*
+
+
         // Add initial student function
         int i;
         for (i=1;i<=50; i++) {
-            StudentEntity studentEntity = new StudentEntity("student"+i,
-                                                            "student"+i,
-                                                            i+"@gmail.com",
-                                                            "2020 Semester 1", "no");
-            studentDao.addStudent(studentEntity);
-        }
+            if (i<=5) {
+                 StudentEntity studentEntity = new StudentEntity("student" + i,
+                        "student" + i,
+                        i + "@gmail.com",
+                        "2020 Semester 1", "no");
+                studentDao.addStudent(studentEntity);
+            }else {
+                StudentEntity studentEntity = new StudentEntity("student" + i,
+                        "student" + i,
+                        i + "@gmail.com",
+                        "2020 Semester 1", "yes");
+                studentDao.addStudent(studentEntity);
+            }
 
- /*
+        }
+/*
         // Add student preference function
         int i;
         String p = "project";
-        for (i=1;i<=50; i++) {
+        for (i=1;i<=5;i++) {
+            studentPreferenceService.addPreference("student" + i, p + 3, p + 6, p + 9, "2020 Semester 1", "no");
+        }
+        for (i=6;i<=50; i++) {
             int x = i % 10;
             int y = (x + 1) % 10;
             int z = (x + 2) % 10;
             if (x==0) x=10;
             if (y==0) y=10;
             if (z==0) z=10;
-            studentPreferenceService.addPreference("student"+i, p+x, p+y, p+z, "2020 Semester 1", "no");
+            if (x%3==0) x++;
+            if (y%3==0) y++;
+            if (z%3==0) z++;
+            studentPreferenceService.addPreference("student"+i, p+x, p+y, p+z, "2020 Semester 1", "yes");
         }
- */
+*/
         if (loginDao.studentCheck(username, password)) return true;
         else return false;
 

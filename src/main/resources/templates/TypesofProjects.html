@@ -181,22 +181,21 @@
 											<th>Student-Number</th>
 										</tr>
 										</thead>
-										<tbody contenteditable="true">
+										<tbody>
 										<tr>
 											<td>Software Development</td>
-											<td>16</td>
-											<td>150</td>
+											<td th:text="${softwareP}"></td>
+											<td th:text="${softwareS}"></td>
 										</tr>
 										<tr>
 											<td>Data Science</td>
-											<td>13</td>
-											<td>120</td>
+											<td th:text="${dataP}"></td>
+											<td th:text="${dataS}"></td>
 										</tr>
 										<tr>
 											<td>Information System</td>
-											<td>11</td>
-											<td>100</td>
-
+											<td th:text="${informationP}"></td>
+											<td th:text="${informationS}"></td>
 										</tr>
 										</tbody>
 
@@ -216,30 +215,11 @@
 										<th>Student-Number</th>
 									</tr>
 									</thead>
-									<tbody contenteditable="true">
-									<tr>
-										<td>project1</td>
-										<td>120</td>
-									</tr>
-									<tr>
-										<td>project6</td>
-										<td>103</td>
-									</tr>
-									<tr>
-										<td>project3</td>
-										<td>95</td>
-
-									</tr>
-									<tr>
-										<td>project10</td>
-										<td>82</td>
-
-									</tr>
-									<tr>
-										<td>project7</td>
-										<td>79</td>
-
-									</tr>
+									<tbody>
+										<tr th:each="top:${top5}">
+											<td th:text="${top.name}"></td>
+											<td th:text="${top.num}"></td>
+										</tr>
 									</tbody>
 
 								</table>

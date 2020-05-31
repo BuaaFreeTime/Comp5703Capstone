@@ -38,6 +38,18 @@ public class ProjectService {
         if (!gnum.equals("")) projectDao.updateGroupNumber(pid,gnum);
         System.out.println("Client update project:"+pid);
     }
+
+    public void updateProject(String pid,String unit, String type, String name, String description, String gnum, String cid, String tutor) {
+        if (!unit.equals("")) projectDao.updateUnit(pid, unit);
+        if (!type.equals("")) projectDao.updateType(pid, type);
+        if (!name.equals("")) projectDao.updateName(pid, name);
+        if (!description.equals("")) projectDao.updateDescription(pid, description);
+        if (!gnum.equals("")) projectDao.updateGroupNumber(pid,gnum);
+        if (!cid.equals("")) projectDao.updateClientid(pid,cid);
+        if (!tutor.equals("")) projectDao.updateTutor(pid,tutor);
+        System.out.println("Admin update project:"+pid);
+    }
+
     public void updateApprove(String pid) {
         String state = "yes";
         projectDao.updateApprove(pid,state);
@@ -82,13 +94,15 @@ public class ProjectService {
         return projectEntityApproveList;
     }
 
-    public void addProject(String unit, String type, String name, String description, String clientid, String gunm){
+    public void addProject(String unit, String type, String name, String description, String gunm, String clientid){
         List<ProjectEntity> projectEntityList;
         projectEntityList = projectDao.getAllproject();
         ClientEntity clientEntity = clientDao.getClient(clientid);
         ProjectEntity newProject = new ProjectEntity();
         newProject.setUnit(unit);
         newProject.setType(type);
+        if (unit.equals("Comp5703")) newProject.setGroup("yes");
+        else newProject.setGroup("no");
         newProject.setName(name);
         newProject.setDescription(description);
         newProject.setTutor("not yet set tutor");
@@ -99,21 +113,25 @@ public class ProjectService {
         System.out.println("Client add project:"+newProject.getId());
         projectDao.addProject(newProject);
     }
-/*
-    public void addProject(String unit, String type, String name, String description, String clientid, String tutor){
+
+    public void addProject(String unit, String type, String name, String description, String gunm, String clientid, String tutor){
         List<ProjectEntity> projectEntityList;
         projectEntityList = projectDao.getAllproject();
         ClientEntity clientEntity = clientDao.getClient(clientid);
         ProjectEntity newProject = new ProjectEntity();
         newProject.setUnit(unit);
+        if (unit.equals("Comp5703")) newProject.setGroup("yes");
+        else newProject.setGroup("no");
         newProject.setType(type);
         newProject.setName(name);
         newProject.setDescription(description);
         newProject.setTutor(tutor);
         newProject.setClientid(clientid);
         newProject.setClient(clientEntity.getName());
+        if (!gunm.equals("")) newProject.setGnumber(gunm);
         newProject.setId(String.valueOf(projectEntityList.size()+1));
+        System.out.println("admin add project:"+newProject.getId());
         projectDao.addProject(newProject);
-    }*/
+    }
 
 }

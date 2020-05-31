@@ -187,6 +187,7 @@
                                     <th>Project Name</th>
                                     <th>Project Description</th>
                                     <th>Instruction</th>
+                                    <th>GroupNumber</th>
                                     <th>Client</th>
                                     <th>Tutor</th>
                                     <th>Action1</th>
@@ -206,6 +207,8 @@
                                         <td><input name="description" style="outline:none;border:0px"
                                                    th:placeholder="${project.description}"></td>
                                         <td><a href="https://www.baidu.com/" target="_blank">Download</a></td>
+                                        <td><input name="gnum" style="outline:none;border:0px"
+                                                   th:placeholder="${project.gnumber}"></td>
                                         <td><input name="clientid" style="outline:none;border:0px" th:placeholder="${project.clientid}">
                                         </td>
                                         <td><input name="tutor" style="outline:none;border:0px" th:placeholder="${project.tutor}">
@@ -214,11 +217,16 @@
                                         </td>
                                         <td>
                                             <button type="submit" class="btn btn-primary btn-icon-split" style="margin-bottom: 0.2rem;width: 100%;"><span class="text">Update</span></button>
-                                            <button style="margin-bottom: 0.2rem;width: 100%;"
-                                                    class="btn btn-primary btn-icon-split"><span
-                                                    class="text">Delete</span></button>
+                                            </form>
+                                            <form action="/deleteProjectAdmin" method="post">
+                                                <button style="margin-bottom: 0.2rem;width: 100%;"
+                                                        class="btn btn-primary btn-icon-split">
+                                                        <span class="text">Delete</span>
+                                                        <input type="hidden" name="pid" th:value="${project.id}">
+                                                </button>
+                                            </form>
                                         </td>
-                                    </form>
+
                                     <td>
                                         <form action="/changeApprove" method="post">
                                             <button type="submit" class="btn btn-primary btn-icon-split"
@@ -244,6 +252,7 @@
                                             <a href="#" class="btn btn-primary btn-icon-split"><span
                                                     class="text">Upload</span></a>
                                         </td>
+                                        <td><input name="gnumber" class="AddInput form-control"/></td>
                                         <td><input name="clientid" class="AddInput form-control"/></td>
                                         <td><input name="tutor" class="AddInput form-control"/></td>
                                         <!--td><input class="AddInput form-control" /></td-->

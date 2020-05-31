@@ -66,6 +66,16 @@ public class ProjectDao {
         hopperUpdates.put(pid+"/description", description);
         projectRef.updateChildrenAsync(hopperUpdates);
     }
+    public void updateClientid(String pid, String clientid){
+        Map<String, Object> hopperUpdates = new HashMap<>();
+        hopperUpdates.put(pid+"/clientid", clientid);
+        projectRef.updateChildrenAsync(hopperUpdates);
+    }
+    public void updateTutor(String pid, String tutor){
+        Map<String, Object> hopperUpdates = new HashMap<>();
+        hopperUpdates.put(pid+"/tutor", tutor);
+        projectRef.updateChildrenAsync(hopperUpdates);
+    }
 
 
     public ProjectEntity getMyproject(String id){
@@ -107,7 +117,7 @@ public class ProjectDao {
 
     public List<ProjectEntity> getAllproject(){
         final List<ProjectEntity> projectEntityList = new ArrayList<>();
-        final CountDownLatch readData = new CountDownLatch(5);
+        final CountDownLatch readData = new CountDownLatch(10);
         projectRef.orderByChild("id").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {

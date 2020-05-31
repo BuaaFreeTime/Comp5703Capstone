@@ -187,19 +187,29 @@
 												<th>Action</th>
 											</tr>
 										</thead>
-										<tbody contenteditable="true">
+										<tbody >
 											<tr th:each="group:${groups}">
-												<td th:text="${group.id}"></td>
-												<td th:text="${group.projectid}"></td>
-												<td th:text="${group.student1}"></td>
-												<td th:text="${group.student2}"></td>
-												<td th:text="${group.student3}"></td>
-												<td th:text="${group.student4}"></td>
-												<td th:text="${group.student5}"></td>
-												<td th:text="${group.clientid}"></td>
-												<td style="text-align: center;">
-													<a href="#" class="btn btn-primary btn-icon-split" style="margin: 0.1rem;"><span class="text">Update</span></a><a style="margin: 0.1rem;" href="#" class="btn btn-primary btn-icon-split"><span class="text">Delete</span></a>
-												</td>
+												<form action="/updateStudentGroup" method="post">
+													<td><input name="id" style="outline:none;border:0px" th:placeholder="${group.id}"></td>
+													<td><input name="pid" style="outline:none;border:0px" th:placeholder="${group.projectid}"></td>
+													<td><input name="s1" style="outline:none;border:0px" th:placeholder="${group.student1}"></td>
+													<td><input name="s2"style="outline:none;border:0px" th:placeholder="${group.student2}"></td>
+													<td><input name="s3"style="outline:none;border:0px" th:placeholder="${group.student3}"></td>
+													<td><input name="s4"style="outline:none;border:0px" th:placeholder="${group.student4}"></td>
+													<td><input name="s5"style="outline:none;border:0px" th:placeholder="${group.student5}"></td>
+													<td><input name="cid"style="outline:none;border:0px" th:placeholder="${group.clientid}"></td>
+													<td>
+														<input type="hidden" name="gid" th:value="${group.id}">
+														<button type="submit" class="btn btn-primary btn-icon-split" style="margin-bottom: 0.2rem;width: 100%;"><span class="text">Update</span></button>
+														</form>
+														<form action="/deleteStudentGroup" method="post">
+															<button style="margin-bottom: 0.2rem;width: 100%;"
+																	class="btn btn-primary btn-icon-split">
+																<span class="text">Delete</span>
+																<input type="hidden" name="gid" th:value="${group.id}">
+															</button>
+														</form>
+													</td>
 											</tr>
 										</tbody>
 										<tfoot>

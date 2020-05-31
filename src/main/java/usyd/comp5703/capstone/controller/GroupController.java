@@ -109,16 +109,33 @@ public class GroupController {
     public String allgroupAdmin(Model model) {
         List<GroupEntity> groupEntityList;
         List<StudentEntity> studentEntityList;
-        GroupEntity groupEntity = groupService.getMygroup("student2");
-        if (groupEntity!=null) {
-            groupEntityList = groupService.getAllgroup();
-            model.addAttribute("groups", groupEntityList);
-            groupEntityList = groupService.getAllgroup();
-            model.addAttribute("groups", groupEntityList);
-        }
+        groupEntityList = groupService.getAllgroup();
+        model.addAttribute("groups", groupEntityList);
+        System.out.println("ss");
         studentEntityList = groupService.getUngroupStudent();
         model.addAttribute("students", studentEntityList);
+
         return "StudentGroup";
+    }
+
+    @PostMapping(value = {"/updateStudentGroup"})
+    public String updataStudentGroup(@RequestParam("gid") String id,
+                                     @RequestParam("s1") String s1,
+                                     @RequestParam("s2") String s2,
+                                     @RequestParam("s3") String s3,
+                                     @RequestParam("s4") String s4,
+                                     @RequestParam("s5") String s5,
+                                     @RequestParam("cid") String clientId,
+                                     @RequestParam("pid") String pid) {
+        groupService.updateStudentGroup(id,pid,s1,s2,s3,s4,s5,clientId);
+        System.out.println("fuck");
+        return "redirect:/studentgroup";
+    }
+
+    @PostMapping(value = {"/deleteStudentGroup"})
+    public String updataStudentGroup(@RequestParam("gid") String gid) {
+        groupService.deleteStudentGroup(gid);
+        return "redirect:/studentgroup";
     }
 
     @PostMapping(value = {"/addgroup"})
@@ -129,10 +146,11 @@ public class GroupController {
                            @RequestParam("s4") String s4,
                            @RequestParam("s5") String s5,
                            @RequestParam("cid") String clientId,
+                           @RequestParam("pid") String pid,
                            HttpSession session) {
         String semester = session.getAttribute("semester").toString();
         if (semester.equals("2020 Semester 1")) {
-            groupService.addGroup(id, s1, s2, s3, s4, s5, clientId);
+            groupService.addGroup(id, pid, s1, s2, s3, s4, s5, clientId);
         }
         return "redirect:/studentgroup";
     }
