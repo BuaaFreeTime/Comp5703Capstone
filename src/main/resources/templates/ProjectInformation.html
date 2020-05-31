@@ -67,7 +67,7 @@
                     <h6 class="collapse-header">Management:</h6>
                     <!--a class="collapse-item" href="/proposedprojects">Proposed Projects</a-->
                     <a class="collapse-item" href="/projectinformation">Project Information</a>
-                    <a class="collapse-item" href="/uploadstudentinfo">Upload  Info</a>
+                    <a class="collapse-item" href="/uploadstudentinfo">Upload Info</a>
                     <a class="collapse-item" href="/studentgroup">Student Group</a>
                     <a class="collapse-item" href="/studentpreferences">Student Preferences</a>
                     <a class="collapse-item" href="Presentation">Presentation</a>
@@ -189,38 +189,48 @@
                                     <th>Instruction</th>
                                     <th>Client</th>
                                     <th>Tutor</th>
-                                    <th>Joined/Capacity</th>
-                                    <th>Action</th>
+                                    <th>Action1</th>
+                                    <th>Action2</th>
                                 </tr>
                                 </thead>
-                                <tbody >
+                                <tbody>
                                 <tr th:each="project:${projects}">
-                                    <td>
-                                        <input th:border="1000px" th:placeholder="${project.unit}">
-                                    </td>
-                                    <td th:text="${project.type}"></td>
-                                    <td th:text="${project.name}"></td>
-                                    <td th:text="${project.description}"></td>
-                                    <td><a href="https://www.baidu.com/" target="_blank">Download</a></td>
-                                    <td th:text="${project.clientid}"></td>
-                                    <td th:text="${project.tutor}"></td>
-                                    <td>11/100</td>
-                                    <form action="/changeApprove" method="post">
+                                    <form action="/updateProjectAdmin" method="post">
                                         <td>
-                                            <button type="submit" class="btn btn-primary btn-icon-split" th:if="${project.approve} eq 'no'"
+                                            <input name="unit" style="outline:none;border:0px" th:placeholder="${project.unit}">
+                                        </td>
+                                        <td><input name="type" style="outline:none;border:0px" th:placeholder="${project.type}">
+                                        </td>
+                                        <td><input name="name" style="outline:none;border:0px" th:placeholder="${project.name}">
+                                        </td>
+                                        <td><input name="description" style="outline:none;border:0px"
+                                                   th:placeholder="${project.description}"></td>
+                                        <td><a href="https://www.baidu.com/" target="_blank">Download</a></td>
+                                        <td><input name="clientid" style="outline:none;border:0px" th:placeholder="${project.clientid}">
+                                        </td>
+                                        <td><input name="tutor" style="outline:none;border:0px" th:placeholder="${project.tutor}">
+                                            <input type="hidden" name="pid" th:value="${project.id}"
+                                                   class="AddInput form-control"/>
+                                        </td>
+                                        <td>
+                                            <button type="submit" class="btn btn-primary btn-icon-split" style="margin-bottom: 0.2rem;width: 100%;"><span class="text">Update</span></button>
+                                            <button style="margin-bottom: 0.2rem;width: 100%;"
+                                                    class="btn btn-primary btn-icon-split"><span
+                                                    class="text">Delete</span></button>
+                                        </td>
+                                    </form>
+                                    <td>
+                                        <form action="/changeApprove" method="post">
+                                            <button type="submit" class="btn btn-primary btn-icon-split"
+                                                    th:if="${project.approve} eq 'no'"
                                                     style="margin: 0.1rem;"><span class="text">Approve</span></button>
                                             <input type="hidden" name="pid" th:value="${project.id}"
                                                    class="AddInput form-control"/>
-                                            <button href="#" class="btn btn-primary btn-icon-split"
-                                               style="margin: 0.1rem;"><span class="text">Update</span></button>
-                                            <button style="margin: 0.1rem;" href="#"
-                                               class="btn btn-primary btn-icon-split"><span
-                                                    class="text">Delete</span></button>
-                                            <button style="margin: 0.1rem;" href="#" th:if="${project.approve} eq 'no'"
-                                               class="btn btn-primary btn-icon-split"><span
+                                            <button th:if="${project.approve} eq 'no'"
+                                                    class="btn btn-primary btn-icon-split"><span
                                                     class="text">Deny</span></button>
-                                        </td>
-                                    </form>
+                                        </form>
+                                    </td>
                                 </tr>
                                 </tbody>
                                 <tfoot>
@@ -236,7 +246,6 @@
                                         </td>
                                         <td><input name="clientid" class="AddInput form-control"/></td>
                                         <td><input name="tutor" class="AddInput form-control"/></td>
-                                        <td><input name="joined/capacity" class="AddInput form-control"/></td>
                                         <!--td><input class="AddInput form-control" /></td-->
                                         <td style="text-align: center;word-break: keep-all;">
                                             <button style="" type="submit" class="btn btn-primary btn-icon-split"><span

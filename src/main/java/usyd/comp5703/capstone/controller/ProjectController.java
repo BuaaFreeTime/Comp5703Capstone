@@ -32,7 +32,18 @@ public class ProjectController {
                                     @RequestParam("pid") String pid) {
         projectService.updateProject(pid, unit, type, name, description, groupMum);
         return "redirect:/myprojects-client";
+    }
 
+    @PostMapping(value = {"/updateProjectAdmin"})
+    public String updateProjectAdmin(@RequestParam("unit") String unit,
+                                    @RequestParam("type") String type,
+                                    @RequestParam("name") String name,
+                                    @RequestParam("description") String description,
+                                    @RequestParam("clientid") String clientid,
+                                    @RequestParam("tutor") String tutor,
+                                     @RequestParam("pid") String pid) {
+//        projectService.updateProjectAdmin(unit, type, name, description,clientid,tutor, pid);
+        return "redirect:/projectinformation";
     }
 
     @PostMapping(value = {"/changeApprove"})

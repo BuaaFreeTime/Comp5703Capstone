@@ -70,4 +70,13 @@ public class PreferenceController {
         studentPreferenceService.updateDeny(sid, pname);
         return "redirect:/applicantslist";
     }
+
+    @PostMapping(value = {"/updatePreferences"})
+    public String updatePreferences(@RequestParam("sid") String sid,
+                                 @RequestParam("first") String first,
+                                    @RequestParam("second") String second,
+                                    @RequestParam("third") String third) {
+//        studentPreferenceService.updatePreferences(sid, first, second, third);
+        return "redirect:/studentpreferences";
+    }
 }
