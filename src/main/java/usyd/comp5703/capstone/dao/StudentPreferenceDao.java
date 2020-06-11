@@ -24,6 +24,11 @@ public class StudentPreferenceDao {
         preferenceRef.child(studentEntity.getSid()).setValueAsync(studentEntity);
     }
 
+    //delete
+    public void deletePreference(String sid){
+        preferenceRef.child(sid).removeValueAsync();
+    }
+
     // updata
     public void updateProjectPreference(String sid, String id, String pname){
         Map<String, Object> hopperUpdates = new HashMap<>();

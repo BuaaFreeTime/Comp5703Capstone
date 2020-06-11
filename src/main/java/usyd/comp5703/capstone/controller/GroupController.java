@@ -111,7 +111,6 @@ public class GroupController {
         List<StudentEntity> studentEntityList;
         groupEntityList = groupService.getAllgroup();
         model.addAttribute("groups", groupEntityList);
-        System.out.println("ss");
         studentEntityList = groupService.getUngroupStudent();
         model.addAttribute("students", studentEntityList);
 

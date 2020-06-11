@@ -151,6 +151,8 @@ public class GroupService {
     }
 
     public List<GroupEntity> getAllgroup() {
+        StudentEntity s = studentDao.getStudent("student7");
+        if (s.getGroupId().equals("")) return null;
         List<GroupEntity> groupEntityList;
         groupEntityList = groupDao.getAllgroup();
         return groupEntityList;
@@ -213,6 +215,7 @@ public class GroupService {
     public List<GroupEntity> getPresentationClient(String cid) {
         String ppid = "";
         List<ProjectEntity> projectEntityList = projectDao.getAllprojectClient(cid);
+        System.out.println(projectEntityList.size());
         for (ProjectEntity i:projectEntityList) {
             if (i.getApprove().equals("yes")) ppid = ppid + "," + i.getId();
         }

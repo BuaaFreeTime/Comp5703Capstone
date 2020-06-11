@@ -23,19 +23,24 @@ public class PreferenceController {
     @Autowired
     GroupService groupService;
 
-    @PostMapping(value = {"/add"})
-    public String addGroup(@RequestParam("id") String id,
-                           @RequestParam("s1") String s1,
-                           @RequestParam("s2") String s2,
-                           @RequestParam("s3") String s3,
-                           @RequestParam("s4") String s4,
-                           @RequestParam("s5") String s5,
-                           @RequestParam("cid") String clientId,
+
+
+    @PostMapping(value = {"/adminaddgroup"})
+    public String addGroup(@RequestParam("sid") String sid,
+                           @RequestParam("first") String first,
+                           @RequestParam("second") String second,
+                           @RequestParam("third") String third,
                            HttpSession session) {
         String semester = session.getAttribute("semester").toString();
         if (semester.equals("2020 Semester 1")) {
-            //groupService.addGroup(id,s1,s2,s3,s4,s5,clientId);
+            studentPreferenceService.addPreference(sid, first, second, third, "2020 Semester 1", "yes");
         }
+        return "redirect:/studentpreferences";
+    }
+
+    @PostMapping(value = {"/deletePreferences"})
+    public String deletePreference(@RequestParam("sid") String sid) {
+        studentPreferenceService.deletePreference(sid);
         return "redirect:/studentpreferences";
     }
 
@@ -83,7 +88,7 @@ public class PreferenceController {
                                  @RequestParam("first") String first,
                                     @RequestParam("second") String second,
                                     @RequestParam("third") String third) {
-//        studentPreferenceService.updatePreferences(sid, first, second, third);
+//       studentPreferenceService.updatePreferences(sid, first, second, third);
         return "redirect:/studentpreferences";
     }
 }

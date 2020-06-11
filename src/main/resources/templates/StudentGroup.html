@@ -178,6 +178,7 @@
 											<tr>
 												<th>Group ID</th>
 												<th>Project ID</th>
+												<th>Feedback</th>
 												<th>Group Member 1</th>
 												<th>Group Member 2</th>
 												<th>Group Member 3</th>
@@ -192,6 +193,7 @@
 												<form action="/updateStudentGroup" method="post">
 													<td><input name="id" style="outline:none;border:0px" th:placeholder="${group.id}"></td>
 													<td><input name="pid" style="outline:none;border:0px" th:placeholder="${group.projectid}"></td>
+													<td th:text="${group.feedback}"></td>
 													<td><input name="s1" style="outline:none;border:0px" th:placeholder="${group.student1}"></td>
 													<td><input name="s2"style="outline:none;border:0px" th:placeholder="${group.student2}"></td>
 													<td><input name="s3"style="outline:none;border:0px" th:placeholder="${group.student3}"></td>

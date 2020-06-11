@@ -34,6 +34,7 @@ public class LoginService {
         System.out.println(username+" "+password);
 
 
+*/
         // Add initial student function
         int i;
         for (i=1;i<=50; i++) {
@@ -107,8 +108,8 @@ public class LoginService {
             ProjectEntity projectEntity = new ProjectEntity(Integer.toString(i));
             projectDao.addProject(projectEntity);
         }
-*/
 
+*/
         if ((username.equals("admin")) && (password.equals("1"))) {
             return true;
         }

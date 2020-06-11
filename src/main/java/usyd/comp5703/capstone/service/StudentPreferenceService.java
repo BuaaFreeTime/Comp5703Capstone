@@ -23,6 +23,10 @@ public class StudentPreferenceService {
     @Autowired
     ProjectDao projectDao;
 
+    public  void deletePreference(String sid) {
+        studentPreferenceDao.deletePreference(sid);
+    }
+
     public void updateDeny(String sid, String pname){
         StudentPreferenceEntity studentPreference = studentPreferenceDao.getStudentPreference(sid);
         if (studentPreference.getFirst().equals(pname))

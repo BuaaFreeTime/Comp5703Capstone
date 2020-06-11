@@ -22,13 +22,10 @@ public class MarkingController {
 
     @RequestMapping(value = {"/marks-client"})
     public String marksClient(Model model, HttpSession session) {
-        //String cid = session.getAttribute("user").toString();
+        String cid = session.getAttribute("user").toString();
         List<GroupEntity> groupEntityList;
-        GroupEntity groupEntity = groupService.getMygroup("student2");
-        if (groupEntity!=null) {
-            groupEntityList = groupService.getPresentationClient("client1");
-            model.addAttribute("groups", groupEntityList);
-        }
+        groupEntityList = groupService.getPresentationClient(cid);
+        model.addAttribute("groups", groupEntityList);
         return "Marks-client";
     }
 
@@ -41,6 +38,22 @@ public class MarkingController {
         return "redirect:marks-client";
     }
 
+    @PostMapping(value = {"/calculate"})
+    public String studentMarking(@RequestParam("proposal") String r1,
+                                 @RequestParam("progress") String r2,
+                                 @RequestParam("final") String r3,
+                                 @RequestParam("presentation") String r4,
+                                 Model model, HttpSession session) {
+        String result;
+        result = Integer.toString((Integer.valueOf(r1) + Integer.valueOf(r2) + Integer.valueOf(r3) + Integer.valueOf(r4)) / 4);
+        model.addAttribute("result", result);
+        return "Marks";
 
+    }
+    @PostMapping(value = {"/setformulation"})
+    public String setMarking(Model model, HttpSession session) {
+         return "Marks-admin";
+
+    }
 
 }

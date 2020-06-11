@@ -206,9 +206,12 @@
                                             <button type="submit" class="btn btn-primary btn-icon-split"
                                                     style="margin-bottom: 0.2rem;width: 100%;"><span
                                                     class="text">Update</span></button>
+                                    </form>
+                                    <form action="/deletePreferences" method="post">
                                             <button type="" class="btn btn-primary btn-icon-split"
                                                     style="margin-bottom: 0.2rem;width: 100%;"><span
                                                     class="text">Delete</span></button>
+                                            <input type="hidden" name="sid" th:value="${preference.sid}">
                                             <!--br /><a style="width: 100%;" href="#" class="btn btn-primary btn-icon-split"><span class="text">Delete</span></a-->
                                         </td>
                                     </form>

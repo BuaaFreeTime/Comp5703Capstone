@@ -176,29 +176,6 @@
                 <div class="card shadow mb-4">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                <tr>
-                                    <th>Unit</th>
-                                    <th>Project Name</th>
-                                    <th>Feedback</th>
-                                </tr>
-                                </thead>
-
-                                <tbody>
-                                <tr>
-                                    <td>COMP5708</td>
-                                    <td>project1</td>
-                                    <td th:text="${feedback}"></td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div class="card shadow mb-4">
-                    <div class="card-body">
-                        <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="0">
                                 <thead>
                                 <tr>
@@ -221,7 +198,7 @@
                                         <td>
                                             <button type="submit" class="btn btn-primary btn-icon-split"><span class="text">Calculate</span></button>
                                         </td>
-                                        <td></td>
+                                        <td th:text="${result}"></td>
                                     </tr>
                                 </form>
                                 </tbody>
