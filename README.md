@@ -9,5 +9,5 @@ In current stage, our university staffs and students are still sending mail manu
 4. Edit configuration for springboot project
 
 ## Deployment
-1. Move the war package to the webapps in the tomcat(9.0.33) directory of the server without decompression and without any operation. If there is a ROOT folder in the webapps directory, just delete it.
+1. Move the war package(ROOT.war in Comp5703Capstone master fil) to the webapps in the tomcat(9.0.33) directory of the server without decompression and without any operation. If there is a ROOT folder in the webapps directory, just delete it.
 2. Run tomcat and use url "localhost:8080/" to get login page
